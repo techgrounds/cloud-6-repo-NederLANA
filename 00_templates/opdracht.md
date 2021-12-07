@@ -1,17 +1,22 @@
 # [Onderwerp]
-[Geef een korte beschrijving van het onderwerp]
+Github is een gedistribueerde en gecentraliseerde versiebeheer. Git zelfs is gewoon een versiebeheer (bijv op jouw desktop)
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+Begrijp de volgende termen:
+Repository
+Main / Master (ik gebruik "main")
+Branch
+Commit
+Push / Pull
+Merge
+Fork
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+https://docs.github.com/
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+Ik moest even een fork van de gegeven techgrounds repository om andere contributors te kunnen aanpassen. 
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
-
-testing 2
+Screenshots onder 00_templates map.
