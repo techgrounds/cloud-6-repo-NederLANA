@@ -7,17 +7,19 @@ In deze situatie met een *host* Windows OS, is het gewenst om een *linux* OS als
 
 
 ## Opdracht
-*Install an Ubuntu Linux virtual machine on your laptop.
+* Install an Ubuntu Linux virtual machine on your laptop.
 
-*Once installation and setup are complete, take a snapshot of the VM. This will act as a checkpoint in case you break the machine on accident (or on purpose).
+* Once installation and setup are complete, take a snapshot of the VM. This will act as a checkpoint in case you break the machine on accident (or on purpose).
 
-*Go to the terminal in your VM and type ‘whoami’. The terminal should show your username
+* Go to the terminal in your VM and type ‘whoami’. The terminal should show your username
 
 ### Gebruikte bronnen
 https://www.youtube.com/watch?v=hvkJv71PsCs
 
-### Ervaren problemen
+https://help.ubuntu.com/stable/ubuntu-help/screen-shot-record.html
 
+### Ervaren problemen
+"Insert Guest Additions and CD" optie werkt niet voor me. Kon de drivers niet installeren voor seamless clipboard tussen guest en host. 
 
 ### Resultaat
 
