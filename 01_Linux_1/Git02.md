@@ -1,28 +1,29 @@
-# [Onderwerp]
-What is Markdown en hoe gebruik je het?
+## What is Markdown en hoe gebruik je het?
 
 Markdown maakt het makkelijker om tekst voor web-pagina 's omdat de tags zijn simpeler dan HTML en ze converteren naar HTML-automatisch. Said betekent dat u niet hoeft te weten van HTML om iets te schrijven voor een web-pagina, omdat Markdown vertaalt uw tags in de HTML-code voor u.
 
-## Key-terms
+## Voorbeeld
 
-Headers
+## Headers
+
 # is een H1
 
 ## is een H2
 
 ###### is een H6
 
-Bullet Points
+## Bullet Points
 * hallo
 * dag
 * doei
 
-Genummerde Lijsten
+## Genummerde Lijsten
 1. punt een
 2. punt twee
 3. punt drie
 
-By nadruk
+## By nadruk
+
 *shuin*
 
 **vet**
@@ -44,4 +45,4 @@ https://nl.wikipedia.org/wiki/Markdown
 geen
 
 ### Resultaat
-kijk naar git01.md
+kijk hier en naar git01.md
