@@ -6,11 +6,11 @@ Markdown maakt het makkelijker om tekst voor web-pagina 's omdat de tags zijn si
 ## Key-terms
 
 Headers
-#-is een H1
+# is een H1
 
-##-is een H2
+## is een H2
 
-######-is een H6
+###### is een H6
 
 Bullet Points
 * hallo
@@ -18,13 +18,14 @@ Bullet Points
 * doei
 
 Genummerde Lijsten
-1. Vogel
-2. McHale
-3. Parochia
+1. punt een
+2. punt twee
+3. punt drie
 
 By nadruk
-* vet *
-_italics_
+*shuin*
+
+**vet**
 
 Een alinea wordt gescheiden
 door een dubbele return.
