@@ -27,5 +27,5 @@ Ik moest even een fork van de gegeven techgrounds repository om andere contribut
 
 ### Resultaat
 Screenshots onder 00_includes map.
-https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/00_includes/Git01-contributors.jpg
+![contributorsscrnsht](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/00_includes/Git01-contributors.jpg)
 
