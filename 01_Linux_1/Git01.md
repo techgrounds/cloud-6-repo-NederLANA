@@ -26,4 +26,6 @@ https://docs.github.com/
 Ik moest even een fork van de gegeven techgrounds repository om andere contributors te kunnen aanpassen. 
 
 ### Resultaat
-Screenshots onder 00_templates map.
+Screenshots onder 00_includes map.
+
+
