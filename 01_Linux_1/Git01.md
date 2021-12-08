@@ -1,8 +1,7 @@
-# [Onderwerp]
+# [Github en Git]
 Github is een gedistribueerde en gecentraliseerde versiebeheer. Git zelfs is gewoon een versiebeheer (bijv op jouw desktop)
 
 ## Key-terms
-Begrijp de volgende termen:
 
 Repository
 
@@ -18,7 +17,6 @@ Merge
 
 Fork
 
-## Opdracht
 ### Gebruikte bronnen
 https://docs.github.com/
 
