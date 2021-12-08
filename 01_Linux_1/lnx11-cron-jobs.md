@@ -1,22 +1,19 @@
-# [Onderwerp]
-Github is een gedistribueerde en gecentraliseerde versiebeheer. Git zelfs is gewoon een versiebeheer (bijv op jouw desktop)
+# [Cron jobs]
+There might be processes that you want to execute on a regular schedule. For example, you might want to write the available disk space to a log file every hour. Or maybe you want to check for system updates every 2nd day of the month.These kinds of jobs can be automated using Cron jobs.
 
 ## Key-terms
-Begrijp de volgende termen:
-Repository
-Main / Master (ik gebruik "main")
-Branch
-Commit
-Push / Pull
-Merge
-Fork
+
 
 ## Opdracht
+*Create a Bash script that writes the current date and time to a file in your home directory.
+*Register the script in your crontab so that it runs every minute.
+*Create a script that writes available disk space to a log file in ‘/var/logs’. Use a cron job so that it runs weekly.
+
 ### Gebruikte bronnen
-https://docs.github.com/
+
 
 ### Ervaren problemen
-Ik moest even een fork van de gegeven techgrounds repository om andere contributors te kunnen aanpassen. 
+
 
 ### Resultaat
-Screenshots onder 00_templates map.
+

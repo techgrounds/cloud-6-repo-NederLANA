@@ -35,6 +35,10 @@ Twee spaties aan het einde van een regel
 zorgen voor een nieuwe regel.
 
 ## Opdracht
+Gebruik een editor : Visual Studio Code
+
+Maak een text document met gebruik van markdown notities.
+
 ### Gebruikte bronnen
 https://allinfo.space/2019/12/09/wat-is-markdown-en-hoe-gebruik-je-het/
 
@@ -45,4 +49,3 @@ https://nl.wikipedia.org/wiki/Markdown
 geen
 
 ### Resultaat
-kijk hier en naar git01.md

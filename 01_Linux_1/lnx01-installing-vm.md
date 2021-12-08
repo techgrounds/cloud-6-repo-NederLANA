@@ -1,22 +1,28 @@
-# [Onderwerp]
-Github is een gedistribueerde en gecentraliseerde versiebeheer. Git zelfs is gewoon een versiebeheer (bijv op jouw desktop)
+# [Virtual Machines VM maken]
+Van een Windows OS, wil je soms een andere OS gebruiken. 
+
+In deze situatie met een *host* Windows OS, is het gewenst om een *linux* OS als gast OS te gebruiken binnen de host *operating system*.
 
 ## Key-terms
-Begrijp de volgende termen:
-Repository
-Main / Master (ik gebruik "main")
-Branch
-Commit
-Push / Pull
-Merge
-Fork
+
 
 ## Opdracht
+
+Install an Ubuntu Linux virtual machine on your laptop.
+Once installation and setup are complete, take a snapshot of the VM. This will act as a checkpoint in case you break the machine on accident (or on purpose).
+Go to the terminal in your VM and type ‘whoami’. The terminal should show your username
+
 ### Gebruikte bronnen
-https://docs.github.com/
+https://www.youtube.com/watch?v=hvkJv71PsCs
 
 ### Ervaren problemen
-Ik moest even een fork van de gegeven techgrounds repository om andere contributors te kunnen aanpassen. 
+
 
 ### Resultaat
-Screenshots onder 00_templates map.
+
+Download Oracle Virtualbox.org (versie 6.1)
+Download Ubuntu 20.04 LTS iso (iso betekent archief kopie van een optical disk, dus heb je geen cd of dvd nodig)
+Deploy linux VM 
+
+druk windows knop + s (snapshot te maken, en kan kiezen welke map om te bewaren) ipv gewoon de "machine" menu en snapshot daar te maken.
+
