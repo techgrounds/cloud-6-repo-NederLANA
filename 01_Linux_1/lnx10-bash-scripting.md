@@ -31,7 +31,7 @@ Assigning a variable is done using ‘=’.Reading the value of a variable is do
 *Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file.
 
 **Conditions:**
-*You can choose to only run parts of your script if a certain condition is met. For example, only read a file if the file exists, or only write to a log if the health check returns an error. This can be done using conditions.
+*You can choose to only run parts of your script if a certain condition is met. For example, only read a file if the file exists, or only write to a log if the health check returns an error. This can be done using conditions.*
 
 A check for a condition can be done using ‘if’, ‘elif’, and/or ‘else’.*
 
