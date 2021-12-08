@@ -10,8 +10,11 @@ A process is an instance of running code. All code is stored in files somewhere 
 
 ## Opdracht
 *Start the ssh daemon.
+
 *Find out the PID of the ssh daemon.
+
 *Find out how much memory the sshd is using.
+
 *Stop or kill the sshd process.
 
 

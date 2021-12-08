@@ -16,8 +16,12 @@ Hint: although there are no file extensions in Linux, it’s easier for humans t
 **Exercise 1:**
 *Create a directory called ‘scripts’. Place all the scripts you make in this directory.
 *Add the scripts directory to the PATH variable.
+
 *Create a script that appends a line of text to a text file whenever it is executed.
-*Create a script that installs the httpd package, activates httpd, and enables httpd. *Finally, your script should print the status of httpd in the terminal.
+
+*Create a script that installs the httpd package, activates httpd, and enables httpd. 
+
+*Finally, your script should print the status of httpd in the terminal.
 
 **Variables:**
 *You can assign a value to a string of characters so that the value can be read somewhere else in the script.

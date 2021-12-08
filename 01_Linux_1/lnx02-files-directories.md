@@ -10,12 +10,15 @@ The tilde (~) is used as an alias for your home directory.
 
 
 ## Opdracht
-Exercise:
-Find out your current working directory.
-Make a listing of all files and directories in your home directory. You should see directories like ‘Desktop’, ‘Public’ and ‘Pictures’ among others.
-Within your home directory, create a new directory named ‘techgrounds’.
-Within the techgrounds directory, create a file containing some text.
-Move around your directory tree using both absolute and relative paths.
+*Find out your current working directory.
+
+*Make a listing of all files and directories in your home directory. You should see directories like ‘Desktop’, ‘Public’ and ‘Pictures’ among others.
+
+*Within your home directory, create a new directory named ‘techgrounds’.
+
+*Within the techgrounds directory, create a file containing some text.
+
+*Move around your directory tree using both absolute and relative paths.
 
 
 ### Gebruikte bronnen
