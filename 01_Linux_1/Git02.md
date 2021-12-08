@@ -1,17 +1,46 @@
 # [Onderwerp]
-[Geef een korte beschrijving van het onderwerp]
+What is Markdown en hoe gebruik je het?
+
+Markdown maakt het makkelijker om tekst voor web-pagina 's omdat de tags zijn simpeler dan HTML en ze converteren naar HTML-automatisch. Said betekent dat u niet hoeft te weten van HTML om iets te schrijven voor een web-pagina, omdat Markdown vertaalt uw tags in de HTML-code voor u.
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+
+Headers
+#-is een H1
+
+##-is een H2
+
+######-is een H6
+
+Bullet Points
+* hallo
+* dag
+* doei
+
+Genummerde Lijsten
+1. Vogel
+2. McHale
+3. Parochia
+
+By nadruk
+* vet *
+_italics_
+
+Een alinea wordt gescheiden
+door een dubbele return.
+
+Twee spaties aan het einde van een regel  
+zorgen voor een nieuwe regel.
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+https://allinfo.space/2019/12/09/wat-is-markdown-en-hoe-gebruik-je-het/
+
+https://nl.wikipedia.org/wiki/Markdown
+
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+geen
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
-
-Testing 2
+kijk naar git01.md
