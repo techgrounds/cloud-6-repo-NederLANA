@@ -22,9 +22,14 @@ Users, passwords, and groups are all stored in  (different) files across the sys
 Locate the files that store users, passwords, and groups. See if you can find your newly created user’s data in there.
 
 ### Gebruikte bronnen
+https://github.com/rgl/azure-content/blob/master/articles/virtual-machines/virtual-machines-linux-add-user.md
+
+https://www.cyberciti.biz/faq/ubuntu-list-groups-a-user-belongs-to-command/
 
 
 ### Ervaren problemen
 
 
 ### Resultaat
+The -G command line flag will add the new user account to the proper Linux group giving the new user account root escalation privileges.
+
