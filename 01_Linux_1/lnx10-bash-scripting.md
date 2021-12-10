@@ -65,9 +65,13 @@ $ cat test files
 
 
 
-*Create a script that installs the httpd package, activates httpd, and enables httpd. 
+4) Create a script that installs the httpd package, activates httpd, and enables httpd. Finally, your script should print the status of httpd in the terminal.
 
-*Finally, your script should print the status of httpd in the terminal.
+In the scripts directory, create a .sh file.
+
+$chmod +x .sh file
+
+script: sudo apt update
 
 **Variables:**
 *You can assign a value to a string of characters so that the value can be read somewhere else in the script.
@@ -75,6 +79,13 @@ Assigning a variable is done using ‘=’.Reading the value of a variable is do
 
 **Exercise 2:**
 *Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file.
+ 
+Variable pathway to activate scripts is already done permenently
+
+$ nano randomnumbers.sh
+
+script: shuf -i1-10 -n1 | tee -a .*txt (shuffles 1 random number from 1-10, and pipes it out to any .txt file as an appended content)
+ 
 
 **Conditions:**
 *You can choose to only run parts of your script if a certain condition is met. For example, only read a file if the file exists, or only write to a log if the health check returns an error. This can be done using conditions.*
@@ -85,6 +96,8 @@ A check for a condition can be done using ‘if’, ‘elif’, and/or ‘else�
 *Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file only if the number is bigger than 5. If the number is 5 or smaller, it should append a line of text to that same text file instead.
 
 ### Gebruikte bronnen
+ 
+#### Exercise 1
 https://opensource.com/article/17/6/set-path-linux
 
 https://askubuntu.com/questions/73052/how-to-modify-etc-bash-bashrc-it-is-read-only
@@ -96,6 +109,18 @@ https://stackoverflow.com/questions/10865947/append-a-text-to-the-end-of-multipl
 https://linuxize.com/post/linux-tee-command/
  
 https://www.cyberciti.biz/faq/run-execute-sh-shell-script/
+ 
+https://linuxhint.com/apt_get_fix_missing_broken_packages/
+ 
+https://www.cyberciti.biz/faq/linux-install-and-start-apache-httpd/
+ 
+#### Exercise 2
+ 
+https://stackoverflow.com/questions/2556190/random-number-from-a-range-in-a-bash-script
+ 
+#### Exercise 3
+ 
+
 
 ### Ervaren problemen
  
