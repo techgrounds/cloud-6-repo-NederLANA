@@ -9,20 +9,41 @@ A process is an instance of running code. All code is stored in files somewhere 
 
 
 ## Opdracht
-*Start the ssh daemon.
+1) Start the ssh daemon. (first must install it)
 
-*Find out the PID of the ssh daemon.
+$ sudo apt-get install openssh-server
 
-*Find out how much memory the sshd is using.
+$sudo apt autoremove (to remove suggested uncessary files)
 
-*Stop or kill the sshd process.
+$ sudo systemctl start ssh (For systemd based Ubuntu Linux 16.04/18.04/20.04 LTS or above)
+
+2) Find out the PID of the ssh daemon.
+
+$ sudo systemctl status ssh
+
+3) Find out how much memory the sshd is using.
+
+$ free -m
+
+4) Stop or kill the sshd process.
+
+$ sudo systemctl stop ssh
+
+$ sudo systemctl status ssh
 
 
 ### Gebruikte bronnen
+https://www.cyberciti.biz/faq/howto-start-stop-ssh-server/
+
+https://askubuntu.com/questions/1161579/ssh-server-cannot-be-found-even-though-installed
+
+https://askubuntu.com/questions/163200/e-dpkg-was-interrupted-run-sudo-dpkg-configure-a
+
+https://www.a2hosting.com/kb/developer-corner/linux/determining-a-servers-memory-usage
 
 
 ### Ervaren problemen
-
+geen
 
 ### Resultaat
-
+zie toegevoegd beelden
