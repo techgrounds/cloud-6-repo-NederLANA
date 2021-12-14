@@ -9,95 +9,121 @@ Hint: although there are no file extensions in Linux, it’s easier for humans t
 
 
 ## Key-terms
+File permissions
+
+Path variable- The $PATH variable is the key that makes it possible to find the correct program and execute it at your command without needing the executable's full directory path every time you execute (a script file for this assignment)
+
+variable
 
 
 ## Opdracht
 
-**Exercise 1:**
+### Exercise 1:
 
-1) Create a directory called ‘scripts’. Place all the scripts you make in this directory.
+**Create a directory called ‘scripts’. Place all the scripts you make in this directory.
+
+$ pwd
 
 $ mkdir scripts
 
-$ cd scripts
+$ cd ~/scripts (change directory to move to scripts directory you made)
 
-$ nano appendtext.sh
+$ ls -l 
 
-$ ls -l
-
-$ chmod +x appendtext.sh (to be able to execute this script)
+![lnx01-mkdir-scripts](https://user-images.githubusercontent.com/4924632/146000908-e252840a-4b1a-46c0-bce9-adbb86b2f250.png)
 
 
-2) Add the scripts directory to the PATH variable.
+**Add the scripts directory to the PATH variable.
 
 $ echo $PATH
 
-$ export PATH=$PATH:/home/quelan/scripts
+$ export PATH=$PATH:/home/quelan/scripts (This will append the new path to the variable. Adding the absolute path to the beginning of the file will make the system search that directory first every time. This is not recommended as it can cause problems with system programs and it adds unnecessary delay.)
 
-$ echo $PATH
-(set new path permanently by including it in ~/.bashrc)
+$ echo $PATH (to see the scripts directory added to the path variable.)
 
-3) Create a script that appends a line of text to a text file whenever it is executed.
+![lnx10-ex1-path-variable](https://user-images.githubusercontent.com/4924632/146003844-3d4719c3-16e3-4de0-bdea-464e31febbc8.png)
 
-**First, set PATH permanently to execute script at launch of terminal**
 
-**Then make some text files in the same directory**
+**This is just an extra step I did so you don't have to create a path variable every time you open a new shell.
+
+**A common mistake with the $PATH variable is to set it in the current shell only, without persisting the change. When you open a new shell, the changes are lost, and you are once again unable to execute certain commands because those programs are not found in the PATH.
+
+**Set PATH permanently to be able to execute scripts at launch by including it in a root configuration called ~/.bashrc
+
 
 $ cd /     (home directory)
 
 $ ls -l $HOME/.bashrc (verify file and writable permissions)
 
-$ nano ~/.bashrc (root edit of this type of file)
+$ nano ~/.bashrc (command to root edit of this type of file)
 
-add "export PATH=$PATH:/home/quelan/scripts (at end of file. This will append the new path to the variable. Adding the absolute path to the beginning of the file will make the system search that directory first every time. This is not recommended as it can cause problems with system programs and it adds unnecessary delay.)
+add "export PATH=$PATH:/home/quelan/scripts (at end of file)
 
-**Now create script file to append text**
+![lnx10-ex1-permanent-path](https://user-images.githubusercontent.com/4924632/146005092-9378a34b-7d76-4cdb-9bc2-fef0fa48e3b6.png)
+
+
+**Create a script that appends a line of text to a text file whenever it is executed.
+
+Make 2 files with a line of text in each file.
+
+Now create script file to append text
 
 $ cd ~/scripts
 
 $ nano appendtext.sh 
 
-add script: echo "hanging in there" | tee -a *.txt   (-a=appends, and tee to modify multiple files)
+add script: echo "hanging in there" | tee -a *.txt   (-a=appends, and tee to modify multiple files, *=output to all .txt files)
 
-$ bash appendtext.sh
+$ appendtext.sh
+
+![lnx10-ex1-script-append-text](https://user-images.githubusercontent.com/4924632/146006657-2b2807c7-fab5-4860-9ddc-314b1d4f3bc0.png)
 
 $ cat test files
 
+![lnx10-ex1-output-appendtext](https://user-images.githubusercontent.com/4924632/146006961-379eb564-43fc-4607-b041-a6c0cac863fe.png)
 
 
-4) Create a script that installs the httpd package, activates httpd, and enables httpd. Finally, your script should print the status of httpd in the terminal.
+**Create a script that installs the httpd package, activates httpd, and enables httpd. Finally, your script should print the status of httpd in the terminal.
 
-In the scripts directory, create a .sh file.
+**Keep in mind that httpd package is for CentOS, but in Ubuntu, it is apache2 package
 
-$chmod +x .sh file
+$nano deployhttpd.sh
 
-script: sudo apt update
+$chmod +x *.sh file (changes execute permissions for all .sh files in the directory)
 
-**Variables:**
-*You can assign a value to a string of characters so that the value can be read somewhere else in the script.
-Assigning a variable is done using ‘=’.Reading the value of a variable is done using ‘$<insert variable name here>’*
+![lnx10-ex1-script-deployhttpd](https://user-images.githubusercontent.com/4924632/146009697-32c0f55e-7037-48ca-b1af-dc8fb4848a81.png)
 
-**Exercise 2:**
-*Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file.
+**Output of the script is the print the status of apache2 in the terminal
+
+![lnx10-ex1-output-apache-status](https://user-images.githubusercontent.com/4924632/146010485-f0d9f8bc-d8a5-47d7-947e-1c7d8e92423c.png)
+
+
+--------
+
+**Variables:
+* You can assign a value to a string of characters so that the value can be read somewhere else in the script.
+* Assigning a variable is done using ‘=’.Reading the value of a variable is done using ‘$<insert variable name here>’*
+
+### Exercise 2:
+**Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file.
+
+$ nano ex02.sh
+
+ ![lnx10-ex2-script-random-number](https://user-images.githubusercontent.com/4924632/146016440-5a2fe640-1226-4515-b072-3d3505f2ffaf.png)
  
-Variable pathway to activate scripts is already done permenently
-
-$ nano randomnumbers.sh
-
-script: shuf -i1-10 -n1 | tee -a .*txt (shuffles 1 random number from 1-10, and pipes it out to any .txt file as an appended content)
  
 
-**Conditions:**
-*You can choose to only run parts of your script if a certain condition is met. For example, only read a file if the file exists, or only write to a log if the health check returns an error. This can be done using conditions.*
+----
+### Conditions:
+You can choose to only run parts of your script if a certain condition is met. For example, only read a file if the file exists, or only write to a log if the health check returns an error. This can be done using conditions.*
 
-A check for a condition can be done using ‘if’, ‘elif’, and/or ‘else’.*
+A check for a condition can be done using ‘if’, ‘elif’, and/or ‘else’.
 
-**Exercise 3:**
-*Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file only if the number is bigger than 5. If the number is 5 or smaller, it should append a line of text to that same text file instead.
+### Exercise 3:
+**Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file only if the number is bigger than 5. If the number is 5 or smaller, it should append a line of text to that same text file instead.
 
 ### Gebruikte bronnen
  
-#### Exercise 1
 https://opensource.com/article/17/6/set-path-linux
 
 https://askubuntu.com/questions/73052/how-to-modify-etc-bash-bashrc-it-is-read-only
@@ -114,11 +140,8 @@ https://linuxhint.com/apt_get_fix_missing_broken_packages/
  
 https://www.cyberciti.biz/faq/linux-install-and-start-apache-httpd/
  
-#### Exercise 2
- 
 https://stackoverflow.com/questions/2556190/random-number-from-a-range-in-a-bash-script
  
-#### Exercise 3
  
 
 
