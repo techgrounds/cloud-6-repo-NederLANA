@@ -57,15 +57,7 @@ $ crontab -r (remove cron jobs)
 
 **Create a script that writes available disk space to a log file in ‘/var/logs’.**
 
-create script to append disk space to /var/logs file
-
-script: sudo touch /var/log/diskspace (root create file)
-
-sudo chmod 777 /var/log/diskspace (root permission to write file)
-
-date >> /var/log/diskspace
-
-df -H >> /var/log/diskspace (check disk space files, -H human readable 1000  -h flag for 1024 bit)
+create script to append disk space to /var/logs/diskspace
 
 ![lnx11-diskspace-script](https://user-images.githubusercontent.com/4924632/145993737-41f30180-5446-43b3-8464-50efb1dde78e.png)
 
