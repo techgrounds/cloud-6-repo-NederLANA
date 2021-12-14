@@ -28,15 +28,15 @@ Day of week 0 – 7
 
 $ nano cron_dt.sh
 
-script to create append date & time in file: cron_date_time (in home directory)
+script to create appended date & time in file: cron_date_time (pathway to crate file in home directory)
 
 $ chomod 765 -R *.sh (allows me rwx for all .sh files in directory and subdir)
 
-$ bash cron_dt.sh (execute this script several times)
+$ cron_dt.sh (execute this script several times)
 
-$ cat ../cron_date_time (pathway to home dir to see appended list of date/time)
+$ cat ../cron_date_time (pathway to home dir to check appended list of date/time)
 
-*Register the script in your crontab so that it runs every minute.
+**Register the script in your crontab so that it runs every minute.**
 
 $ systemctl status cron (verify if cron service is running)
 
@@ -44,7 +44,7 @@ $ crontab -l (listing of cron jobs already scheduled)
 
 $ crontab -e (open a crontab to edit. **opens crontab of user**, otherwise crontab -e -u name)
 
-script: * * * * * $HOME/scripts/cron_dt.sh (runs every minute)
+cron script: * * * * * $HOME/scripts/cron_dt.sh (runs every minute)
 
 $ crontab -r (remove cron jobs)
 
@@ -52,7 +52,7 @@ $ crontab -r (remove cron jobs)
 ![cron-output-date-time](https://user-images.githubusercontent.com/4924632/145971515-10606c58-9c8a-4fbe-a684-05481e381134.png)
 
 
-*Create a script that writes available disk space to a log file in ‘/var/logs’.
+**Create a script that writes available disk space to a log file in ‘/var/logs’.**
 
 create script to append disk space to /var/logs file
 
@@ -64,11 +64,11 @@ date >> /var/log/diskspace
 
 df -H >> /var/log/diskspace (check disk space files, -H human readable 1000)
 
-*Use a cron job so that it runs weekly.
+**Use a cron job so that it runs weekly.
 
 $ crontab -e
 
-script: @weekly $Home/scripts/disklog.sh
+cron script: @weekly $Home/scripts/disklog.sh
 
 ![cron-output-diskspace](https://user-images.githubusercontent.com/4924632/145971577-58099679-421f-4a26-bbad-f943ba165145.png)
 
