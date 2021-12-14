@@ -13,7 +13,7 @@ As a customer, you have different amounts of control over where your stuff is lo
 * Availability Zones (AZ)
 * Edge Locations (Amazon CloudFront)
 
-## Opdracht
+## Assignment
 ### What is an AWS Availability Zone?
 High availabilty and fault tolerance
 Regions are not one location (to be disaster proof). Each regionis made up of multiple data centers. 
@@ -53,12 +53,12 @@ Edge locations also run a domain name service (DNS) aka Route 53, to further hel
 4) Pricing-Your business is pricing sensitive, that any higher latency is worth saving the money of a lower pricing model that the Oregon region may offer. 
 
 
-### Gebruikte bronnen
+### References
 https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules
 
 
-### Ervaren problemen
+### Difficulties
 The assignment was given in English and the answers were also found in English, so I after some translating back and forth, it is simplest to keep it all in English for continuity instead of a hodge podge of both languages. Some key terms are nuanced and should remain in original language to prevent obsfucation.
 
-### Resultaat
-
+### Results
+It was lovely to be able to reference the AWS training directly.
