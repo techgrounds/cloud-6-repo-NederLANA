@@ -1,13 +1,17 @@
 # AWS Global Infrastructure
-In de cloud is alles, van servers tot netwerken, gevirtualiseerd. Als AWS-klant hoef je je geen zorgen te maken over de onderliggende fysieke infrastructuur. De fysieke locatie van een applicatie in de cloud kan belangrijk zijn. AWS heeft een wereldwijde infrastructuur die bestaat uit de volgende componenten:
-Regio's
-Beschikbaarheidszones
-Randlocaties
 
-Als klant, heb je verschillende hoeveelheden controle over waar je spullen zich bevinden, afhankelijk van de service die je gebruikt. IAM is bijvoorbeeld een wereldwijde service, dus u krijgt geen controle over waar de informatie wordt opgeslagen. U kunt daarentegen specifieke Beschikbaarheidszones voor RDS-instanties selecteren.
+In the cloud, everything from servers to networking is virtualized. As an AWS customer, you don’t have to worry about the underlying physical infrastructure. That being said, the physical location of an application in the cloud can be important.AWS has a global infrastructure made up of the following components:
+Regions
+Availability Zones
+Edge Locations
+
+As a customer, you have different amounts of control over where your stuff is located depending on the service you use.For example, IAM is a global service, so you get no control over where its information is stored. In contrast, you can select specific Availability Zones for RDS instances.
 
 ## Key-terms
-
+* AWS Global Infrastructure
+* Regions
+* Availability Zones (AZ)
+* Edge Locations (Amazon CloudFront)
 
 ## Opdracht
 ### Wat is een AWS-beschikbaarheidszone?
@@ -54,7 +58,7 @@ https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitio
 
 
 ### Ervaren problemen
-
+The assignment was given in English and the answers were also found in English, so I after some translating back and forth, it is simplest to keep it all in English for continuity instead of a hodge podge of both languages. Some key terms are nuanced and should remain in original language to prevent obsfucation.
 
 ### Resultaat
 
