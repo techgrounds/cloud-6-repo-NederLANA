@@ -49,6 +49,9 @@ script: * * * * * $HOME/scripts/cron_dt.sh (runs every minute)
 $ crontab -r (remove cron jobs)
 
 
+![cron-output-date-time](https://user-images.githubusercontent.com/4924632/145971515-10606c58-9c8a-4fbe-a684-05481e381134.png)
+
+
 *Create a script that writes available disk space to a log file in ‘/var/logs’.
 
 create script to append disk space to /var/logs file
@@ -66,6 +69,9 @@ df -H >> /var/log/diskspace (check disk space files, -H human readable 1000)
 $ crontab -e
 
 script: @weekly $Home/scripts/disklog.sh
+
+![cron-output-diskspace](https://user-images.githubusercontent.com/4924632/145971577-58099679-421f-4a26-bbad-f943ba165145.png)
+
 
 ### Gebruikte bronnen
 
