@@ -34,7 +34,7 @@ $ ls -l
 ![lnx01-mkdir-scripts](https://user-images.githubusercontent.com/4924632/146000908-e252840a-4b1a-46c0-bce9-adbb86b2f250.png)
 
 
-**Add the scripts directory to the PATH variable.
+**Add the scripts directory to the PATH variable.**
 
 $ echo $PATH
 
@@ -44,12 +44,9 @@ $ echo $PATH (to see the scripts directory added to the path variable.)
 
 ![lnx10-ex1-path-variable](https://user-images.githubusercontent.com/4924632/146003844-3d4719c3-16e3-4de0-bdea-464e31febbc8.png)
 
+**Just an extra step I did. A common mistake with the $PATH variable is to set it in the current shell only, without persisting the change. When you open a new shell, the changes are lost, and you are once again unable to execute certain commands because those programs are not found in the PATH.**
 
-**This is just an extra step I did so you don't have to create a path variable every time you open a new shell.
-
-**A common mistake with the $PATH variable is to set it in the current shell only, without persisting the change. When you open a new shell, the changes are lost, and you are once again unable to execute certain commands because those programs are not found in the PATH.
-
-**Set PATH permanently to be able to execute scripts at launch by including it in a root configuration called ~/.bashrc
+**Set PATH permanently to be able to execute scripts at launch by including it in a root configuration called ~/.bashrc**
 
 $ cd /     (home directory)
 
@@ -62,7 +59,7 @@ add "export PATH=$PATH:/home/quelan/scripts (at end of file)
 ![lnx10-ex1-permanent-path](https://user-images.githubusercontent.com/4924632/146005092-9378a34b-7d76-4cdb-9bc2-fef0fa48e3b6.png)
 
 
-**Create a script that appends a line of text to a text file whenever it is executed.
+**Create a script that appends a line of text to a text file whenever it is executed.**
 
 Make 2 files with a line of text in each file.
 Now create script file to append text
