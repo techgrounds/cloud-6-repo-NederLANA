@@ -28,13 +28,16 @@ Day of week 0 – 7
 
 $ nano cron_dt.sh
 
-script to create appended date & time in file: cron_date_time (pathway to crate file in home directory)
+script to create appended date & time in file: cron_date_time (pathway to create file in home directory)
 
 $ chomod 765 -R *.sh (allows me rwx for all .sh files in directory and subdir)
 
 $ cron_dt.sh (execute this script several times)
 
 $ cat ../cron_date_time (pathway to home dir to check appended list of date/time)
+
+![lnx11-date-time-script](https://user-images.githubusercontent.com/4924632/145993449-c505d0eb-9936-4b76-8954-44c38ca0e92e.png)
+
 
 **Register the script in your crontab so that it runs every minute.**
 
@@ -62,7 +65,10 @@ sudo chmod 777 /var/log/diskspace (root permission to write file)
 
 date >> /var/log/diskspace
 
-df -H >> /var/log/diskspace (check disk space files, -H human readable 1000)
+df -H >> /var/log/diskspace (check disk space files, -H human readable 1000  -h flag for 1024 bit)
+
+![lnx11-diskspace-script](https://user-images.githubusercontent.com/4924632/145993737-41f30180-5446-43b3-8464-50efb1dde78e.png)
+
 
 **Use a cron job so that it runs weekly.
 
@@ -87,7 +93,7 @@ https://stackoverflow.com/questions/22952237/create-files-in-my-shell-script-own
 
 
 ### Ervaren problemen
-I had some problem with attaining proper root permissions. 
+I had some problem with attaining proper root permissions, and trying to do a command in the wrong directory. So keep an eye on that.
 
 ### Resultaat
 
