@@ -87,6 +87,8 @@ $chmod +x *.sh file (changes execute permissions for all .sh files in the direct
 ![lnx10-ex1-script-deployhttpd](https://user-images.githubusercontent.com/4924632/146009697-32c0f55e-7037-48ca-b1af-dc8fb4848a81.png)
 
 **Output of the script shows the status of apache2 in the terminal.**
+ 
+$^c to return the command line
 
 ![lnx10-ex1-output-apache-status](https://user-images.githubusercontent.com/4924632/146010485-f0d9f8bc-d8a5-47d7-947e-1c7d8e92423c.png)
 
