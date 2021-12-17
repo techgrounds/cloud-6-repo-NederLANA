@@ -109,6 +109,13 @@ https://devopscube.com/mount-ebs-volume-ec2-instance/
 creating files in mounted dir:
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html
 
+**Ex3:**
+
+create a snapshot: 
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html
+
+create volume from a snapshot:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html#ebs-create-volume-from-snapshot
 
 
 ### Ervaren problemen
@@ -135,6 +142,26 @@ Mount EBS volume on EC2
 
 Write text file to the mounted EBS volume
 ![op-ex2-write-text-mounted-EBS](https://user-images.githubusercontent.com/4924632/146536909-6b4c4b73-79bb-405b-9355-082476a929e2.png)
+
+**Exercise 3: Create EBS snapshot, remove text.txt, create new volume from snapshot, detach original EBS, attach new volume and mount it. Find text.txt on new EBS.
+
+Create snapshot of EBS volume (1G volume)
+![op7-ex3-ec2-snapshot](https://user-images.githubusercontent.com/4924632/146548842-351218f6-e18a-4cdb-ae9e-684f7a16427b.png)
+
+Remove the text file from your original EBS volume.
+
+Create another new volume using your snapshot.
+![op7-ex3-2Gvolume-from-snapshot](https://user-images.githubusercontent.com/4924632/146551302-074c1b8e-a0c1-4b19-90fd-4b34bc31bc2c.png)
+
+
+Detach your original EBS volume.
+![op7-ex3-detach-original-ebs](https://user-images.githubusercontent.com/4924632/146551748-03f8f8dc-b2dc-4238-96f1-49457ae46949.png)
+
+Attach the new volume to your EC2 and mount it.
+![op7-ex3-attach-mount-newvolume2](https://user-images.githubusercontent.com/4924632/146555933-4aa6712d-651f-4fc0-afc1-15ba5d70da51.png)
+
+Find your text file on the new EBS volume.
+![op7-ex3-find-old-text-new-ebs](https://user-images.githubusercontent.com/4924632/146556209-982cc0f9-8f00-4066-b8a1-578b67a6215f.png)
 
 
 
