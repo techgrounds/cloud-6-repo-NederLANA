@@ -13,7 +13,7 @@ Any external device, including EBS, needs to be mounted if you want to use them 
 
 **EBS snapshot**
 
-Amazon EBS volumes deliver the following features:
+**Amazon EBS volumes deliver the following features:**
 
 * Persistent storage: Volume lifetime is independent of any particular Amazon EC2 instance.
 
@@ -28,6 +28,8 @@ Amazon EBS volumes deliver the following features:
 * Variable size: Volume sizes range from 1 GB to 16 TB.
 
 * Easy to use: Amazon EBS volumes can be easily created, attached, backed up, restored, and deleted.
+
+* **An EBS volume is off-instance storage that can persist independently from the life of an instance. You continue to pay for the volume usage as long as the data persists. So delete the EBS you no longer use!!!**
 
 ## Opdracht
 **This lab focuses on Amazon Elastic Block Store (Amazon EBS), a key underlying storage mechanism for Amazon EC2 instances. In this lab, you will learn how to create an Amazon EBS volume, attach it to an instance, apply a file system to the volume, and then take a snapshot backup.**
