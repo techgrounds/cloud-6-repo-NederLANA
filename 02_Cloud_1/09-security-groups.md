@@ -18,9 +18,9 @@ By default, a NACL is configured to allow all traffic in and out of the network.
 
 
 ## Key-terms
-[Stateful firewall](/techgrounds/cloud-6-repo-NederLANA/blob/ca953f22fa1d698e7f06f07784370e6c010e2190/beschrijvingen/aws-cloud-glossary)
+[Stateful firewall](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/ceaacbca7f5efb137fd0ff5e477015074d10b4bf/beschrijvingen/aws-cloud-glossary.md?plain=1#L3)
 
-[Stateless firewall](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/ca953f22fa1d698e7f06f07784370e6c010e2190/beschrijvingen/aws-cloud-glossary.md)
+[Stateless firewall](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/ceaacbca7f5efb137fd0ff5e477015074d10b4bf/beschrijvingen/aws-cloud-glossary.md?plain=1#L35)
 
 ## Opdracht
 
