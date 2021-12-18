@@ -19,7 +19,7 @@
 
 * Awareness & Training - AWS trains AWS employees, but a customer must train their own employees.
 
-### Customer Specific
+### Customer Specific Controls
 – Controls which are solely the responsibility of the customer based on the application they are deploying within AWS services. Examples include:
 
 * Service and Communications Protection or Zone Security which may require a customer to route or zone data within specific security environments.
