@@ -8,6 +8,9 @@
 
 
 
+.
+
+
 
 
 
@@ -19,10 +22,15 @@
 
 
 
+.
+
 
 
 
 .
+
+
+
 
 ## Stateless firewall
 -one of the earlier iterations of firewalls, stateless only focus on individual packets, using preset rules to filter traffic, and often does not look beyond packet headers to decide if it might be truly desired communications. Is cheaper and can handle high traffic.
