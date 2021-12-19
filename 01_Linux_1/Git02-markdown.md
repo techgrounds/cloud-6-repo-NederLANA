@@ -16,7 +16,7 @@ _Underscore_ (Put a _ on each side of the text you'd like to _italicize_)
 
 [Opening square brackets, and] Closing square brackets are used to make checklists 
 
-- [] will create checklist items that can be ticked off in the Issue
+Dash and [ ] will create checklist items that can be ticked off in the Issue
 - [ ] like this
 
 ‐ Dash (One dash is used before text to make an unordered list. 
@@ -29,7 +29,7 @@ Three dashes in a row between paragraphs is used to make a line)
 
 @Mention character (Used to reference another user)
 
-` Backtick (Put 3 ` on either side of code to create snippets of code and have them appear as one block)
+Under the tilde is a backtick (Put 3 backticks  on either side of code to create snippets of code and have them appear as one block)
 
 ## Opdracht
 Gebruik een editor : Visual Studio Code
