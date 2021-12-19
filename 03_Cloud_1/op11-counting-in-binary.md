@@ -14,8 +14,6 @@ There’s another base system that’s also used in programming: hexadecimal (us
 **Conversion Table**
 ![image](https://user-images.githubusercontent.com/4924632/146692339-eec0d6b7-9a92-4d73-b44d-17e9a004a5a9.png)
 
-![image](https://user-images.githubusercontent.com/4924632/146692381-1f8d850b-1869-44e7-9b25-30b34a952206.png)
-
 ![image](https://user-images.githubusercontent.com/4924632/146692526-7d04ee00-c508-4184-9309-08d5f2c9d6d1.png)
 
 
@@ -35,7 +33,7 @@ https://learningnetwork.cisco.com/s/article/ccna-study-notes-3-conversion-tables
 https://www.computersciencedegreehub.com/faq/what-is-the-difference-between-a-bit-and-a-byte/
 
 ### Issues
-
+None
 
 ### Results
 ![op11-binary-conversions](https://user-images.githubusercontent.com/4924632/146693522-ab81a5ba-2481-46e1-b3df-8f3895c3a476.png)
