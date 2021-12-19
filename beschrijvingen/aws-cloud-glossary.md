@@ -23,3 +23,9 @@
 – Controls which are solely the responsibility of the customer based on the application they are deploying within AWS services. Examples include:
 
 * Service and Communications Protection or Zone Security which may require a customer to route or zone data within specific security environments.
+---
+### Bits
+It reflects the basic logical process of a transistor: a single unit of information reflecting a zero (no charge) or a one (a completed, charged circuit). **There are eight bits in one byte of information.** Colloquially, bits (and their successively larger relatives, such as kilobits, megabits and gigabits) are used to **measure rates of data transfer.** The abbreviation “Mbps” refers to “megabits,” not “megabytes,” per second.
+
+### Bytes
+A byte represents eight bits, and is the most commonly used term relating to the amount of information stored within a computer’s memory. When abbreviated, the “B” is capitalized, so as to set it apart from its smaller relative; “Gb” is short for “gigabit,” and “GB” is short for “gigabyte.”
