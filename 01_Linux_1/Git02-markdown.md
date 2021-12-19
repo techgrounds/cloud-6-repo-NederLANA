@@ -58,3 +58,4 @@ https://nl.wikipedia.org/wiki/Markdown
 none
 
 ### Results
+![Git02-visual-code-markdown-file](https://user-images.githubusercontent.com/4924632/146686643-1cdf35b0-903f-4c68-b39b-6860963fce6f.png)
