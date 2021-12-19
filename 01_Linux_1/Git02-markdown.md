@@ -5,23 +5,28 @@ Markdown maakt het makkelijker om tekst voor web-pagina 's omdat de tags zijn si
 ## Voorbeeld
 Here's a list of the non-alphabetic characters that are used in Markdown, their corresponding names, and what styling they're used for.
 
-#Hashtag (Used to create Headers or to reference another Issue) (ie. ## Title 1 creates an underlined title)
+# Hashtag (Used to create Headers or to reference another Issue) 
+(ie. ## Title 1 creates an underlined title)
 
-*Asterisk (Put a * on each side of the text you'd like to bold)
+*Asterisk* (Put a * on each side of the text you'd like to bold)
 
-_Underscore (Put a _ on each side of the text you'd like to _italicize_)
+_Underscore_ (Put a _ on each side of the text you'd like to _italicize_)
 
-~Tilde (Put a ~ on each side of the text you'd like to strikethrough).
+~Tilde~ (Put a ~ on each side of the text you'd like to strikethrough).
 
 [Opening square brackets, and ]Closing square brackets are used to make checklists (Using - [ ] will create checklist items that can be ticked off in the Issue)
 
-‐Dash (One dash is used before text to make an unordered list. Three dashes in a row between paragraphs is used to make a line)
+‐Dash (One dash is used before text to make an unordered list. 
+
+Three dashes in a row between paragraphs is used to make a line)
+
+---
 
 >Greater-than symbol (Used in front of text that you'd like to transform into a quote)
->
+
 @Mention character (Used to reference another user)
 
-`Backtick (Put 3 ` on either side of code to create snippets of code and have them appear as one block)
+` Backtick (Put 3 ` on either side of code to create snippets of code and have them appear as one block)
 
 ## Opdracht
 Gebruik een editor : Visual Studio Code
