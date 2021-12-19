@@ -8,21 +8,23 @@ Here's a list of the non-alphabetic characters that are used in Markdown, their 
 # Hashtag (Used to create Headers or to reference another Issue) 
 (ie. ## Title 1 creates an underlined title)
 
-*Asterisk* (Put a * on each side of the text you'd like to bold)
+**Asterisk** (Put 2 * on each side of the text you'd like to bold)
 
 _Underscore_ (Put a _ on each side of the text you'd like to _italicize_)
 
 ~Tilde~ (Put a ~ on each side of the text you'd like to strikethrough).
 
-[Opening square brackets, and ]Closing square brackets are used to make checklists (Using - [ ] will create checklist items that can be ticked off in the Issue)
+[Opening square brackets, and] Closing square brackets are used to make checklists 
+- [ ] will create checklist items that can be ticked off in the Issue
+- [ ] like this
 
-‐Dash (One dash is used before text to make an unordered list. 
+‐ Dash (One dash is used before text to make an unordered list. 
 
 Three dashes in a row between paragraphs is used to make a line)
 
 ---
 
->Greater-than symbol (Used in front of text that you'd like to transform into a quote)
+>Greater than symbol (Used in front of text that you'd like to transform into a quote)
 
 @Mention character (Used to reference another user)
 
