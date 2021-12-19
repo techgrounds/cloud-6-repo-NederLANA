@@ -15,7 +15,8 @@ _Underscore_ (Put a _ on each side of the text you'd like to _italicize_)
 ~Tilde~ (Put a ~ on each side of the text you'd like to strikethrough).
 
 [Opening square brackets, and] Closing square brackets are used to make checklists 
-- [ ] will create checklist items that can be ticked off in the Issue
+
+- [] will create checklist items that can be ticked off in the Issue
 - [ ] like this
 
 ‐ Dash (One dash is used before text to make an unordered list. 
