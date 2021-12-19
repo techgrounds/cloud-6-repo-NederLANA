@@ -3,36 +3,25 @@
 Markdown maakt het makkelijker om tekst voor web-pagina 's omdat de tags zijn simpeler dan HTML en ze converteren naar HTML-automatisch. Said betekent dat u niet hoeft te weten van HTML om iets te schrijven voor een web-pagina, omdat Markdown vertaalt uw tags in de HTML-code voor u.
 
 ## Voorbeeld
+Here's a list of the non-alphabetic characters that are used in Markdown, their corresponding names, and what styling they're used for.
 
-## Headers
+#Hashtag (Used to create Headers or to reference another Issue) (ie. ## Title 1 creates an underlined title)
 
-# is een H1
+*Asterisk (Put a * on each side of the text you'd like to bold)
 
-## is een H2
+_Underscore (Put a _ on each side of the text you'd like to _italicize_)
 
-###### is een H6
+~Tilde (Put a ~ on each side of the text you'd like to strikethrough).
 
-## Bullet Points
-* hallo
-* dag
-* doei
+[Opening square brackets, and ]Closing square brackets are used to make checklists (Using - [ ] will create checklist items that can be ticked off in the Issue)
 
-## Genummerde Lijsten
-1. punt een
-2. punt twee
-3. punt drie
+‐Dash (One dash is used before text to make an unordered list. Three dashes in a row between paragraphs is used to make a line)
 
-## By nadruk
+>Greater-than symbol (Used in front of text that you'd like to transform into a quote)
+>
+@Mention character (Used to reference another user)
 
-*shuin*
-
-**vet**
-
-Een alinea wordt gescheiden
-door een dubbele return.
-
-Twee spaties aan het einde van een regel  
-zorgen voor een nieuwe regel.
+`Backtick (Put 3 ` on either side of code to create snippets of code and have them appear as one block)
 
 ## Opdracht
 Gebruik een editor : Visual Studio Code
