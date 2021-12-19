@@ -1,4 +1,4 @@
-
+Assignment 10- Security Groups
 
 ### Stateful firewall 
 -monitor all aspects of the traffic streams, their characteristics and communication channels. These firewalls can integrate encryption or tunnels, identify TCP connection stages, packet state and other key status updates.
@@ -24,6 +24,8 @@
 
 * Service and Communications Protection or Zone Security which may require a customer to route or zone data within specific security environments.
 ---
+Assignment 11-Binary
+
 ### Bits
 It reflects the basic logical process of a transistor: a single unit of information reflecting a zero (no charge) or a one (a completed, charged circuit). **There are eight bits in one byte of information.** Colloquially, bits (and their successively larger relatives, such as kilobits, megabits and gigabits) are used to **measure rates of data transfer.** The abbreviation “Mbps” refers to “megabits,” not “megabytes,” per second.
 
