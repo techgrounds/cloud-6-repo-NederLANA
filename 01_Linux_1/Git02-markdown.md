@@ -29,8 +29,8 @@ _Underscore_ (Put a _ on each side of the text you'd like to _italicize_)
 
 [Opening square brackets, and] Closing square brackets are used to make checklists 
 
-Dash and [ ] will create checklist items that can be ticked off in the Issue
-- [ ] like this
+Dash and [ ] will create checklist items that **can be ticked off in the Issue**
+- [ ] like this 
 
 ‐ Dash (One dash is used before text to make an unordered list. 
 
