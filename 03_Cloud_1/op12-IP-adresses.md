@@ -24,8 +24,6 @@ The use of IP addresses typically happens behind the scenes. The process works l
 4) When you are out and about and you take your device with you, your home IP address does not come with you. This is because you will be using another network (Wi-Fi at a hotel, airport, or coffee shop, etc.) to access the internet and will be using a different (and temporary) IP address, assigned to you by the ISP of the hotel, airport or coffee shop.
 
 
-
-
 ## Key-terms
 [Public IP Addresses](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/general-glossary.md#private-ip-addresses)
 [Private IP Addresses](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/general-glossary.md#public-ip-addresses)
@@ -38,8 +36,7 @@ The use of IP addresses typically happens behind the scenes. The process works l
 - [ ] Create a VM in your cloud with a public IP. Connect to this VM.
 - [ ] Remove the public IP address from your VM. Understand what is happening with your connection.
 
-
-Vergeet niet de VMs te verwijderen en alle extra resources te verwijderen nadat je klaar bent.
+*Don't forget to delete the VMs and extra resources (clean up) when done.*
 
 ### References
 https://www.kaspersky.com/resource-center/definitions/what-is-an-ip-address
