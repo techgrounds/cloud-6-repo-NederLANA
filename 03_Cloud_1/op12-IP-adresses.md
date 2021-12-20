@@ -31,10 +31,10 @@ The use of IP addresses typically happens behind the scenes. The process works l
 [IPv4 vs IPv6 Addresses](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/general-glossary.md#ipv4-vs-ipv6-addresses)
 
 ## Assignment
-- [ ] Find out what your public IP address is of your laptop and mobile on WiFi
-- [ ] Find out what your public IP address is on your mobile via mobile internet (if possible)
-- [ ] Create a VM in your cloud with a public IP. Connect to this VM.
-- [ ] Remove the public IP address from your VM. Understand what is happening with your connection.
+1) Find out what your public IP address is of your laptop and mobile on WiFi
+2) Find out what your public IP address is on your mobile via mobile internet (if possible)
+3) Create a VM in your cloud with a public IP. Connect to this VM.
+4) Remove the public IP address from your VM. Understand what is happening with your connection.
 
 *Don't forget to delete the VMs and extra resources (clean up) when done.*
 
@@ -47,8 +47,28 @@ https://www.manageengine.com/network-configuration-manager/configlets/what-is-na
 
 https://www.juniper.net/us/en/research-topics/what-is-ipv4-vs-ipv6.html
 
+finding laptop public/private ip:
+https://www.businessinsider.com/how-to-find-ip-address-on-windows?international=true&r=US&IR=T
+
+https://www.whatismyip.com/
+
+
+
 
 ### Issues
 
 
 ### Results
+
+1) By testing public IP address from the following website: www.whatismyip.com, both laptop and mobile devices have the same public IP assigned by Ziggo ISP (as expected)
+
+![image](https://user-images.githubusercontent.com/4924632/146779117-a59d9ef6-6647-4b09-be25-144c4fd08156.png)
+
+2) By turning off the wifi signal, and reverting to 4G, the mobile device is now connecting to Vodafone for internet connection, and therefore different public IP is assigned by diff ISP (as expected)
+
+<image src="https://user-images.githubusercontent.com/4924632/146780135-975759e0-ce10-48f6-86eb-2af6f571f11c.png" width="300">
+  
+3) 
+
+
+
