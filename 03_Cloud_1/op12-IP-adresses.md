@@ -2,11 +2,13 @@
 The internet needs a way to differentiate between different computers, routers, and websites. An IP address is a unique address that identifies a device on the internet or a local network. IP stands for "Internet Protocol," which is the set of rules governing the format of data sent via the internet or local network. In essence, IP addresses are the identifier that allows information to be sent between devices on a network: they contain location information and make devices accessible for communication.
 
 **What is an IP?**
+
 An IP address is a string of numbers separated by periods. IP addresses are expressed as a set of four numbers — an example address might be 192.158.1.38. Each number in the set can range from 0 to 255. So, the full IP addressing range goes from 0.0.0.0 to 255.255.255.255.
 
 IP addresses are not random. They are mathematically produced and allocated by the Internet Assigned Numbers Authority (IANA), a division of the Internet Corporation for Assigned Names and Numbers (ICANN), established in the United States in 1998 to help maintain the security of the internet and allow it to be usable by all. Each time anyone registers a domain on the internet, they go through a domain name registrar, who pays a small fee to ICANN to register the domain.
 
-How do IP addresses work
+**How do IP addresses work**
+
 If you want to understand why a particular device is not connecting in the way you would expect or you want to troubleshoot why your network may not be working, it helps understand how IP addresses work.
 
 Internet Protocol works the same way as any other language, by communicating using set guidelines to pass information. All devices find, send, and exchange information with other connected devices using this protocol. By speaking the same language, any computer in any location can talk to one another.
@@ -21,14 +23,32 @@ The use of IP addresses typically happens behind the scenes. The process works l
 
 4) When you are out and about and you take your device with you, your home IP address does not come with you. This is because you will be using another network (Wi-Fi at a hotel, airport, or coffee shop, etc.) to access the internet and will be using a different (and temporary) IP address, assigned to you by the ISP of the hotel, airport or coffee shop.
 
-## Key-terms
 
+
+
+## Key-terms
+[Public IP Addresses](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/general-glossary.md#private-ip-addresses)
+[Private IP Addresses](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/general-glossary.md#public-ip-addresses)
+[NAT IP](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/general-glossary.md#nat-ip)
+[IPv4 vs IPv6 Addresses](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/general-glossary.md#ipv4-vs-ipv6-addresses)
 
 ## Assignment
+- [ ] Find out what your public IP address is of your laptop and mobile on WiFi
+- [ ] Find out what your public IP address is on your mobile via mobile internet (if possible)
+- [ ] Create a VM in your cloud with a public IP. Connect to this VM.
+- [ ] Remove the public IP address from your VM. Understand what is happening with your connection.
 
+
+Vergeet niet de VMs te verwijderen en alle extra resources te verwijderen nadat je klaar bent.
 
 ### References
 https://www.kaspersky.com/resource-center/definitions/what-is-an-ip-address
+
+https://whatismyipaddress.com/nat
+
+https://www.manageengine.com/network-configuration-manager/configlets/what-is-nat.html
+
+https://www.juniper.net/us/en/research-topics/what-is-ipv4-vs-ipv6.html
 
 
 ### Issues
