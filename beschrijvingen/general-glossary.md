@@ -19,9 +19,11 @@ A public IP address is the primary address associated with your whole network. W
 
 ### NAT IP
 Network Address Translation (NAT) is the process where a network device, usually a firewall, assigns a public address to a computer (or group of computers) inside a private network. The main use of NAT is to conserve the number of public IP addresses an organization or company must use, for both economy and security purposes on both sides of the firewall.
-![image](https://user-images.githubusercontent.com/4924632/146751169-3a8c396d-a36f-40da-a6a0-df8b389a928e.png)
+
+<image src="https://user-images.githubusercontent.com/4924632/146751169-3a8c396d-a36f-40da-a6a0-df8b389a928e.png" width="600">
 
 ### IPv4 vs IPv6 Addresses
 IPv6 (IP version 6) is the most recent generation of the Internet Protocol (IP) defined by the Internet Engineering Task Force (IETF).  Whereas IPv6 is intended to eventually replace IPv4, they are tightly mingled right now—most engineers run them together, but separately in what is called "dual stack". Due to the explosion of internet usage and devices, the move to IPv6 became necessary to create more possible IP addresses and the elimination of using NAT. Some other features such as hexidecimal make it more compatible for mobile devices too.
-![image](https://user-images.githubusercontent.com/4924632/146752895-a48ea0db-236c-4920-9b48-b9bafef8af29.png)
+  
+<image src="https://user-images.githubusercontent.com/4924632/146752895-a48ea0db-236c-4920-9b48-b9bafef8af29.png" width="600">
 
