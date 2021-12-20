@@ -26,8 +26,11 @@ The use of IP addresses typically happens behind the scenes. The process works l
 
 ## Key-terms
 [Public IP Addresses](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/general-glossary.md#private-ip-addresses)
+
 [Private IP Addresses](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/general-glossary.md#public-ip-addresses)
+
 [NAT IP](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/general-glossary.md#nat-ip)
+
 [IPv4 vs IPv6 Addresses](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/general-glossary.md#ipv4-vs-ipv6-addresses)
 
 ## Assignment
@@ -52,11 +55,11 @@ https://www.businessinsider.com/how-to-find-ip-address-on-windows?international=
 
 https://www.whatismyip.com/
 
-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses
 
 
 ### Issues
-
+None
 
 ### Results
 
@@ -68,7 +71,25 @@ https://www.whatismyip.com/
 
 <image src="https://user-images.githubusercontent.com/4924632/146780135-975759e0-ce10-48f6-86eb-2af6f571f11c.png" width="300">
   
-3) 
+3) Create an AWS EC2 instance with a public IP address and connect to the ec2. (Enabled public IPv4 assigned in subnet upon launch of instance).
+  
+<image src="https://user-images.githubusercontent.com/4924632/146837735-34ded050-917a-4cec-a666-084495bd0b57.png" width="400">
+  
+In the AWS documentation:
+>You cannot manually associate or disassociate a public IP (IPv4) address from your instance. However: 
+
+>-We release your instance's public IP address when it is stopped, hibernated, or terminated. Your stopped or hibernated instance receives a new public IP address when it is started.
+-If the public IP address of your instance in a VPC has been released, it will not receive a new one if there is more than one network interface attached to your instance.
+-If your instance's public IP address is released while it has a secondary private IP address that is associated with an Elastic IP address, the instance does not receive a new public IP address.
+  
+4) Remove public IP address from ec2 (in this instance, AWS releases the instance public IP address when it is stopped.)
+  
+![image](https://user-images.githubusercontent.com/4924632/146838147-6f14702e-9093-46f1-b3f3-996c2ba0e66d.png)
+![image](https://user-images.githubusercontent.com/4924632/146838206-6522bb2f-e7be-4996-ae77-554b7468b153.png)
+
+  
+  
+  
 
 
 
