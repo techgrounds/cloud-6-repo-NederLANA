@@ -77,10 +77,12 @@ None
   
 In the AWS documentation:
 >You cannot manually associate or disassociate a public IP (IPv4) address from your instance. However: 
-
+>
 >-We release your instance's public IP address when it is stopped, hibernated, or terminated. Your stopped or hibernated instance receives a new public IP address when it is started.
--If the public IP address of your instance in a VPC has been released, it will not receive a new one if there is more than one network interface attached to your instance.
--If your instance's public IP address is released while it has a secondary private IP address that is associated with an Elastic IP address, the instance does not receive a new public IP address.
+>  
+>-If the public IP address of your instance in a VPC has been released, it will not receive a new one if there is more than one network interface attached to your instance.
+>  
+>-If your instance's public IP address is released while it has a secondary private IP address that is associated with an Elastic IP address, the instance does not receive a new public IP address.
   
 4) Remove public IP address from ec2 (in this instance, AWS releases the instance public IP address when it is stopped.)
   
