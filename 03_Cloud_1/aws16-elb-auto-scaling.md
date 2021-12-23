@@ -47,6 +47,7 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-appli
 
 https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg.html
 
+https://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-scaling-loadtest.html
 
 
 ### Issues
