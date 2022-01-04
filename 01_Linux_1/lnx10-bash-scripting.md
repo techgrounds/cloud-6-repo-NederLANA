@@ -10,7 +10,7 @@ Hint: although there are no file extensions in Linux, it’s easier for humans t
 ## Key-terms
 File permissions
 
-Path variable- The $PATH variable is the key that makes it possible to find the correct program and execute it at your command without needing the executable's full directory path every time you execute (a script file for this assignment)
+Path variable- The $PATH variable is the key that makes it possible to find the correct program and execute it at your command without needing the executable's full directory path every time you execute (a script file for this assignment). Otherwise you can always execute or read a file in another directory by giving it's pathway.
 
 variable
 
@@ -44,7 +44,7 @@ $ echo $PATH (to see the scripts directory added to the path variable.)
 
 ![lnx10-ex1-path-variable](https://user-images.githubusercontent.com/4924632/146003844-3d4719c3-16e3-4de0-bdea-464e31febbc8.png)
 
-**Just an extra step I did. If the $PATH variable is set in the current shell only, without persisting the change. When you open a new shell, the changes are lost, and you are once again unable to execute certain commands because those programs are not found in the PATH.**
+**Just an extra step I did. A common mistake with the $PATH variable is to set it in the current shell only, without persisting the change. When you open a new shell, the changes are lost, and you are once again unable to execute certain commands because those programs are not found in the PATH.**
 
 **Set PATH permanently to be able to execute scripts at launch by including it in a root configuration called ~/.bashrc**
 
@@ -151,3 +151,5 @@ https://stackoverflow.com/questions/2556190/random-number-from-a-range-in-a-bash
  Here you want to be careful to have proper file permissions, and know when to use SUDO command for root permissions.
 
 ### Resultaat
+ 
+
