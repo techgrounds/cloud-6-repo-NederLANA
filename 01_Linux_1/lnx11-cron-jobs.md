@@ -36,7 +36,7 @@ $ cron_dt.sh (execute this script several times)
 
 $ cat ../cron_date_time (pathway to home dir to check appended list of date/time)
 
-![lnx11-date-time-script](https://user-images.githubusercontent.com/4924632/145993449-c505d0eb-9936-4b76-8954-44c38ca0e92e.png)
+![lnx11-date-time-script](C:\Users\TechGrounds\Desktop\Techgrounds\cloud-6-repo-NederLANA\00_includes\wk01\lnx11-date-time-script.png)
 
 
 **Register the script in your crontab so that it runs every minute.**
