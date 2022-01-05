@@ -1,4 +1,4 @@
-# [Cron jobs]
+# Cron jobs
 There might be processes that you want to execute on a regular schedule. For example, you might want to write the available disk space to a log file every hour. Or maybe you want to check for system updates every 2nd day of the month.These kinds of jobs can be automated using Cron jobs.
 
 ## Key-terms
@@ -24,19 +24,21 @@ Month of year 1 – 12
 Day of week 0 – 7
 
 ## Opdracht
-*Create a Bash script that writes the current date and time to a file in your home directory. 
+**Create a Bash script that writes the current date and time to a file in your home directory.**
 
 $ nano cron_dt.sh
 
-script to create append date & time in file: cron_date_time (in home directory)
+script to create appended date & time in file: cron_date_time (pathway to create file in home directory)
 
 $ chomod 765 -R *.sh (allows me rwx for all .sh files in directory and subdir)
 
-$ bash cron_dt.sh (execute this script several times)
+$ cron_dt.sh (execute this script several times)
 
-$ cat ../cron_date_time (pathway to home dir to see appended list of date/time)
+$ cat ../cron_date_time (pathway to home dir to check appended list of date/time)
 
-*Register the script in your crontab so that it runs every minute.
+![lnx11-date-time-script](https://user-images.githubusercontent.com/4924632/148046893-ff446140-b0a4-41db-a0aa-07c3b0edd628.png)
+
+**Register the script in your crontab so that it runs every minute.**
 
 $ systemctl status cron (verify if cron service is running)
 
@@ -44,28 +46,29 @@ $ crontab -l (listing of cron jobs already scheduled)
 
 $ crontab -e (open a crontab to edit. **opens crontab of user**, otherwise crontab -e -u name)
 
-script: * * * * * $HOME/scripts/cron_dt.sh (runs every minute)
+cron script: * * * * * $HOME/scripts/cron_dt.sh (runs every minute)
 
 $ crontab -r (remove cron jobs)
 
 
-*Create a script that writes available disk space to a log file in ‘/var/logs’.
+![cron-output-date-time](https://user-images.githubusercontent.com/4924632/145971515-10606c58-9c8a-4fbe-a684-05481e381134.png)
 
-create script to append disk space to /var/logs file
 
-script: sudo touch /var/log/diskspace (root create file)
+**Create a script that writes available disk space to a log file in ‘/var/logs’.**
 
-sudo chmod 777 /var/log/diskspace (root permission to write file)
+create script to append disk space to /var/logs/diskspace
 
-date >> /var/log/diskspace
+![lnx11-diskspace-script](https://user-images.githubusercontent.com/4924632/145993737-41f30180-5446-43b3-8464-50efb1dde78e.png)
 
-df -H >> /var/log/diskspace (check disk space files, -H human readable 1000)
 
-*Use a cron job so that it runs weekly.
+**Use a cron job so that it runs weekly.
 
 $ crontab -e
 
-script: @weekly $Home/scripts/disklog.sh
+cron script: @weekly $Home/scripts/disklog.sh
+
+![cron-output-diskspace](https://user-images.githubusercontent.com/4924632/145971577-58099679-421f-4a26-bbad-f943ba165145.png)
+
 
 ### Gebruikte bronnen
 
@@ -81,7 +84,7 @@ https://stackoverflow.com/questions/22952237/create-files-in-my-shell-script-own
 
 
 ### Ervaren problemen
-I had some problem with attaining proper root permissions. 
+I had some problem with attaining proper root permissions, and trying to do a command in the wrong directory. So keep an eye on that.
 
 ### Resultaat
 
