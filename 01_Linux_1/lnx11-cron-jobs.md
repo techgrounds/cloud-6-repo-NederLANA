@@ -28,7 +28,7 @@ Day of week 0 – 7
 
 $ nano cron_dt.sh
 
-script to create appended date & time in file: cron_date_time (pathway to create file in home directory)
+script to create appended date & time in file: cron_date_time4 (pathway to create file in home directory)
 
 $ chomod 765 -R *.sh (allows me rwx for all .sh files in directory and subdir)
 
