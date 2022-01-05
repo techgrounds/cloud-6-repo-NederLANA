@@ -88,4 +88,10 @@ https://stackoverflow.com/questions/22952237/create-files-in-my-shell-script-own
 I had some problem with attaining proper root permissions, and trying to do a command in the wrong directory. So keep an eye on that.
 
 ### Resultaat
+<<<<<<< HEAD
 ![testing](C:\Users\TechGrounds\cloud-6-repo-NederLANA\01_Linux_1\lnx11-cron-jobs.md)
+=======
+
+![image](https://user-images.githubusercontent.com/4924632/148286546-413a0d63-6f05-4aa0-ad76-378b8f0f8a70.png)
+
+>>>>>>> 5550eab26cc72a9b2f99d24e6b9c36c6f76ba4af
