@@ -36,7 +36,8 @@ $ cron_dt.sh (execute this script several times)
 
 $ cat ../cron_date_time (pathway to home dir to check appended list of date/time)
 
-![lnx11-date-time-script](https://user-images.githubusercontent.com/4924632/148046893-ff446140-b0a4-41db-a0aa-07c3b0edd628.png)
+![lnx11-date-time-script](https://user-images.githubusercontent.com/4924632/145993449-c505d0eb-9936-4b76-8954-44c38ca0e92e.png)
+
 
 **Register the script in your crontab so that it runs every minute.**
 
@@ -87,4 +88,4 @@ https://stackoverflow.com/questions/22952237/create-files-in-my-shell-script-own
 I had some problem with attaining proper root permissions, and trying to do a command in the wrong directory. So keep an eye on that.
 
 ### Resultaat
-
+![testing](C:\Users\TechGrounds\cloud-6-repo-NederLANA\01_Linux_1\lnx11-cron-jobs.md)
