@@ -90,3 +90,4 @@ I had some problem with attaining proper root permissions, and trying to do a co
 
 ![image](https://user-images.githubusercontent.com/4924632/148286546-413a0d63-6f05-4aa0-ad76-378b8f0f8a70.png)
 
+![op11-binary-conversions.png](00_includes\wk01\op11-binary-conversions.png)
