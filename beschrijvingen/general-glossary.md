@@ -28,3 +28,16 @@ IPv6 (IP version 6) is the most recent generation of the Internet Protocol (IP) 
 <image src="https://user-images.githubusercontent.com/4924632/146752895-a48ea0db-236c-4920-9b48-b9bafef8af29.png" width="600">
 
   ---
+  
+Assignment 14-Network Devices
+  
+### The Layer
+The OSI model has seven layers starting at the physical layer (Layer 1) and going up to the application layer (Layer 7). Network hardware is often described by the OSI layer it operates at.
+  
+### Protocol data unit (PDU)
+As data is processed at different layers of the OSI model, headers and footers are stripped away, changing the type of PDU being transmitted. For example, when data transmitted at the network layer (Layer 3) is processed by the transport layer (Layer 4), the IP header is no longer needed. The PDU with the IP header at Layer 3 was a packet. The PDU at Layer 4 without the IP header is a segment. Understanding the different PDUs will help make sense of the terminology associated with different networking devices.
+
+Here’s a visual representation of the OSI model and the PDUs (data) associated with each layer.
+![image](https://user-images.githubusercontent.com/4924632/148696269-ab8632e1-6aa4-46af-a68a-8ca1225a1998.png)
+
+  
