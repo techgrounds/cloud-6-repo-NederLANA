@@ -10,7 +10,7 @@ Amazon CloudFront is a content delivery network (CDN) composed of distributed se
 
 
 
-![](../00_includes/wk04/cloudfront.png)
+![](../00_includes\wk04\cloudfront.png)
 
 ## Key-terms
 [Edge Location]()
@@ -26,6 +26,8 @@ Amazon CloudFront is a content delivery network (CDN) composed of distributed se
 https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GettingStarted.html?pg=ln&sec=hs
 
 https://www.javatpoint.com/aws-cloudfront-cdn
+
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowCloudFrontWorks.html
 
 ### Issues
 
