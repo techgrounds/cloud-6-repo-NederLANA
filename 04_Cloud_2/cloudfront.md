@@ -10,7 +10,7 @@ Amazon CloudFront is a content delivery network (CDN) composed of distributed se
 
 
 
-![](../00_includes\wk04\cloudfront.png)
+![](../00_includes/wk04/cloudfront.png)
 
 ## Key-terms
 [Edge Location]()
