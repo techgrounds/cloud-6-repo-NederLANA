@@ -1,5 +1,5 @@
 
-Assignment 11-Binary
+Binary
 
 ### Bits
 It reflects the basic logical process of a transistor: a single unit of information reflecting a zero (no charge) or a one (a completed, charged circuit). **There are eight bits in one byte of information.** Colloquially, bits (and their successively larger relatives, such as kilobits, megabits and gigabits) are used to **measure rates of data transfer.** The abbreviation “Mbps” refers to “megabits,” not “megabytes,” per second.
@@ -9,7 +9,7 @@ A byte represents eight bits, and is the most commonly used term relating to the
 
 ---
 
-Assignment 12-IP Addresses
+IP Addresses
 
 ### Private IP Addresses
 Every device that connects to your internet network has a private IP address. This includes computers, smartphones, and tablets but also any Bluetooth-enabled devices like speakers, printers, or smart TVs. With the growing internet of things, the number of private IP addresses you have at home is probably growing. Your router needs a way to identify these items separately, and many items need a way to recognize each other. Therefore, your router generates private IP addresses that are unique identifiers for each device that differentiate them on the network.
@@ -29,7 +29,7 @@ IPv6 (IP version 6) is the most recent generation of the Internet Protocol (IP) 
 
   ---
   
-Assignment 14-Network Devices
+Network Devices
   
 ### The Layer
 The OSI model has seven layers starting at the physical layer (Layer 1) and going up to the application layer (Layer 7). Network hardware is often described by the OSI layer it operates at.
@@ -40,4 +40,8 @@ As data is processed at different layers of the OSI model, headers and footers a
 Here’s a visual representation of the OSI model and the PDUs (data) associated with each layer.
 ![image](https://user-images.githubusercontent.com/4924632/148696269-ab8632e1-6aa4-46af-a68a-8ca1225a1998.png)
 
-  
+---
+
+### Domain Name System (DNS)
+- translates human readable domain names to machine readable IP addresses. 
+- client queries **recursive DNS** for cached IP information. If there's no cached reference, recursive DNS passes the query to an **authoritative DNS** server, which then translates domain names into IP addresses.
