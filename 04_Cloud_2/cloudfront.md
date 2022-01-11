@@ -19,7 +19,6 @@ Amazon CloudFront is a content delivery network (CDN) composed of distributed se
 
 [Distribution](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/aws-cloud-glossary.md#distribution)
 
-## Assignment
 
 
 ### References
@@ -29,7 +28,5 @@ https://www.javatpoint.com/aws-cloudfront-cdn
 
 https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowCloudFrontWorks.html
 
-### Issues
 
 
-### Results
