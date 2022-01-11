@@ -18,16 +18,10 @@ Features include:
 ![How-route53-routes-traffic](../00_includes/wk04/route-53-routes-traffic.png)
 
 ## Key-terms
-[Domain Name System DNS]()
-
-## Assignment
+[Domain Name System DNS](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/general-glossary.md#domain-name-system-dns)
 
 
 ### References
 https://aws.amazon.com/route53/
 
 
-### Issues
-
-
-### Results
