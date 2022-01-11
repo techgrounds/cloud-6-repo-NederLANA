@@ -42,3 +42,16 @@ CloudFront CDN
 * Web Distribution typically used for websites.
 
 * RTMP used for media streaming.
+
+---
+
+Elastic File System
+
+### Mount Target
+- mount targets must be created in VPC in order to access file system. Must have:
+
+### Access Points
+- Any file system request using the access point applies an operating user, group, and file system path. This ensures each application always uses the correct operating system identity and the correct directory when accessing shared file-based datasets. Applications using the access point can only access data in its own directory and below. 
+
+### Security Groups
+- A security group acts as a virtual firewall for EC2 instances to control inbound and outbound traffic. When an EC2 instance is launched in a VPC, up to five security groups can be assigned to the instance. Security groups act at the instance level, not the subnet level. Therefore, each instance in a subnet can be assigned to a different set of security groups.

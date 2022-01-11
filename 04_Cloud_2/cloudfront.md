@@ -15,7 +15,7 @@ Amazon CloudFront is a content delivery network (CDN) composed of distributed se
 ## Key-terms
 [Edge Location](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/aws-cloud-glossary.md#edge-location)
 
-[Origin](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/aws-cloud-glossary.md#origin)
+[Origin](../beschrijvingen/aws-cloud-glossary.md#origin)
 
 [Distribution](https://github.com/techgrounds/cloud-6-repo-NederLANA/blob/main/beschrijvingen/aws-cloud-glossary.md#distribution)
 
