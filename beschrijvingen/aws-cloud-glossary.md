@@ -55,3 +55,6 @@ Elastic File System
 
 ### Security Groups
 - A security group acts as a virtual firewall for EC2 instances to control inbound and outbound traffic. When an EC2 instance is launched in a VPC, up to five security groups can be assigned to the instance. Security groups act at the instance level, not the subnet level. Therefore, each instance in a subnet can be assigned to a different set of security groups.
+
+### DataSync
+- data transfer service that moves and replicates data via the internet or via AWS Direct Connect. Transfers file data and file system metadata.

@@ -27,6 +27,9 @@ Range of storage classes for different use cases:
 
 * **EFS One Zone (and One Zone-IA)** - lower cost storage within a single Availability Zone in an AWS Region.
 
+**EFS is effectively cheaper than EBS**
+EBS has a lower price per GB-month compared to EFS—$0.10 for EBS vs $0.34 for EFS. However, that payment is per EFS share and not per machine instance, so the cost of using EFS decreases when more machines are accessing EFS. With EBS, there is a cost for each machine instance with its own separate, dedicated storage volume. So in most scenarios, EFS will be substantially cheaper.
+
 
 ## Key-terms
 [Mount Target](../beschrijvingen/aws-cloud-glossary.md#mount-target)
@@ -34,6 +37,12 @@ Range of storage classes for different use cases:
 [Access Points](../beschrijvingen/aws-cloud-glossary.md#access-points)
 
 [Security Groups](../beschrijvingen/aws-cloud-glossary.md#security-groups)
+
+[DataSync](../beschrijvingen/aws-cloud-glossary.md#datasync)
+
+[Network File System](../beschrijvingen/general-glossary.md#network-file-system)
+
+
 
 ## Assignment
 
@@ -54,13 +63,54 @@ https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html
 
 https://docs.aws.amazon.com/efs/latest/ug/getting-started.html
 
-### Issues
+https://docs.aws.amazon.com/datasync/latest/userguide/
 
+### Issues
+**AWS Note**
+You can't use Amazon EFS with Microsoft Windows–based Amazon EC2 instances. 
+**This means only Linux is supported.** Any Linux-based EC2 machine can mount a folder stored on EFS as a local drive, using NFS. Access to files is secured using POSIX permissions. 
+
+**Default security group not configured for SSH**
+You can't access your EC2 instance by Secure Shell (SSH) using this security group. SSH access isn't required for this exercise. To add access by SSH later, you can edit the default security and add a rule to allow SSH. Or you can create a new security group that allows SSH. You can use the following settings to add SSH access:
+
+Type: SSH
+
+Protocol: TCP
+
+Port Range: 22
+
+Source: Anywhere 0.0.0.0/0
 
 ### Results
 
 1) Open the Amazon EFS Management Console to create a file system https://console.aws.amazon.com/efs/
 
-[](../00_includes/wk04/efs-created.png)
+![](../00_includes/wk04/efs-created.png)
 
-2) 
+2) Create and Launch EC2
+
+![](../00_includes/wk04/ex-features-created-efs.png)
+
+![](../00_includes/wk04/efs-mount-securitygrp-config.png)
+
+
+3) Transfer files to Amazon EFS using AWS DataSync
+
+a- create S3 bucket with two cat images as source for DataSync
+
+![](00_includes/wk04/efs-created-s3-source.png)
+
+b- configure source location for S3 bucket
+
+c- configure destination location for efs
+
+d- configure task settings. Scheduled with a cronjob
+![](../00_includes/wk04/efs-cronjob-datasync.png)
+
+e- start task
+
+
+
+
+
+

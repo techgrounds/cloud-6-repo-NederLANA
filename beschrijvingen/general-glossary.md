@@ -45,3 +45,10 @@ Here’s a visual representation of the OSI model and the PDUs (data) associated
 ### Domain Name System (DNS)
 - translates human readable domain names to machine readable IP addresses. 
 - client queries **recursive DNS** for cached IP information. If there's no cached reference, recursive DNS passes the query to an **authoritative DNS** server, which then translates domain names into IP addresses.
+
+---
+
+Elastic Filing System
+
+### Network File System 
+-  NFS is a distributed file system protocol that lets users access files over a network similar to the way they access local storage.
