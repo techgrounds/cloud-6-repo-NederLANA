@@ -83,7 +83,8 @@ Source: Anywhere 0.0.0.0/0
 
 ### Results
 
-1) Open the Amazon EFS Management Console to create a file system https://console.aws.amazon.com/efs/
+1) Open the Amazon EFS Management Console to create a file system 
+https://console.aws.amazon.com/efs/
 
 ![](../00_includes/wk04/efs-created.png)
 
@@ -105,6 +106,7 @@ b- configure source location for S3 bucket
 c- configure destination location for efs
 
 d- configure task settings. Scheduled with a cronjob
+
 ![](../00_includes/wk04/efs-cronjob-datasync.png)
 
 e- start task
