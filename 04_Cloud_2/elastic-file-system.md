@@ -8,9 +8,11 @@ With Amazon EFS:
 
 3)  read and write data to and from the file system.
 
-![elastic-file-system](04_Cloud_2/elastic-file-system.md)
+![elastic-file-system](../00_includes/wk04/elastic-file-system-features.png)
+
 
 **Features of EFS:**
+
 * Amazon EFS file systems using Standard storage classes store data and metadata across multiple Availability Zones in an AWS Region. 
 
 * can grow to petabyte scale, drive high levels of throughput, and allow massively parallel access from compute instances to the data.
@@ -22,6 +24,7 @@ With Amazon EFS:
 * supports authentication, authorization, and encryption capabilities to help meet security and compliance requirements.Supports two forms of encryption for file systems, encryption in transit and encryption at rest. 
 
 Range of storage classes for different use cases:
+
 * **EFS standard storage class** - regtional storage class for frquently accessed data.
 * **EFS infrequent access** - regional storage class for infrequently accessed files.
 
@@ -63,6 +66,8 @@ https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html
 
 https://docs.aws.amazon.com/efs/latest/ug/getting-started.html
 
+https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html
+
 https://docs.aws.amazon.com/datasync/latest/userguide/
 
 ### Issues
@@ -88,11 +93,19 @@ https://console.aws.amazon.com/efs/
 
 ![](../00_includes/wk04/efs-created.png)
 
+
 2) Create and Launch EC2
 
 ![](../00_includes/wk04/ex-features-created-efs.png)
 
+
+
 ![](../00_includes/wk04/efs-mount-securitygrp-config.png)
+
+
+
+3) Connect to EC2 through SSH.
+Mount EFS to EC2
 
 
 3) Transfer files to Amazon EFS using AWS DataSync
@@ -101,6 +114,7 @@ a- create S3 bucket with two cat images as source for DataSync
 
 ![](00_includes/wk04/efs-created-s3-source.png)
 
+
 b- configure source location for S3 bucket
 
 c- configure destination location for efs
@@ -108,6 +122,7 @@ c- configure destination location for efs
 d- configure task settings. Scheduled with a cronjob
 
 ![](../00_includes/wk04/efs-cronjob-datasync.png)
+
 
 e- start task
 
