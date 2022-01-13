@@ -52,3 +52,28 @@ Elastic Filing System
 
 ### Network File System 
 -  NFS is a distributed file system protocol that lets users access files over a network similar to the way they access local storage.
+
+---
+
+DynamoDB
+
+### NoSQL
+- nonrelational database specifically optimized for applications that require large data volume, low latency, and flexible data models. This optimization is achieved by relaxing data consistency restrictions of other databases.
+
+Types of NoSQL databases
+
+* Key-value: THis database is highly partitionable and allow unmatched horizontal scaling.
+
+* Document: This database is easier for developers to store and query data by using the same document model format that they use in the application code (ex: JSON). Semistructured nature of document databases evolve easily over time. 
+
+* Graph: Purpose is to work with highly connected datasets. 
+
+* In-memory: Where real-time analytics that require microsecond response timres and can have large traffic spikes. Ex: Gaming leaderboards and add-tech applications.
+
+* Search: Many applications output logs, which search databases can be used as a search engine.
+
+### Partition Key
+- used to spread data across partitions for scalability. It’s important to choose an attribute with a wide range of values and that is likely to have evenly distributed access patterns. 
+
+### Sort Key
+- to enable easy sorting of data. The sort key allows sort or search among all items sharing the same partition key.

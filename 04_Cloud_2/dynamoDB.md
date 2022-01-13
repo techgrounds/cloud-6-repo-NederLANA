@@ -1,13 +1,15 @@
 # DynamoDB
-Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale, that would overburden traditional relational databases.. DynamoDB offers built-in security, continuous backups, automated multi-region replication, in-memory caching, and data export tools. 
+Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale, that would overburden traditional relational databases. DynamoDB offers built-in security, continuous backups, automated multi-region replication, in-memory caching, and data export tools. 
+
+DynamoDB is non relational database that supports **document store** and **key-value store** models.
 
 ![](../00_includes/wk04/dynamoDB-flowchart.png)
 
 DynamoDB features:
-* Global tables - 
-* Point-in-time recovery - 
-* NoSQL Workbench - 
-* DynamoDB Accelerator (DAX) - 
+* Global tables
+* Point-in-time recovery
+* NoSQL Workbench
+* DynamoDB Accelerator (DAX)
 
 Relational database systems (RDBMS) and NoSQL databases have different strengths and weaknesses:
 
@@ -17,53 +19,82 @@ In a NoSQL database such as DynamoDB, data can be queried efficiently in a limit
 
 These differences make database design different between the two systems:
 
-* In RDBMS, you design for flexibility without worrying about implementation details or performance. Query optimization generally doesn't affect schema design, but normalization is important.
+* In RDBMS, design is for flexibility without concern about implementation details or performance. Query optimization generally doesn't affect schema design, but normalization is important.
 
-* In DynamoDB, you design your schema specifically to make the most common and important queries as fast and as inexpensive as possible. Your data structures are tailored to the specific requirements of your business use cases.
+* In DynamoDB, the design schema is to make the most common and important queries as fast and as inexpensive as possible. Data structures are tailored to the specific requirements of business use cases.
 
-**Approaching NoSQL Design**
+**General principles and design patterns to model data efficiently in DynamoDB (NoSQL)**
 
-The first step in designing your DynamoDB application is to identify the specific query patterns that the system must satisfy.
+1) Identify the specific query patterns that the system must satisfy.
 
-In particular, it is important to understand three fundamental properties of your application's access patterns before you begin:
+Three fundamental properties of application's access patterns considered before starting:
 
-1) Data size: Knowing how much data will be stored and requested at one time will help determine the most effective way to partition the data.
+a- Data size: Knowing how much data will be stored and requested at one time will help determine the most effective way to partition the data.
 
-2) Data shape: Instead of reshaping data when a query is processed (as an RDBMS system does), a NoSQL database organizes data so that its shape in the database corresponds with what will be queried. This is a key factor in increasing speed and scalability.
+b- Data shape: Instead of reshaping data when a query is processed (as an RDBMS system does), a NoSQL database organizes data so that its shape in the database corresponds with what will be queried. This is a key factor in increasing speed and scalability.
 
-3) Data velocity: DynamoDB scales by increasing the number of physical partitions that are available to process queries, and by efficiently distributing data across those partitions. Knowing in advance what the peak query loads will be might help determine how to partition data to best use I/O capacity.
+c- Data velocity: DynamoDB scales by increasing the number of physical partitions that are available to process queries, and by efficiently distributing data across those partitions. Knowing in advance what the peak query loads will be might help determine how to partition data to best use I/O capacity.
 
-After you identify specific query requirements, you can organize data according to general principles that govern performance:
+2) Organize data according to general principles that govern performance:
 
-1) Keep related data together.   Research on routing-table optimization 20 years ago found that "locality of reference" was the single most important factor in speeding up response time: keeping related data together in one place. This is equally true in NoSQL systems today, where keeping related data in close proximity has a major impact on cost and performance. Instead of distributing related data items across multiple tables, you should keep related items in your NoSQL system as close together as possible.
+a- Keep related data together.
+Key in NoSQL systems today, where keeping related data in close proximity has a major impact on cost and performance. Instead of distributing related data items across multiple tables, keep related items in the NoSQL system as close together as possible.
 
-2) As a general rule, you should maintain as few tables as possible in a DynamoDB application.
-Exceptions are cases where high-volume time series data are involved, or datasets that have very different access patterns. 
+b- As a general rule, maintain as few tables as possible in a DynamoDB application.
+Exceptions are high-volume time series data are involved, or datasets that have very different access patterns. 
 
-3) Use sort order.   Related items can be grouped together and queried efficiently if their key design causes them to sort together. This is an important NoSQL design strategy.
+c- Use sort order.   
+Related items can be grouped together and queried efficiently if their key design causes them to sort together. This is an important NoSQL design strategy.
 
-4) Distribute queries.   It is also important that a high volume of queries not be focused on one part of the database, where they can exceed I/O capacity. Instead, you should design data keys to distribute traffic evenly across partitions as much as possible, avoiding "hot spots."
+d- Distribute queries.   
+It is also important that a high volume of queries not be focused on one part of the database, where they can exceed I/O capacity. Instead, design data keys to distribute traffic evenly across partitions as much as possible, avoiding "hot spots".
 
-5) Use global secondary indexes.   By creating specific global secondary indexes, you can enable different queries than your main table can support, and that are still fast and relatively inexpensive.
+5) Use global secondary indexes.   
+By creating specific global secondary indexes, this enables different queries than the main table can support, yet are still fast and inexpensive.
 
-These general principles translate into some common design patterns that you can use to model data efficiently in DynamoDB.
-
+To put it simply, unlike RDMBS, NoSQL designs by first considering data I/O throughput, then designs the data tables to make it most efficient. 
 
 ## Key-terms
-[NoSQL]()
+[NoSQL](beschrijvingen/general-glossary.md#nosql)
+
+[Encryptian at Rest]()
+
+[Partition Key](beschrijvingen/general-glossary.md#partition-key)
+
+[Sort Key](beschrijvingen/general-glossary.md#sort-key)
 
 ## Assignment
-
+Using the AWS DynamoDB console to
+create a simple table, add data, scan and query the data, delete data, and delete the table.
 
 ### References
 https://aws.amazon.com/dynamodb/
 
-labs:
-https://aws.amazon.com/dynamodb/getting-started/?pg=dynamodbt&sec=hs
-
-https://amazon-dynamodb-labs.com/hands-on-labs.html
+https://aws.amazon.com/getting-started/hands-on/create-nosql-table/
 
 ### Issues
 
 
 ### Results
+
+1) Create a NoSQL Table
+
+![](../00_includes/wk04/dyn-created-table-music.png)
+
+
+2) Add data to the NoSQL Table
+
+![](../00_includes/wk04/dyn-data-added.png)
+
+3) Query the NoSQL Table
+
+![](../00_includes/wk04/dyn-query-results.png)
+
+4) Delete an Existing Item
+
+![](../00_includes/wk04/dyn-delete-item.png)
+
+5) Delete a NoSQL Table
+Delete unused tables to avoid costs.
+
+![](../00_includes/wk04/dyn-delete-table.png)
