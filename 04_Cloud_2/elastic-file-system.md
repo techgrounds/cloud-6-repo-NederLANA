@@ -133,6 +133,8 @@ d- configure task settings. Scheduled with a cronjob
 
 e- start task
 
+4) Clean up
+
 ## Datasync executed but unable to verify 2 cat image files in the efs at the mount point. So can add files to the efs, but not able to transfer files to the efs from another source. To be continued....
 
 
