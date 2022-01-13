@@ -66,9 +66,9 @@ https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html
 
 https://docs.aws.amazon.com/efs/latest/ug/getting-started.html
 
-https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html
+https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-old.html
 
-https://docs.aws.amazon.com/datasync/latest/userguide/
+https://docs.aws.amazon.com/efs/latest/ug/gs-step-four-sync-files.html
 
 ### Issues
 **AWS Note**
@@ -93,26 +93,33 @@ https://console.aws.amazon.com/efs/
 
 ![](../00_includes/wk04/efs-created.png)
 
-
-2) Create and Launch EC2
+.
 
 ![](../00_includes/wk04/ex-features-created-efs.png)
 
 
+2) Create and Launch EC2. Configure default security group to allow incoming SSH. Connect to EC2 through SSH Linux. Install nfs-utils. Mount EFS to EC2 with a DNS name.
+
+**Note**
+If you choose Amazon Linux AMI 2016.03.0 or Amazon Linux AMI 2016.09.0 when launching your Amazon EC2 instance, you don't need to install nfs-utils because it's already included in the AMI by default.
+
+.
 
 ![](../00_includes/wk04/efs-mount-securitygrp-config.png)
 
+.
 
+![](../00_includes/wk04/efs-mounted-ec2.png)
 
-3) Connect to EC2 through SSH.
-Mount EFS to EC2
-
+.
+![](../00_includes/wk04/efs-mounted-test-file.png)
 
 3) Transfer files to Amazon EFS using AWS DataSync
+.
 
 a- create S3 bucket with two cat images as source for DataSync
 
-![](00_includes/wk04/efs-created-s3-source.png)
+![](../00_includes/wk04/efs-created-s3-source.png)
 
 
 b- configure source location for S3 bucket
