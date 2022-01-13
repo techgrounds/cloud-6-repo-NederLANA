@@ -114,7 +114,7 @@ If you choose Amazon Linux AMI 2016.03.0 or Amazon Linux AMI 2016.09.0 when laun
 .
 ![](../00_includes/wk04/efs-mounted-test-file.png)
 
-3) Transfer files to Amazon EFS using AWS DataSync
+3) Transfer files to Amazon EFS using AWS DataSync  
 .
 
 a- create S3 bucket with two cat images as source for DataSync
@@ -132,6 +132,8 @@ d- configure task settings. Scheduled with a cronjob
 
 
 e- start task
+
+## Datasync executed but unable to verify 2 cat image files in the efs at the mount point. So can add files to the efs, but not able to transfer files to the efs from another source. To be continued....
 
 
 
