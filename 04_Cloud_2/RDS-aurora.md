@@ -14,13 +14,13 @@ Amazon Relational Database Service (RDS also known as SQL) is available on sever
 While RDS and Aurora requires depoloyment from smaller to larger instances as needs change, **Aurora Serverless** handles automatic scaling. It's on demand pricing model may be higher, but it could be a good fit for variable and unpredictable workloads, enterprise database management, SaaS applications, or scaled-out databases across multiple servers.
 
 ## Key-terms
-[MySQL]()
+[MySQL](beschrijvingen/general-glossary.md#mysql)
 
-[PostgreSQL]()
+[PostgreSQL](beschrijvingen/general-glossary.md#postgresql)
 
-[Failover]()
+[Failover](beschrijvingen/general-glossary.md#failover)
 
-[Aurora Read Replica]()
+[Aurora Read Replica](beschrijvingen/aws-cloud-glossary.md#aurora-read-replica)
 
 ## Assignment
 **Create a high-availability database cluster with Amazon Aurora**

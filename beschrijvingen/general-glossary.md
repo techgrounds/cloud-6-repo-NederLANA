@@ -83,3 +83,27 @@ Types of NoSQL databases
 
 ### Encryption in Transit
 - protects data as it's moved from one location to another. 
+
+---
+
+RDS and Aurora
+
+### SQL
+- Structured Query Language is to query only relational database structures with tabular schema (tables with rows and columns).
+
+### NoSQL
+- NoSQL is a database type where SQL is necessary to access the document-based contents of the **non-relational database** management systems. It allows the unformatted and non-related data to be placed and operated as per the user’s requirements. Data structures used by NoSQL databases can also be viewed as more flexible and scalable than relational databases, driven by the simplicity of design, simpler horizontal scaling to clusters of machines and more control over availability. NoSQL database revolves around “document”. Documents are addressed in the database via a unique key that represents the document. In addition to the key lookup performed by a key-value store, the database also offered API or a query language that retrieves the documents based on their contents.
+
+### MySQL
+- MySQL is used in the SQL database management system, a product from Microsoft. Structuring and standardizing the database is essential for a **relational database** with MySQL. MySQL is relational in nature since all the data is stored in different tables and relations are established using primary keys or other keys known as foreign keys. Most popular database.
+
+![](../00_includes/wk04/database-comparison-table.png)
+
+### PostgresQL
+- relational database with soem object-oriented features. Most advanced database.
+
+### Failover
+- is switching to a redundant or standby upon the failure or abnormal termination of the previously active application.
+
+### Aurora Read Replica
+- 

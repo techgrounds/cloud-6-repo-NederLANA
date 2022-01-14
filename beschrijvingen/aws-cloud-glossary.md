@@ -58,3 +58,10 @@ Elastic File System
 
 ### DataSync
 - data transfer service that moves and replicates data via the internet or via AWS Direct Connect. Transfers file data and file system metadata.
+
+---
+
+RDS and Aurora
+
+### Aurora Read Replica
+- To increase availability, Aurora automatically sets up replication from the writer DB instance to all the other DB instances. These other DB instances are read-only and are known as Aurora Replicas. 
