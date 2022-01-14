@@ -77,3 +77,9 @@ Types of NoSQL databases
 
 ### Sort Key
 - to enable easy sorting of data. The sort key allows sort or search among all items sharing the same partition key.
+
+### Encryption at Rest
+- protects data where it's stored.
+
+### Encryption in Transit
+- protects data as it's moved from one location to another. 

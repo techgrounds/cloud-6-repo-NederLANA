@@ -57,7 +57,7 @@ To put it simply, unlike RDMBS, NoSQL designs by first considering data I/O thro
 ## Key-terms
 [NoSQL](beschrijvingen/general-glossary.md#nosql)
 
-[Encryptian at Rest]()
+[Encryption at Rest](beschrijvingen/general-glossary.md#encryption-at-rest)
 
 [Partition Key](beschrijvingen/general-glossary.md#partition-key)
 
