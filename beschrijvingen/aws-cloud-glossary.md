@@ -65,3 +65,10 @@ RDS and Aurora
 
 ### Aurora Read Replica
 - To increase availability, Aurora automatically sets up replication from the writer DB instance to all the other DB instances. These other DB instances are read-only and are known as Aurora Replicas. 
+
+---
+
+Lambda
+
+### Handler
+- can specify a handler (a method/function in code) where AWS Lambda can begin executing code. AWS Lambda provides event data as input to this handler, which processes the event.
