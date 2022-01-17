@@ -107,3 +107,19 @@ RDS and Aurora
 
 ### Aurora Read Replica
 - 
+
+---
+
+Elastic Container Service
+
+### Container
+- a solution to the problem of how to get software to run reliably when moved from one software environment to antoher. Especially essential when migrating to a cloud. A container consists of an entire runtime environment: an application, plus all its dependencies, libraries and other binaries, and configuration files needed to run it, bundled into one package. By containerizing the application platform and its dependencies, differences in OS distributions and underlying infrastructure are abstracted away. 
+*Not to be confused with virtualization which is bundled with an OS and much more resource intensive (MB vs GB)*
+
+### Docker
+- The Open Container Initiative developed industry standareds for a container format and runtime software for all platforms based on Docker technology.
+
+### Kubernetes
+- The best known and most widely used free and open source container management systems (developed by Google)
+
+### Long-running 
