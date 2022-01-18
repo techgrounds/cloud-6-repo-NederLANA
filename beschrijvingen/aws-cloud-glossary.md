@@ -72,3 +72,18 @@ Lambda
 
 ### Handler
 - can specify a handler (a method/function in code) where AWS Lambda can begin executing code. AWS Lambda provides event data as input to this handler, which processes the event.
+
+---
+
+Elastic Container Service
+
+### Elastic Container Registry 
+- ECR is an AWS managed container image registry service integrated with ECS. Customers can use the familiar Docker CLI, or their preferred client, to push, pull, and manage Docker or OCI images. 
+
+![](../00_includes/wk05/ecs-ecr-flowchart.png)
+
+### Elastic Kubernetes Service
+- EKS is a cloud-based container management service that natively integrates with Kubernetes to deploy applications. With Amazon EKS, an enterprise can use Kubernetes without having install, operate or manage the container orchestration software in the EC2 instances.
+
+![](../00_includes/wk05/ecs-eks-flowchart.png)
+

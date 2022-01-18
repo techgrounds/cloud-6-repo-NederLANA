@@ -1,10 +1,20 @@
 # Elastic Container Service ECS
 
-Amazon ECS makes it easy to deploy, manage, and scale Docker containerized (long-running)applications, services, batch processes, ETL workloads, microservices, and machine learning apps. Amazon ECS places containers across clusters based on resource needs and is integrated with familiar features like Elastic Load Balancing, EC2 security groups, EBS volumes and IAM roles. 
+Companies initially build and deploy their applications in a monolithic design, but as they grow and offer more features, they migrate towards a microservicdes model and containerize different parts of their applications. Effectively isolating different parts of their services so that while all is running simultaneously, each component can be updated or changed without without affecting other components.
 
-Companies initially build and deploy their applications in a monolithic design, but as they grow and offer more features, ECS allows them to migrate towards a microservices model and more sophisticated application architecture. 
+Traditionally, a virtual machine (EC2) is used to deploy an application. By containerizing the entire application and it's runtime dependencies, now multiple lightweight containers (cluster) can run on one EC2, thus sharing one OS, instead of deploying multiple EC2, each with its own OS. Containers is more resource efficient. 
 
-1) Containers are defined in a task definition that is used to run **tasks** within a service. In this context, a **service** is a configuration that runs and maintains a specified number of tasks simultaneously in a **cluster**. 
+AWS Elastic Container Service ECS provides container management like Google's open-source Kubernetes. AWS also offers a natively integrated Kubernetes management console (EKS)
+
+Amazon ECS makes it easy to deploy, manage, and scale Docker containerized:
+* (long-running) applications 
+* services 
+* batch processes 
+* ETL workloads 
+* microservices 
+* machine learning apps
+
+Containers may include:
 * Web servers
 * App servers
 * Queues
@@ -13,21 +23,27 @@ Companies initially build and deploy their applications in a monolithic design, 
 * API Backends
 * Databases
 
-*Tasks and services can be run on a serverless infrastructure that is managed by AWS Fargate.*
+**Features of Amazon ECS**
 
-*Alternatively, for more control over the infrastructure, run tasks and services on a cluster of Amazon EC2 instances that is self-managed.*
+Amazon ECS is a regional service across multiple Availability Zones. Amazon ECS clusters can be created within a new or existing VPC. After a cluster is up and running, create task definitions that define which container images will run across the clusters. The task definitions are used to run tasks or create services. Container images are stored in and pulled from container registries (like ECR)
 
-2) Amazon ECS enables launch and stop of container-based applications by using **simple API calls**. 
-*Can also retrieve the state of a cluster from a centralized service and have access to many familiar Amazon EC2 features.*
-*Or can configure it through self management.
+Containers are defined in a task definition that is used to run **tasks** within a service. In this context, a **service** is a configuration that runs and maintains a specified number of tasks simultaneously in a **cluster**. 
+
+Amazon ECS uses **simple API calls** to launch and stop container-based applications and query the complete state of clusters. 
+*Or can configure it through self management and **schedule** the placement of containers acros clusters.*
+
+ECS is integrated with features such as EC2, Elastic Load Balancing, security groups, EBS volumes, and IAM roles. 
+
+There are two ECS launch types which determines the type of infrastructure on which task services are hosted: EC2 and Fargate
+
+* Tasks and services can be run on a serverless infrastructure that is managed by AWS Fargate, which places containers across clusters based on resource needs.
+
+* Alternatively, for more control over the infrastructure, run tasks and services on a cluster of Amazon EC2 instances.
+
+![](../00_includes/wk05/ecs-launch-types.png)
 
 
-What is ECS for?
-How does X fit / replace X in a classical setting?
-How can X be combined with other services?
-What is the difference between X and other similar services? Compare to EC2, Kubernetes/EKS
-
-*No additional charge to use ECS to manage containers. Only pay for EC2 or Fargate consumption
+*No additional charge to use ECS to manage containers. Only pay for EC2, services, and Fargate consumption.*
 
 
 ## Key-terms
@@ -37,6 +53,8 @@ What is the difference between X and other similar services? Compare to EC2, Kub
 
 [Kubernetes](beschrijvingen/general-glossary.md#kubernetes)
 
+[Elastic Kubernetes Service](beschrijvingen/aws-cloud-glossary.md#elastic-kubernetes-service)
+
 [Cluster]()
 
 [Monolith]()
@@ -45,10 +63,11 @@ What is the difference between X and other similar services? Compare to EC2, Kub
 
 [Extract-Transform-Load Workloads]()
 
+[Elastic Container Registry](beschrijvingen/aws-cloud-glossary.md#elastic-container-registry)
+
+
 
 ## Assignment
-How is this service linked to other resources/services?
-
 
 Access ECS from the AWS SDK or AWS management console: https://aws.amazon.com/ecs/
 
