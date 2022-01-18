@@ -73,6 +73,12 @@ Lambda
 ### Handler
 - can specify a handler (a method/function in code) where AWS Lambda can begin executing code. AWS Lambda provides event data as input to this handler, which processes the event.
 
+Lambda function triggers:
+* DynamodB Events
+* API Gateway
+* ELB Target Groups
+* S3 Events
+
 ---
 
 Elastic Container Service
@@ -88,7 +94,11 @@ Elastic Container Service
 ![](../00_includes/wk05/ecs-eks-flowchart.png)
 
 ### Fargate
-- a serverless technology to be used with Amazon ECS and EKS to run containers without having to manage servers or clusters of Amazon EC2 instances. With Fargate, it is no longer necessary to provision, configure, or scale clusters of virtual machines to run containers. 
+- a serverless technology to be used with Amazon ECS and EKS to run (and develop locally using Docker Compose) containers without having to manage servers or clusters of Amazon EC2 instances. It is no longer necessary to provision, configure, or scale clusters of virtual machines to run containers. It offers a more flexible choice over Lambda.
 
 ![](../00_includes/wk05/ecs-fargate.png)
+
+![](../00_includes/wk05/ecs-fargate-vs-lambda.png)
+
+
 
