@@ -27,10 +27,16 @@ Containers may include:
 
 Amazon ECS is a regional service across multiple Availability Zones. Amazon ECS clusters can be created within a new or existing VPC. After a cluster is up and running, create task definitions that define which container images will run across the clusters. The task definitions are used to run tasks or create services. Container images are stored in and pulled from container registries (like ECR)
 
-Containers are defined in a task definition that is used to run **tasks** within a service. In this context, a **service** is a configuration that runs and maintains a specified number of tasks simultaneously in a **cluster**. 
+Containers are defined in a *task definition* that is is a blueprint for the application. The task definition is a text file (in JSON format) that describes up to 10 containers that form the application.
+
+A *task* is the instantiation of a task definition within a cluster. A *service* runs and maintains multiple tasks simultaneously.
+
+A *cluster* is a logical grouping of tasks or services.
+
+One or more EC2 instances can be registered with the cluster to run tasks. Or use Fargate.
 
 Amazon ECS uses **simple API calls** to launch and stop container-based applications and query the complete state of clusters. 
-*Or can configure it through self management and **schedule** the placement of containers acros clusters.*
+*Or can configure it through self management and **schedule** the placement of containers across clusters.*
 
 ECS is integrated with features such as EC2, Elastic Load Balancing, security groups, EBS volumes, and IAM roles. 
 
