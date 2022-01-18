@@ -36,14 +36,14 @@ ECS is integrated with features such as EC2, Elastic Load Balancing, security gr
 
 There are two ECS launch types which determines the type of infrastructure on which task services are hosted: EC2 and Fargate
 
-* Tasks and services can be run on a serverless infrastructure that is managed by AWS Fargate, which places containers across clusters based on resource needs.
+* Tasks and services can be run on a serverless infrastructure that is managed by AWS Fargate, which places containers across clusters based on resource needs. (*Fargate can manage EKS and ECS*)
 
 * Alternatively, for more control over the infrastructure, run tasks and services on a cluster of Amazon EC2 instances.
 
 ![](../00_includes/wk05/ecs-launch-types.png)
 
 
-*No additional charge to use ECS to manage containers. Only pay for EC2, services, and Fargate consumption.*
+*No additional charge to use ECS to manage containers. Only pay for EC2, fee services, and Fargate consumption.*
 
 
 ## Key-terms
@@ -54,6 +54,8 @@ There are two ECS launch types which determines the type of infrastructure on wh
 [Kubernetes](beschrijvingen/general-glossary.md#kubernetes)
 
 [Elastic Kubernetes Service](beschrijvingen/aws-cloud-glossary.md#elastic-kubernetes-service)
+
+[Fargate](beschrijvingen/aws-cloud-glossary.md#fargate)
 
 [Cluster]()
 

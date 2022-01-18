@@ -87,3 +87,8 @@ Elastic Container Service
 
 ![](../00_includes/wk05/ecs-eks-flowchart.png)
 
+### Fargate
+- a serverless technology to be used with Amazon ECS and EKS to run containers without having to manage servers or clusters of Amazon EC2 instances. With Fargate, it is no longer necessary to provision, configure, or scale clusters of virtual machines to run containers. 
+
+![](../00_includes/wk05/ecs-fargate.png)
+
