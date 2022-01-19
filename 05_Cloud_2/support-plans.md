@@ -1,25 +1,16 @@
-# Subject
-Lists of questions for theoretical research:
-What is X for?
-How does X fit / replace X in a classical setting?
-How can X be combined with other services?
-What is the difference between X and other similar services?
+# Support Plans
+Amazon provides access to extra expertise to support users of AWS at at a free Basic Support plus four additional tiered pay plans. Support plans are to help users optimize performance, manage risk, and keep costs under control.
+
+Basic Support which is automatically included for all AWS customers include: 
+
+**Customer Service and Communities** - 24x7 access to customer service, documentation, whitepapers, and AWS re:Post.
+
+**AWS Trusted Advisor** - Access to core Trusted Advisor checks and guidance to provision resources following best practices to increase performance and improve security.
+
+**AWS Personal Health Dashboard** - A personalized view of the health of AWS services, and alerts when resources are impacted.
+
+The following chart shows the extra support services provided for paid AWS Support Plans.
+
+![](../00_includes/wk05/support-plans.png)
 
 
-
-## Key-terms
-
-
-## Assignment
-Questions for practical research:
-Where this service be found in the console?
-How is this service turned on?
-How is this service linked to other resources/services?
-
-### References
-
-
-### Issues
-
-
-### Results
