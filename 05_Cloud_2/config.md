@@ -1,11 +1,5 @@
 # Config
-Lists of questions for theoretical research:
-What is X for?
-How does X fit / replace X in a classical setting?
-How can X be combined with other services?
-What is the difference between X and other similar services?
-
-AWS Config is a service that enables an organization to assess, audit, and evaluate the configurations of AWS resources.
+Amazon Config is a service that enables an organization to assess, audit, and evaluate the configurations of AWS resources.
 
 * Config continuously monitors and records AWS resource configurations and allows automation of the evaluation of recorded configurations against desired configurations. 
 
