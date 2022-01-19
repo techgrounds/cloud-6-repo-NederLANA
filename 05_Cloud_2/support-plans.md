@@ -13,4 +13,5 @@ The following chart shows the extra support services provided for paid AWS Suppo
 
 ![](../00_includes/wk05/support-plans.png)
 
-
+### References
+https://aws.amazon.com/premiumsupport/plans/
