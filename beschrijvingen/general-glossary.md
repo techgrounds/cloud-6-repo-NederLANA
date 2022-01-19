@@ -122,4 +122,11 @@ Elastic Container Service
 ### Kubernetes
 - The best known and most widely used free and open source container management systems (developed by Google)
 
-### Long-running 
+### Long-running Application
+
+---
+
+CloudWatch
+
+### MTTR
+- MTTR (mean time to recovery or mean time to restore) is the average time it takes to recover from a product or system failure.

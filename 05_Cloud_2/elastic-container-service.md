@@ -4,7 +4,7 @@ Companies initially build and deploy their applications in a monolithic design, 
 
 Traditionally, a virtual machine (EC2) is used to deploy an application. By containerizing the entire application and it's runtime dependencies, now multiple lightweight containers (cluster) can run on one EC2, thus sharing one OS, instead of deploying multiple EC2, each with its own OS. Containers is more resource efficient. 
 
-AWS Elastic Container Service ECS provides container management like Google's open-source Kubernetes. AWS also offers a natively integrated Kubernetes management console (EKS)
+![](../00_includes/wk05/ECS.svg) Elastic Container Service ECS provides container management like Google's open-source Kubernetes. AWS also offers a natively integrated Kubernetes management console (EKS)
 
 Amazon ECS makes it easy to deploy, manage, and scale Docker containerized:
 * (long-running) applications 

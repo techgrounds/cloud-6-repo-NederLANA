@@ -1,5 +1,5 @@
 # Config
-Amazon Config is a service that enables an organization to assess, audit, and evaluate the configurations of AWS resources.
+![](../00_includes/wk05/Config.svg) Amazon Config is a service that enables an organization to assess, audit, and evaluate the configurations of AWS resources.
 
 * Config continuously monitors and records AWS resource configurations and allows automation of the evaluation of recorded configurations against desired configurations. 
 
