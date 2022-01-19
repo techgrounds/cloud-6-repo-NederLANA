@@ -32,8 +32,11 @@ Full Trusted Advisor Benefits (business and enterprise support plans):
 • Additional benefits include weekly update notifications, alerts, automated actions
 with CloudWatch and programmatic access using the AWS Support API.
 
+*Note that **Trusted Advisor** gives broad but fixed checks determined by AWS to help users follow AWS best practices. **Config** is highly customizable for individual organizational practices, and **Inspector** checks best practices inside of an EC2 instance (which Config does not)* 
+
 
 ### References
 https://aws.amazon.com/premiumsupport/technology/trusted-advisor/
 
+https://towardsaws.com/aws-trusted-advisor-vs-aws-config-vs-aws-inspector-4a952bac38ec
 

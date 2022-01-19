@@ -17,11 +17,7 @@ This simplifies compliance auditing, security analysis, change management, and o
 
 *Note that **Trusted Advisor** gives  broad but fixed checks to follow AWS best practices. **Config** is highly customizable for individual organizational practices, also integrating with Lambda to take automated action when a resource violates a rule. **Inspector** checks best practices inside of an EC2 instance (which Config does not)* 
 
-## Assignment
-Questions for practical research:
-Where this service be found in the console?
-How is this service turned on?
-How is this service linked to other resources/services?
+Access via [Config console](https://console.aws.amazon.com/config?p=cfg&cp=bn&ad=c)
 
 ### References
 https://aws.amazon.com/config/
