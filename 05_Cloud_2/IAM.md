@@ -19,7 +19,7 @@ With IAM, you define who can access what by specifying fine-grained permissions.
 2) Create a new group, and assign user in a group
 3) Use the group to assign policies
 4) Assign MFA for user
-
+5) Create account Alias
 
 
 ### References
@@ -60,4 +60,8 @@ Detach redundant admin access policy from indivdiual user. The admin access poli
 
 ![](../00_includes/wk05/iam-password-policy.png)
 
+6) Create and use an alias account instead of the root account. 
+Create an Alias called techgrounds. Log into alias url, go through MFA, using .csv password, change password to personal one. Use this alias log-in from now on. 
+
+![](../00_includes/wk05/iam-alias-login.png)
 
