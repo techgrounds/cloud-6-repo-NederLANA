@@ -34,6 +34,10 @@ How is this service linked to other resources/services?
 https://aws.amazon.com/cloudwatch/
 
 https://cloudcompiled.com/blog/cloudwatch-cloudtrail-difference/
+
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html
+
+https://aws.amazon.com/cloudwatch/getting-started/
 ### Issues
 
 

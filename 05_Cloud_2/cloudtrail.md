@@ -1,9 +1,16 @@
 # CloudTrail
-![](../00_includes/wk05/CloudTrail.svg) AWS CloudTrail monitors and records user activity across AWS infrastructure, allowing control over storage, analysis, and remediation actions.
+![](../00_includes/wk05/CloudTrail.svg) AWS CloudTrail monitors and records user activity across AWS infrastructure, allowing control over storage, analysis, and remediation actions. It is a web service that records account activities and delivers log files to an S3 bucket. 
 
 CloudTrail is enabled when it is created on the AWS account. When activity occurs in the AWS account, that activity is recorded in a *CloudTrail event*. Events can be viewed in the CloudTrail console by going to *Event history*.
 
 * Event history allows user to view, search, and download the past 90 days of activity in the AWS account. 
+ logs the following records:
+ • The identity of the API caller
+ • The time of the API call
+ • The source IP address of the   API caller
+ • The request parameters
+ • The response elements returned by the AWS service
+
 
 * Create a *CloudTrail trail* to archive, analyze, and respond to changes in the AWS resources. 
   -A trail is a configuration that enables delivery of events to an Amazon S3 bucket that is specified. 
