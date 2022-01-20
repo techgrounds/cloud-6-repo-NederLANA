@@ -61,7 +61,7 @@ Detach redundant admin access policy from indivdiual user. The admin access poli
 ![](../00_includes/wk05/iam-password-policy.png)
 
 6) Create and use an alias account instead of the root account. 
-Create an Alias called techgrounds. Log into alias url, go through MFA, using .csv password, change password to personal one. Use this alias log-in from now on. 
+Create an Alias called "vinkeveen". Log into alias url, go through MFA, using .csv password, change password to personal one. Use this alias log-in from now on. 
 
 ![](../00_includes/wk05/iam-alias-login.png)
 
