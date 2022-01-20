@@ -15,6 +15,8 @@ Modern applications, like those running on microservices architectures, generate
 
 -use **CloudWatch Events** for serverless to trigger workflows with services like AWS Lambda, Amazon SNS, and AWS CloudFormation.
 
+-Metrics are stored separately in Regions, but CloudWatch cross-Region functionality can be used to aggregate statistics from different Regions. 
+
 *Cloudwatch is a monitoring service that gives visibility into the performance and health of AWS resources and applications, whereas Cloudtrail is a service that logs AWS account activity and API usage for risk auditing, compliance and monitoring.*
 
 ![](../00_includes/wk05/cw-how-it-works.png)
@@ -24,11 +26,11 @@ Access via [CloudWatch console](https://console.aws.amazon.com/cloudwatch/home?p
 ## Key-terms
 [MTTR](beschrijvingen/general-glossary.md#mttr)
 
+[Namespace]()
+
 ## Assignment
-Questions for practical research:
-Where this service be found in the console?
-How is this service turned on?
-How is this service linked to other resources/services?
+
+Configure Amazon CloudWatch to send a notification when CPU Utilization of an instance is lower than 15%, and send alarm notifications to email through SNS.
 
 ### References
 https://aws.amazon.com/cloudwatch/
@@ -38,7 +40,19 @@ https://cloudcompiled.com/blog/cloudwatch-cloudtrail-difference/
 https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html
 
 https://aws.amazon.com/cloudwatch/getting-started/
+
+https://www.edureka.co/blog/amazon-cloudwatch-monitoring-tool/
+
 ### Issues
 
 
 ### Results
+
+1) Creating a CPU utilization metric
+![](../00_includes/wk05/cw-set-alarm.png)
+
+2) Creating an alarm to notify when CPU Utilization metric of the instance is lower than 15%
+![](../00_includes/wk05/cw-alarm-enabled.png)
+
+3) Send alarm notification through SNS topic to email.
+![](../00_includes/wk05/cw-sns-alert.png)
