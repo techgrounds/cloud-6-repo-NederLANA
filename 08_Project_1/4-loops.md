@@ -6,16 +6,6 @@ There are two types of loops in Python: the **while loop** and the **for loop**.
 * The while loop runs while a condition is true. They can run indefinitely if that condition never changes. If your code is stuck in an infinite loop, just press ctrl+c to force quit the running code.
 * The for loop runs for a predetermined number of iterations. This number can be hard coded using the range() function, or dynamically assigned (using a variable, the size of a list, or the number of lines in a document. It is also possible to accidentally create an infinite for-loop. You can use the same command (ctrl+c) to exit your program.
 
-Lists of questions for theoretical research:
-What is X for?
-How does X fit / replace X in a classical setting?
-How can X be combined with other services?
-What is the difference between X and other similar programs?
-
-
-
-## Key-terms
-
 
 ## Assignment
 Exercise 1:
@@ -41,9 +31,11 @@ arr = ["Coen", "Casper", "Joshua", "Abdessamad", "Saskia"]
 
 
 ### References
+ex1:
+https://www.youtube.com/watch?v=ft2s_SK-d-Y
 
-
-### Issues
+ex2 &3:
+https://www.youtube.com/watch?v=ahWIRov-w58
 
 
 ### Results
