@@ -28,7 +28,7 @@ Day of week 0 – 7
 
 $ nano cron_dt.sh
 
-script to create appended date & time in file: cron_date_time (pathway to create file in home directory)
+script to create appended date & time in file: cron_date_time4 (pathway to create file in home directory)
 
 $ chomod 765 -R *.sh (allows me rwx for all .sh files in directory and subdir)
 
@@ -36,7 +36,7 @@ $ cron_dt.sh (execute this script several times)
 
 $ cat ../cron_date_time (pathway to home dir to check appended list of date/time)
 
-![lnx11-date-time-script](https://user-images.githubusercontent.com/4924632/145993449-c505d0eb-9936-4b76-8954-44c38ca0e92e.png)
+![lnx11-date-time-script](../00_includes/wk01/lnx11-date-time-script.png?raw=true)
 
 
 **Register the script in your crontab so that it runs every minute.**
@@ -88,10 +88,3 @@ https://stackoverflow.com/questions/22952237/create-files-in-my-shell-script-own
 I had some problem with attaining proper root permissions, and trying to do a command in the wrong directory. So keep an eye on that.
 
 ### Resultaat
-<<<<<<< HEAD
-![testing](C:\Users\TechGrounds\cloud-6-repo-NederLANA\01_Linux_1\lnx11-cron-jobs.md)
-=======
-
-![image](https://user-images.githubusercontent.com/4924632/148286546-413a0d63-6f05-4aa0-ad76-378b8f0f8a70.png)
-
->>>>>>> 5550eab26cc72a9b2f99d24e6b9c36c6f76ba4af
