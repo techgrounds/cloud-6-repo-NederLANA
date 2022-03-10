@@ -1,0 +1,6 @@
+#just installed update for aws-cdk to v2.15. should it also be updated here instead of 2.12?
+aws-cdk-lib==2.12.0
+constructs>=10.0.0,<11.0.0
+
+cdk-ec2-key-pair
+boto3

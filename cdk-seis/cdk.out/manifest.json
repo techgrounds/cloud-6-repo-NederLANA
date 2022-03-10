@@ -1,0 +1,382 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "CdkSeisStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "CdkSeisStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "CdkSeisStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "CdkSeisStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/bdb07a1afce1b9c2d892a5a91690b2d7ed2eb2de8fa365d2286bc0c3a3014ad9.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "CdkSeisStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "CdkSeisStack.assets"
+      ],
+      "metadata": {
+        "/CdkSeisStack/VPC/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCB9E5F0B4"
+          }
+        ],
+        "/CdkSeisStack/VPC/PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet1SubnetB4246D30"
+          }
+        ],
+        "/CdkSeisStack/VPC/PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet1RouteTableFEE4B781"
+          }
+        ],
+        "/CdkSeisStack/VPC/PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet1RouteTableAssociation0B0896DC"
+          }
+        ],
+        "/CdkSeisStack/VPC/PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet1DefaultRoute91CEF279"
+          }
+        ],
+        "/CdkSeisStack/VPC/PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet2Subnet74179F39"
+          }
+        ],
+        "/CdkSeisStack/VPC/PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet2RouteTable6F1A15F1"
+          }
+        ],
+        "/CdkSeisStack/VPC/PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet2RouteTableAssociation5A808732"
+          }
+        ],
+        "/CdkSeisStack/VPC/PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet2DefaultRouteB7481BBA"
+          }
+        ],
+        "/CdkSeisStack/VPC/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCIGWB7E252D3"
+          }
+        ],
+        "/CdkSeisStack/VPC/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCVPCGW99B986DC"
+          }
+        ],
+        "/CdkSeisStack/Output": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Output"
+          }
+        ],
+        "/CdkSeisStack/VPC2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC2C1F0E711"
+          }
+        ],
+        "/CdkSeisStack/VPC2/PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC2PublicSubnet1SubnetBAA0C75E"
+          }
+        ],
+        "/CdkSeisStack/VPC2/PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC2PublicSubnet1RouteTable745AFADA"
+          }
+        ],
+        "/CdkSeisStack/VPC2/PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC2PublicSubnet1RouteTableAssociationE638BE3C"
+          }
+        ],
+        "/CdkSeisStack/VPC2/PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC2PublicSubnet1DefaultRouteD3C23149"
+          }
+        ],
+        "/CdkSeisStack/VPC2/PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC2PublicSubnet2SubnetEFC26F07"
+          }
+        ],
+        "/CdkSeisStack/VPC2/PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC2PublicSubnet2RouteTable1EC90C65"
+          }
+        ],
+        "/CdkSeisStack/VPC2/PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC2PublicSubnet2RouteTableAssociation5DA32A1A"
+          }
+        ],
+        "/CdkSeisStack/VPC2/PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC2PublicSubnet2DefaultRouteEA63E5E0"
+          }
+        ],
+        "/CdkSeisStack/VPC2/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC2IGW87E4AF62"
+          }
+        ],
+        "/CdkSeisStack/VPC2/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC2VPCGW82299B43"
+          }
+        ],
+        "/CdkSeisStack/Output1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Output1"
+          }
+        ],
+        "/CdkSeisStack/VPCPeering": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPeering"
+          }
+        ],
+        "/CdkSeisStack/VPC1Route": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC1Route"
+          }
+        ],
+        "/CdkSeisStack/VPC2Route": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPC2Route"
+          }
+        ],
+        "/CdkSeisStack/KeyPair/EC2-Key-Pair-WebServerKey/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "KeyPairEC2KeyPairWebServerKeyA0F6E9B5"
+          }
+        ],
+        "/CdkSeisStack/EC2-Key-Pair-Manager-Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EC2KeyPairManagerPolicyEBBC1576"
+          }
+        ],
+        "/CdkSeisStack/EC2-Key-Pair-Manager-Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EC2KeyPairManagerRoleB243C519"
+          }
+        ],
+        "/CdkSeisStack/EC2-Key-Name-Manager-Lambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EC2KeyNameManagerLambdaBE629145"
+          }
+        ],
+        "/CdkSeisStack/MgmtSG/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MgmtSGAF1D515A"
+          }
+        ],
+        "/CdkSeisStack/webSG/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "webSG9F367DE6"
+          }
+        ],
+        "/CdkSeisStack/Instance/InstanceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceInstanceRoleE9785DE5"
+          }
+        ],
+        "/CdkSeisStack/Instance/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceInstanceProfileAB5AEF02"
+          }
+        ],
+        "/CdkSeisStack/Instance/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceC1063A87"
+          }
+        ],
+        "/CdkSeisStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn2-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/CdkSeisStack/ip": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ip"
+          }
+        ],
+        "/CdkSeisStack/KeyPair2/EC2-Key-Pair-MgmtServerKey/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "KeyPair2EC2KeyPairMgmtServerKeyFBC6FCC3"
+          }
+        ],
+        "/CdkSeisStack/mynacl/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "mynacl52F1B6C4"
+          }
+        ],
+        "/CdkSeisStack/mynacl/id/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "mynaclidE3A64C6F"
+          }
+        ],
+        "/CdkSeisStack/Instance2/InstanceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Instance2InstanceRole03DD7CB2"
+          }
+        ],
+        "/CdkSeisStack/Instance2/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Instance2InstanceProfile582F915C"
+          }
+        ],
+        "/CdkSeisStack/Instance2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Instance255F35265"
+          }
+        ],
+        "/CdkSeisStack/webVault1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "webVault17BE84B83"
+          }
+        ],
+        "/CdkSeisStack/Backup1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Backup1192A4FA0"
+          }
+        ],
+        "/CdkSeisStack/Backup1/ebsResource/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Backup1ebsResourceRole643707A5"
+          }
+        ],
+        "/CdkSeisStack/Backup1/ebsResource/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Backup1ebsResource575B4AA9"
+          }
+        ],
+        "/CdkSeisStack/webVault2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "webVault24C13399A"
+          }
+        ],
+        "/CdkSeisStack/Backup2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Backup2790A502C"
+          }
+        ],
+        "/CdkSeisStack/Backup2/ebsResource1/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Backup2ebsResource1RoleAC75672A"
+          }
+        ],
+        "/CdkSeisStack/Backup2/ebsResource1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Backup2ebsResource17E7A8E46"
+          }
+        ],
+        "/CdkSeisStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/CdkSeisStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/CdkSeisStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/CdkSeisStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "CdkSeisStack"
+    }
+  }
+}
