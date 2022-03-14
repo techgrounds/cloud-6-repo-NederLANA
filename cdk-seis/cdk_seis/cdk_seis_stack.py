@@ -23,10 +23,6 @@ from aws_cdk import (
 )
 from cdk_ec2_key_pair import KeyPair
 
-
-
-
-
 class CdkSeisStack(Stack):
 
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
