@@ -1249,7 +1249,7 @@
                       }
                     ],
                     "userData": {
-                      "Fn::Base64": "#!/bin/bash\n yum -y install httpd\n systemctl enable httpd\n systemctl start httpd\n echo '<html><h1>Hello From Your Web Server!</h1></html>' > /var/www/html/index.html\n "
+                      "Fn::Base64": "#!/bin/bash\n yum -y install httpd\n systemctl enable httpd\n systemctl start httpd\n echo '<html><h1>Hello From Your Web Server!</h1></html>' > /var/www/html/index.html"
                     }
                   }
                 },

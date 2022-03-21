@@ -136,7 +136,12 @@ parameters:
 https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html
 
 backups:
-https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.aws_backup.html
+- https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.aws_backup.html
+- https://pypi.org/project/aws-cdk.aws-backup/
+- https://www.cdw.com/content/cdw/en/articles/cloud/deleting-aws-backup-vaults-recovery-points-at-scale.html
+
+backup resource ARN:
+- https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#aws-managed-policies
 
 cdk python:
 - https://aws.amazon.com/blogs/developer/getting-started-with-the-aws-cloud-development-kit-and-python/
@@ -185,6 +190,10 @@ https://github.com/miztiik/my-first-cdk-project
 
 setting environment variable upon deployment of stacks:
 https://yshen4.github.io/infrastructure/AWS/CDK_context.ht
+
+delete recovery/backup fault:
+- https://cloudonaut.io/aws-backup-vault-cannot-be-deleted-use-this-script/
+- https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-a-vault.html
 
 
 

@@ -28,7 +28,7 @@ class CdkSeisStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        #VPC with web server
+        ####### VPC ( for web server )###############
 
         self.vpc = ec2.Vpc(self, "VPC",
                            max_azs=2,
@@ -43,7 +43,7 @@ class CdkSeisStack(Stack):
         CfnOutput(self, "Output",
                        value=self.vpc.vpc_id)
 
-        #VPC 2 settings for management server
+         #### VPC 2 settings for management server  ####
 
         self.vpc2 = ec2.Vpc(self, "VPC2",
                            max_azs=2,
@@ -58,7 +58,7 @@ class CdkSeisStack(Stack):
                        value=self.vpc2.vpc_id)
 
 
-        #VPC Peering
+      #### VPC Peering ######
 
         self.VPCPeering = ec2.CfnVPCPeeringConnection(
             self,
@@ -67,7 +67,7 @@ class CdkSeisStack(Stack):
             vpc_id=self.vpc2.vpc_id,
             peer_region="eu-central-1"
         )
-        # routetable = ec2.CfnRouteTable(self,"PeerRoute",vpc_id=self.vpc2.vpc_id)
+       # routetable = ec2.CfnRouteTable(self,"PeerRoute",vpc_id=self.vpc2.vpc_id)
         #for subnets in self.vpc.public_subnets:
 
         #ec2.CfnRoute(self,"routes",route_table_id= routetable,
@@ -89,7 +89,7 @@ class CdkSeisStack(Stack):
 
 
 
-       #AMI linux
+       ######### AMI linux    ############
 
         amzn_linux = ec2.AmazonLinuxImage(generation=ec2.AmazonLinuxGeneration.AMAZON_LINUX_2,
                                  edition=ec2.AmazonLinuxEdition.STANDARD,
@@ -97,17 +97,17 @@ class CdkSeisStack(Stack):
                                  storage=ec2.AmazonLinuxStorage.GENERAL_PURPOSE
                                     )
 
-        #Key Pair
+        ### Key Pair
         key = KeyPair(self,"KeyPair",
                         name="WebServerKey",
                         store_public_key=True
                      )
 
-        #User Data for web server launch
+        ##### User Data for web server launch ######
         with open("./userdata.sh") as f:
                     user_data = f.read()
 
-        #Security Group for Management Server
+        ##### Security Group for Management Server  ###########
 
         MgmtSG=ec2.SecurityGroup(self,"MgmtSG",
                                  vpc= self.vpc2,
@@ -122,7 +122,7 @@ class CdkSeisStack(Stack):
         MgmtSG.add_ingress_rule(ec2.Peer.ipv4("77.248.14.193/32"),
                                     ec2.Port.tcp(443),
                                     "HTTPS")
-        #Security Group for web server
+        ##### Security Group for web server ###########
 
         webSG=ec2.SecurityGroup(self,"webSG",vpc= self.vpc,
                                  allow_all_outbound=True,
@@ -141,7 +141,7 @@ class CdkSeisStack(Stack):
                                     "ping")
 
 
-        #Lanuch web server EC2
+        ######## Lanuch web server( EC2 Instance )   ########
 
         instance1 = ec2.Instance(self, "Instance",
         instance_type=ec2.InstanceType("t2.micro"),
@@ -170,14 +170,14 @@ class CdkSeisStack(Stack):
 
 
 
-        #Key Pair for admin server
+         ### Key Pair for mgmt server ####
 
         key1 = KeyPair(self,"KeyPair2",
                         name="MgmtServerKey",
                         store_public_key=True
                      )
 
-        #Network ACL
+      #### Nacl ########
 
         aclcidr1= ec2.AclCidr.any_ipv4()
         nacl=ec2.NetworkAcl(self,"mynacl",vpc=self.vpc2)
@@ -185,7 +185,7 @@ class CdkSeisStack(Stack):
                traffic=ec2.AclTraffic.all_traffic(),direction=ec2.TrafficDirection.EGRESS,
                   network_acl_entry_name="myentry",rule_action=ec2.Action.ALLOW)
 
-        #Launch Management server EC2
+    ######## Lanuch Management server( EC2 Instance )   ########
 
         instance2 = ec2.Instance(self, "Instance2",
                     instance_type=ec2.InstanceType("t2.micro"),
@@ -205,15 +205,16 @@ class CdkSeisStack(Stack):
         key_name=key1.key_pair_name
         )
         #instance1.connections.allow_from(instance2,port_range=ec2.Port.tcp(22), description="ssh")
-        #Backup plan
+        ######   Backup plan ######
         #backuprole=iam.Role(self,"backuprole",assumed_by=iam.ServicePrincipal("backup.amazonaws.com"))
         #backuprole.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name('AWSBackupFullAccess'))
 
-        #server Tags
+        ## server Tags ###
         Tags.of(instance1).add(key="webs",value="webbackup")
         Tags.of(instance2).add(key="mgmt",value="mgmtbackup")
 
-        #Back up Management Server
+        #### Back up Management Server ####
+
         vault1= backup.BackupVault(self,"webVault1",backup_vault_name="webVault1",removal_policy=RemovalPolicy.DESTROY)
         backup_plan1 = backup.BackupPlan(self,"Backup1",backup_plan_name="webserverBackup")
         backup_plan1.add_selection("ebsResource",resources=[backup.BackupResource.from_tag(key="webs",value="webbackup")]
@@ -222,13 +223,14 @@ class CdkSeisStack(Stack):
         backup_plan1.add_rule(backup.BackupPlanRule(
                               backup_vault=vault1,
                               rule_name="WebRule",
-                              schedule_expression=events.Schedule.cron(hour="4" ,minute="00",day="*", month="*",year="*"),
+                              schedule_expression=events.Schedule.cron(hour="11" ,minute="35",day="*", month="*",year="*"),
                               delete_after=Duration.days(7),
                               completion_window=Duration.hours(2),
                               start_window=Duration.hours(1)
                                ))
 
-        #Back up Management Server
+        #### Back up Management Server ####
+
         vault2= backup.BackupVault(self,"webVault2",backup_vault_name="webVault2",removal_policy=RemovalPolicy.DESTROY)
         backup_plan2 = backup.BackupPlan(self,"Backup2",backup_plan_name="MgmtserverBackup")
         backup_plan2.add_selection("ebsResource1",resources=[backup.BackupResource.from_tag(key="mgmt",value="mgmtbackup")]
@@ -237,8 +239,16 @@ class CdkSeisStack(Stack):
         backup_plan2.add_rule(backup.BackupPlanRule(
                               backup_vault=vault2,
                               rule_name="mgmtRule",
-                              schedule_expression=events.Schedule.cron(hour="5" ,minute="00",day="*", month="*",year="*"),
+                              schedule_expression=events.Schedule.cron(hour="11" ,minute="15",day="*", month="*",year="*"),
                               delete_after=Duration.days(7),
                               completion_window=Duration.hours(2),
                               start_window=Duration.hours(1)
                                ))
+
+#!/bin/bash (userdata.sh)
+ #yum -y install httpd
+ #systemctl enable httpd
+ #systemctl start httpd
+ #echo '<html><h1>Hello From Your Web Server!</h1></html>' > /var/www/html/index.html
+
+ # in requirements.txt include (cdk_ec2_key_pair)
