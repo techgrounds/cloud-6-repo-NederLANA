@@ -6,18 +6,19 @@ import aws_cdk as cdk
 
 #from cdk_siete.cdk_siete_stack import CdkSieteStack
 from cdk_siete.server_web import ServerWeb
-from cdk_siete.server_admin import ServerAdmin
+#from cdk_siete.server_admin import ServerAdmin
 
 
 app = cdk.App()
+#CdkSieteStack(app, "CdkSieteStack")
+server = ServerWeb(app, 'serverweb'),
 #main_stack = (app, 'MainStack', env={'region': 'eu-central-1'},
 #ServerWeb = ServerWeb(
     #main_stack,
     #'ServerWeb'
 #)
-ServerWeb(app, "ServerWeb")
-ServerAdmin(app, "ServerAdmin")
-#CdkSieteStack(app, "CdkSieteStack",
+#ServerWeb(app, "ServerWeb")
+#ServerAdmin(app, "ServerAdmin")
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.

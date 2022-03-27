@@ -23,7 +23,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/aba1aa8b01023baac33e8aea8670d6c7094a8268700d6e76a49d9c1a3bf34d6f.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3358303e5cc714bb6d025e72aff6783fc1ca76b2cb060549546dfd98ab162f1c.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -303,10 +303,10 @@
             "data": "Instance255F35265"
           }
         ],
-        "/CdkSeisStack/webVault1/Resource": [
+        "/CdkSeisStack/wsvault/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "webVault17BE84B83"
+            "data": "wsvaultDB0360CA"
           }
         ],
         "/CdkSeisStack/Backup1/Resource": [
@@ -327,10 +327,10 @@
             "data": "Backup1ebsResource575B4AA9"
           }
         ],
-        "/CdkSeisStack/webVault2/Resource": [
+        "/CdkSeisStack/mgmtvault/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "webVault24C13399A"
+            "data": "mgmtvaultFF68D6BD"
           }
         ],
         "/CdkSeisStack/Backup2/Resource": [
