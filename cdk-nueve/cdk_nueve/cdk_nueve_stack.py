@@ -1,27 +1,22 @@
 from itertools import count
+from cdk_ec2_key_pair import KeyPair
 from multiprocessing import Event
 from operator import countOf
-
-#from cdk_iam_floyd import Events, Iam
 from constructs import Construct
-#import boto3
 import socket
 
 from aws_cdk import (
-
     Duration,
     RemovalPolicy,
     Stack,
     CfnOutput,
-    Tag,
     aws_ec2 as ec2,
-    aws_ssm as ssm,
+    #aws_ssm as ssm,
+    #aws_iam as iam,
     aws_backup as backup,
     aws_events as events,
-    aws_iam as iam,
     Tags
 )
-from cdk_ec2_key_pair import KeyPair
 
 class CdkNueveStack(Stack):
 

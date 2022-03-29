@@ -1,0 +1,19 @@
+{
+  "version": "16.0.0",
+  "files": {
+    "ad486e4fb26712ca2bac5abdf5ccd2e51b91dd7a0715c48276221dace2333ecf": {
+      "source": {
+        "path": "EcsProjectStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "ad486e4fb26712ca2bac5abdf5ccd2e51b91dd7a0715c48276221dace2333ecf.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

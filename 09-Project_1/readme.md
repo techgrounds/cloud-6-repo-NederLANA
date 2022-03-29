@@ -270,6 +270,10 @@ Part 3)
 
 
 
+### Extra Features
+- You may optionally use the --role-arn (or -r) option to specify the ARN of an IAM role that should be used for deployment. This role must be assumable by the AWS account being used.
+- https://docs.aws.amazon.com/cdk/v2/guide/cli.html
+
 
 
 
