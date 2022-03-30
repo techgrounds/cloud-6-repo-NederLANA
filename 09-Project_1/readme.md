@@ -195,7 +195,26 @@ delete recovery/backup fault:
 - https://cloudonaut.io/aws-backup-vault-cannot-be-deleted-use-this-script/
 - https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-a-vault.html
 
+---
+ecs pattern construct:
+- https://docs.aws.amazon.com/cdk/v2/guide/ecs_example.html
+- https://docs.aws.amazon.com/AmazonECS/latest/developerguide/tutorial-ecs-web-server-cdk.html
 
+redirect http to https using alb:
+- https://aws.amazon.com/premiumsupport/knowledge-center/elb-redirect-http-to-https-using-alb/
+- https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.aws_elasticloadbalancingv2/README.html
+
+self sign certificiate:
+https://zuqqhi2.com/en/generating-self-signed-certificate-and-applying-to-aws-alb
+
+acm generate certificate:
+https://docs.aws.amazon.com/code-samples/latest/catalog/python-acm-certificate_basics.py.html
+
+tls 1.2 required
+https://aws.amazon.com/blogs/security/tls-1-2-required-for-aws-fips-endpoints/
+
+https ec2 public ip with no domain
+- https://bansalanuj.com/https-aws-ec2-without-custom-domain
 
 ### Issues
 

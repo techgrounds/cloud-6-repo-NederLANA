@@ -4,7 +4,6 @@ from aws_cdk import (
     aws_ecs_patterns as ecs_patterns,
     # Duration,
     Stack,
-    # aws_sqs as sqs,
 )
 from constructs import Construct
 
@@ -17,20 +16,20 @@ class EcsProjectStack(Stack):
 
         cluster = ecs.Cluster(self, "MyCluster", vpc=vpc)
 
-        ecs_patterns.ApplicationLoadBalancedFargateService(self, "MyFargateService",
+        ecs_patterns.ApplicationLoadBalancedFargateService(
+            self, "MyFargateService",
             cluster=cluster,            # Required
             cpu=512,                    # Default is 256
-            desired_count=6,            # Default is 1
+            desired_count=3,            # Default is 1
             task_image_options=ecs_patterns.ApplicationLoadBalancedTaskImageOptions(
                 image=ecs.ContainerImage.from_registry("amazon/amazon-ecs-sample")),
             memory_limit_mib=2048,      # Default is 512
             public_load_balancer=True)  # Default is False
 
 
-        # The code that defines your stack goes here
 
-        # example resource
-        # queue = sqs.Queue(
-        #     self, "EcsProjectQueue",
-        #     visibility_timeout=Duration.seconds(300),
-        # )
+
+
+
+
+

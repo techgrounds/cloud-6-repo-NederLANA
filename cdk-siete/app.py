@@ -4,14 +4,14 @@ import this
 
 import aws_cdk as cdk
 
-#from cdk_siete.cdk_siete_stack import CdkSieteStack
-from cdk_siete.server_web import ServerWeb
+from cdk_siete.cdk_siete_stack import CdkSieteStack
+#from cdk_siete.server_web import ServerWeb
 #from cdk_siete.server_admin import ServerAdmin
 
 
 app = cdk.App()
-#CdkSieteStack(app, "CdkSieteStack")
-server = ServerWeb(app, 'serverweb'),
+CdkSieteStack(app, "CdkSieteStack")
+#server = ServerWeb(app, 'serverweb'),
 #main_stack = (app, 'MainStack', env={'region': 'eu-central-1'},
 #ServerWeb = ServerWeb(
     #main_stack,
