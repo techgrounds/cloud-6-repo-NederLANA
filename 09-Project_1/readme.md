@@ -101,6 +101,9 @@ https://aws.amazon.com/premiumsupport/knowledge-center/systems-manager-ssh-vpc-r
 SG and SSH from specific IP for VPC:
 https://www.pulumi.com/docs/guides/crosswalk/aws/vpc
 
+socket pairs connecting server/client:
+https://levelup.gitconnected.com/operating-system-concepts-sockets-a78ddb9b5f9c
+
 aws cdk vpc:
 https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.Vpc.html
 
@@ -205,10 +208,13 @@ redirect http to https using alb:
 - https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.aws_elasticloadbalancingv2/README.html
 
 self sign certificiate:
-https://zuqqhi2.com/en/generating-self-signed-certificate-and-applying-to-aws-alb
+- https://zuqqhi2.com/en/generating-self-signed-certificate-and-applying-to-aws-alb
 
-acm generate certificate:
-https://docs.aws.amazon.com/code-samples/latest/catalog/python-acm-certificate_basics.py.html
+create self signed certificate during cloudformation:
+- https://pillpall.github.io/aws/2020/08/27/Create-Self-Signed-Certificate-with-Cloudformation.html
+
+acm certificate manager:
+- https://docs.aws.amazon.com/code-samples/latest/catalog/python-acm-certificate_basics.py.html
 
 tls 1.2 required
 https://aws.amazon.com/blogs/security/tls-1-2-required-for-aws-fips-endpoints/

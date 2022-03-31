@@ -1,6 +1,5 @@
 from constructs import Construct
 from cdk_ec2_key_pair import KeyPair
-import socket
 from aws_cdk import (
     Duration,
     Stack,
@@ -19,8 +18,8 @@ class CdkSeisStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        #VPC web server
-        self.vpc=ec2.Vpc(
+        #VPC1: web server
+        self.vpc1=ec2.Vpc(
             self, "VPC",
             max_azs=2,
             cidr="10.10.10.0/24",
@@ -37,7 +36,7 @@ class CdkSeisStack(Stack):
             self, "Output1",
             value=self.vpc1.vpc_id)
 
-        #VPC adminstrator server
+        #VPC2 administrator server
         self.vpc2=ec2.Vpc(
             self, "VPC2",
             max_azs=2,
@@ -45,7 +44,7 @@ class CdkSeisStack(Stack):
             subnet_configuration=[
                 ec2.SubnetConfiguration(
                     subnet_type=ec2.SubnetType.PUBLIC,
-                    name="Public"
+                    name="Public",
                     cidr_mask=26
                 )
             ]
@@ -55,27 +54,26 @@ class CdkSeisStack(Stack):
             self, "Output2",
             value=self.vpc2.vpc_id)
 
-        #VPC Peering
-        self.VPCPeering=ec2.CfnVPCPeeringConnection(
+        # Peering between VPC1 and VPC2
+        self.VPC1PeerVPC2=ec2.CfnVPCPeeringConnection(
             self,
-            "VPCPeering",
+            "VPC1PeerVPC2",
             peer_vpc_id=self.vpc1.vpc_id,
             vpc_id=self.vpc2.vpc_id,
             peer_region="eu-central-1"
         )
 
         for i in range(0,1):
+            self.cfn_Route=ec2.CfnRoute(self, "VPC1RouteVPC2",
+            route_table_id=self.vpc.public_subnets[i].route_table.route_table_id,
+            destination_cidr_block="10.20.20.0/24",
+            vpc_peering_connection_id=self.VPCPeering.ref)
 
-                           self.cfn_Route = ec2.CfnRoute(self, "VPC1Route",
-                           route_table_id=self.vpc.public_subnets[i].route_table.route_table_id,
-                           destination_cidr_block="10.20.20.0/24",
-                           vpc_peering_connection_id=self.VPCPeering.ref)
         for i in range(0,1):
-                           self.cfn_Route = ec2.CfnRoute(self, "VPC2Route",
-                           route_table_id=self.vpc2.public_subnets[j].route_table.route_table_id,
-                           destination_cidr_block="10.10.10.0/24",
-                           vpc_peering_connection_id=self.VPCPeering.ref)
-
+            self.cfn_Route=ec2.CfnRoute(self, "VPC2RouteVPC1",
+            route_table_id=self.vpc2.public_subnets[j].route_table.route_table_id,
+            destination_cidr_block="10.10.10.0/24",
+            vpc_peering_connection_id=self.VPCPeering.ref)
 
 
         #AMI Linux for web server
@@ -86,9 +84,79 @@ class CdkSeisStack(Stack):
             storage=ec2.AmazonLinuxStorage.GENERAL_PURPOSE
         )
 
-        #AMI Windows for admin server
+        #AMI Windows for admin server to connect to web servia via SSH and/or RDP
         windows_server=ec2.MachineImage.latest_windows(
             ec2.WindowsVersion.WINDOWS_SERVER_2022_ENGLISH_FULL_BASE
+        )
+
+        #SG for Admin Server allows all outbound traffic
+        AdminSG=ec2.SecurityGroup(
+            self,"AdminSG",
+            vpc= self.vpc2,
+            allow_all_outbound=True,
+            sg_name="AdminServerSG"
+        )
+
+        #SG allows SSH ingress to Admin Server from trusted IP
+        AdminSG.add_ingress_rule(
+            trusted_ip=ec2.Peer.ipv4("83.80.144.156/32"), #insert user IP
+            connect_port=ec2.Port.tcp(22),
+            ingress_name="SSH"
+        )
+
+        #SG allows RDP ingress to Admin Server from trusted IP
+        AdminSG.add_ingress_rule(
+            trusted_ip=ec2.Peer.ipv4("83.80.144.156/32"),
+            connect_port=ec2.Port.tcp(3389),
+            ingress_name="RDP"
+        )
+
+        #SG allows only secured access to Admin Server
+        AdminSG.add_ingress_rule(
+            trusted_ip=ec2.Peer.ipv4("83.80.144.156/32"),
+            connected_port=ec2.Port.tcp(443),
+            ingress_name="HTTPS"
+        )
+
+        #NOT RECOMMENDED: SG allowing unsecured access to Admin Server with public IP
+        AdminSG.add_ingress_rule(
+            trusted_ip=ec2.Peer.ipv4("83.80.144.156/32"),
+            connected_port=ec2.Port.tcp(80),
+            ingress_name="HTTP")
+
+        #Security Group for web server
+        WebSG=ec2.SecurityGroup(
+            self,"WebSG",
+            vpc= self.vpc1,
+            allow_all_outbound=True,
+            sg_name="WebserverSG"
+        )
+
+        #SG allows unsecured internet traffic public IP
+        WebSG.add_ingress_rule(
+            unsecured_public=ec2.Peer.any_ipv4(),
+            connect_port=ec2.Port.tcp(80),
+            ingress_name="HTTP public traffic"
+        )
+
+        #SG allows secured public internet traffic
+        WebSG.add_ingress_rule(
+            secured_public=ec2.Peer.any_ipv4(),
+            connect_port=ec2.Port.tcp(443),
+            ingress_name="HTTPS public traffic"
+        )
+
+        #SG allows private RDP ingress from Admin Server
+        WebSG.add_ingress_rule(
+            admin_id=ec2.Peer.ipv4(AdminSG.security_group_id),
+            connect_port=ec2.Port.tcp(3389),
+            ingress_name="RDP from Admin Server"
+        )
+        #SG allows private SSH ingress from Admin Server
+        WebSG.add_ingress_rule(
+            admin_id=ec2.Peer.security_group_id(AdminSG.security_group_id) ,
+            connect_port=ec2.Port.tcp(22),
+            ingress_name="SSH from Admin Server"
         )
 
         #Key Pair Web Server
@@ -119,26 +187,6 @@ class CdkSeisStack(Stack):
             key_name=key1.key_pair_name
         )
 
-        #Security Group for Admin Server
-        AdminSG=ec2.SecurityGroup(
-            self,"AdminSG",
-            vpc= self.vpc2,
-            allow_all_outbound=True,
-            sg_name="AdminServerSG"
-        )
-
-        #SG allows SSH ingress to Admin Server from trusted IP
-        AdminSG.add_ingress_rule(
-            trusted_ip=ec2.Peer.ipv4(), #insert my own IP here
-            connect_port=ec2.Port.tcp(22),
-            ingress_name="SSH"
-        )
-        AdminSG.add_ingress_rule(ec2.Peer.ipv4("77.248.14.193/32"),
-                                    ec2.Port.tcp(80),
-                                    "HTTP")
-        AdminSG.add_ingress_rule(ec2.Peer.ipv4("77.248.14.193/32"),
-                                    ec2.Port.tcp(443),
-                                    "HTTPS")
 
 
         #Web server EC2 launch
@@ -165,20 +213,6 @@ class CdkSeisStack(Stack):
 
         CfnOutput(self,"ip", value=str(instance1.instance_private_ip))
 
-              #Security Group for web server
-        webSG=ec2.SecurityGroup(self,"webSG",vpc= self.vpc, allow_all_outbound=True, security_group_name="WebserverSG")
-        webSG.add_ingress_rule(ec2.Peer.any_ipv4(),
-                                 ec2.Port.tcp(80),
-                                    "http traffic")
-        webSG.add_ingress_rule(ec2.Peer.any_ipv4(),
-                                 ec2.Port.tcp(443),
-                                    "https traffic")
-        webSG.add_ingress_rule(ec2.Peer.security_group_id(MgmtSG.security_group_id) ,
-                                    ec2.Port.tcp(22),
-                                       "ssh")
-        webSG.add_ingress_rule(ec2.Peer.any_ipv4(),
-                                 ec2.Port.tcp(socket.IPPROTO_ICMP),
-                                    "ping")
 
 
 
