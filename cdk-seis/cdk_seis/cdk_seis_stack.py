@@ -9,7 +9,7 @@ from aws_cdk import (
     aws_ec2 as ec2,
     aws_backup as backup,
     aws_events as events
-    #aws_iam as iam,
+    aws_iam as iam,
     #aws_ssm as ssm,
 )
 
@@ -101,21 +101,21 @@ class CdkSeisStack(Stack):
         AdminSG.add_ingress_rule(
             trusted_ip=ec2.Peer.ipv4("83.80.144.156/32"), #insert user IP
             connect_port=ec2.Port.tcp(22),
-            ingress_name="SSH"
+            ingress_name="SSH to admin server from trusted ip"
         )
 
         #SG allows RDP ingress to Admin Server from trusted IP
         AdminSG.add_ingress_rule(
             trusted_ip=ec2.Peer.ipv4("83.80.144.156/32"),
             connect_port=ec2.Port.tcp(3389),
-            ingress_name="RDP"
+            ingress_name="RDP to admin server from trusted ip"
         )
 
-        #SG allows only secured access to Admin Server
+        #SG allows only secured access to Admin Server.
         AdminSG.add_ingress_rule(
             trusted_ip=ec2.Peer.ipv4("83.80.144.156/32"),
             connected_port=ec2.Port.tcp(443),
-            ingress_name="HTTPS"
+            ingress_name="HTTPS secured access to admin server from trusted ip"
         )
 
         #NOT RECOMMENDED: SG allowing unsecured access to Admin Server with public IP
@@ -136,14 +136,14 @@ class CdkSeisStack(Stack):
         WebSG.add_ingress_rule(
             unsecured_public=ec2.Peer.any_ipv4(),
             connect_port=ec2.Port.tcp(80),
-            ingress_name="HTTP public traffic"
+            ingress_name="HTTP public traffic to web server"
         )
 
         #SG allows secured public internet traffic
         WebSG.add_ingress_rule(
             secured_public=ec2.Peer.any_ipv4(),
             connect_port=ec2.Port.tcp(443),
-            ingress_name="HTTPS public traffic"
+            ingress_name="HTTPS public traffic to web server"
         )
 
         #SG allows private RDP ingress from Admin Server
@@ -159,19 +159,47 @@ class CdkSeisStack(Stack):
             ingress_name="SSH from Admin Server"
         )
 
-        #Key Pair Web Server
-        key = KeyPair(
+        #VPC2 Network ACL. Can easily be modified to specs
+        aclcidr1= ec2.AclCidr.any_ipv4()
+        nacl=ec2.NetworkAcl(
+            self,"nacl",
+            vpc=self.vpc2
+        )
+        nacl.add_entry(
+            "id",cidr=aclcidr1,rule_number=100,
+            traffic=ec2.AclTraffic.all_traffic(),
+            egress=ec2.TrafficDirection.EGRESS,
+            egress_name="allow all egress traffic",
+            rule_action=ec2.Action.ALLOW
+        )
+
+        #Key Pair (1) Web Server
+        web_key=KeyPair(
             self,"KeyPair1",
             name="WebServerKey",
             store_public_key=True
         )
 
-        #EC2 Admin Server
+        #Key Pair Admin Server
+        admin_key=KeyPair(
+            self,"KeyPair2",
+            name="AdminServerKey",
+            store_public_key=True
+        )
+
+        #Instance role and SSM Managed policy
+        role = iam.Role(self, 'InstanceSSM', assumed_by=iam.ServicePrincipal('ec2.amazonaws.com'))
+
+        role.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name('AmazonSSMManagedInstanceCore'))
+
+        #EC2(2) for Admin Server in VPC2
         instance2=ec2.Instance(
-            self, "Instance2",
+            self, "InstanceAdmin",
             instance_type=ec2.InstanceType("t2.micro"),
-            machine_image=amzn_linux,
+            machine_image=windows_server,
             vpc=self.vpc2,
+            security_group=AdminSG,
+            key_name=admin_key.key_pair_name,
             block_devices=[
                 ec2.BlockDevice(
                     device_name="/dev/xvda",
@@ -182,54 +210,39 @@ class CdkSeisStack(Stack):
                     ),
                     mapping_enabled= True
                 )
-            ],
-            security_group = MgmtSG,
-            key_name=key1.key_pair_name
+            ]
         )
 
+        #access local user data to launch web server
+        with open("./userdata.sh") as f:
+            user_data = f.read()
 
-
-        #Web server EC2 launch
-        instance1 = ec2.Instance(self, "Instance",
-        instance_type=ec2.InstanceType("t2.micro"),
-        machine_image=amzn_linux,
-        vpc = self.vpc,
-        block_devices= [ec2.BlockDevice(
-                        device_name="/dev/xvda",
-                        volume=ec2.BlockDeviceVolume.ebs(
+        #EC2(1) for Web Server in VPC1
+        instance1 = ec2.Instance(
+            self, "Instance",
+            instance_type=ec2.InstanceType("t2.micro"),
+            machine_image=amzn_linux,
+            vpc = self.vpc1,
+            security_group=WebSG,
+            key_name=web_key.key_pair_name
+            block_devices=[
+                ec2.BlockDevice(
+                    device_name="/dev/xvda",
+                    volume=ec2.BlockDeviceVolume.ebs(
                         volume_size=8,
                         volume_type=ec2.EbsDeviceVolumeType.GP2,
                         encrypted=True
-                         ),
-                         mapping_enabled= True
-                         )
-                         ],
-        user_data=ec2.UserData.custom(user_data),
-        security_group = webSG,
-        key_name=key.key_pair_name
+                    ),
+                    mapping_enabled= True
+                ),
+            ],
+            user_data=ec2.UserData.custom(user_data)
         )
-        instance1.connections.allow_from_any_ipv4(port_range=ec2.Port.tcp(80)
-                                                  , description="Allow Web Traffic")
+        instance1.connections.allow_from_any_ipv4(
+            port_range=ec2.Port.tcp(80),
+            description="Allow Web Traffic")
 
         CfnOutput(self,"ip", value=str(instance1.instance_private_ip))
-
-
-
-
-        #Key Pair Admin Server
-        key1 = KeyPair(
-            self,"KeyPair2",
-            name="AdminServerKey",
-            store_public_key=True
-        )
-
-        #Network ACL
-        aclcidr1= ec2.AclCidr.any_ipv4()
-        nacl=ec2.NetworkAcl(self,"mynacl",vpc=self.vpc2)
-        nacl.add_entry("id",cidr=aclcidr1,rule_number=100,
-               traffic=ec2.AclTraffic.all_traffic(),direction=ec2.TrafficDirection.EGRESS,
-                  network_acl_entry_name="myentry",rule_action=ec2.Action.ALLOW)
-
 
 
         #server Tags
