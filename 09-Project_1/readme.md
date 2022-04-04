@@ -98,6 +98,12 @@ Assign IAM Roles for user to access Cloudformation from restricted IP:
 Set up SSH to private VPC resources via Systems Manager:
 https://aws.amazon.com/premiumsupport/knowledge-center/systems-manager-ssh-vpc-resources/
 
+user data Linux instance at launch:
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
+
+creating key pairs
+- https://github.com/udondan/cdk-ec2-key-pair
+
 SG and SSH from specific IP for VPC:
 https://www.pulumi.com/docs/guides/crosswalk/aws/vpc
 

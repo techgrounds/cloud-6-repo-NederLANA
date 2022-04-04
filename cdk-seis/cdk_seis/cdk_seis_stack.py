@@ -136,12 +136,6 @@ class CdkSeisStack(Stack):
             "HTTPS public traffic to web server"
         )
 
-        #SG allows private RDP ingress from Admin Server
-        #WebSG.add_ingress_rule(
-            #ec2.Peer.ipv4(AdminSG.security_group_id),
-            #ec2.Port.tcp(3389),
-            #"RDP from Admin Server"
-        #)
         #SG allows private SSH ingress from Admin Server
         WebSG.add_ingress_rule(
             ec2.Peer.security_group_id(AdminSG.security_group_id) ,
@@ -257,7 +251,7 @@ class CdkSeisStack(Stack):
                 backup_vault=vault1,
                 rule_name="WebRule",
                 schedule_expression=events.Schedule.cron(
-                    hour="4",
+                    hour="7",
                     minute="00",
                     day="*",
                     month="*",
@@ -290,9 +284,10 @@ class CdkSeisStack(Stack):
                 backup_vault=vault2,
                               rule_name="AdminRule",
                               schedule_expression=events.Schedule.cron(
-                                  hour="5" ,
+                                  hour="7" ,
                                   minute="00",
-                                  day="*", month="*",
+                                  day="*",
+                                  month="*",
                                   year="*"
                               ),
                               delete_after=Duration.days(7),

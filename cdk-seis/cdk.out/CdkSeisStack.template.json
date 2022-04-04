@@ -1112,7 +1112,7 @@
           }
         ],
         "UserData": {
-          "Fn::Base64": "#!/bin/bash\n yum -y install httpd\n systemctl enable httpd\n systemctl start httpd\n echo '<html><h1>Hi, Techgrounds. Hello, Sentia!</h1></html>' > /var/www/html/index.html"
+          "Fn::Base64": "#!/bin/bash\n yum -y install httpd\n systemctl enable httpd\n systemctl start httpd\n echo '<html><h1>I would like to take this moment to thank all my classmates for pushing and pulling me through the TG course. And thank Sentia for giving me an opportunity to use what I have learned!</h1></html>' > /var/www/html/index.html"
         }
       },
       "DependsOn": [
@@ -1145,7 +1145,7 @@
                 "DeleteAfterDays": 7
               },
               "RuleName": "WebRule",
-              "ScheduleExpression": "cron(00 4 * * ? *)",
+              "ScheduleExpression": "cron(00 7 * * ? *)",
               "StartWindowMinutes": 60,
               "TargetBackupVault": {
                 "Fn::GetAtt": [
@@ -1248,7 +1248,7 @@
                 "DeleteAfterDays": 7
               },
               "RuleName": "AdminRule",
-              "ScheduleExpression": "cron(00 5 * * ? *)",
+              "ScheduleExpression": "cron(00 7 * * ? *)",
               "StartWindowMinutes": 60,
               "TargetBackupVault": {
                 "Fn::GetAtt": [
