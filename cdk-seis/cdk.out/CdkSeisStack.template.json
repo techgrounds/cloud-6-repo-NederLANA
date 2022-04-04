@@ -21,7 +21,7 @@
     "VPCPublicSubnet1SubnetB4246D30": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "CidrBlock": "10.10.10.0/25",
+        "CidrBlock": "10.10.10.0/26",
         "VpcId": {
           "Ref": "VPCB9E5F0B4"
         },
@@ -105,7 +105,7 @@
     "VPCPublicSubnet2Subnet74179F39": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "CidrBlock": "10.10.10.128/25",
+        "CidrBlock": "10.10.10.64/26",
         "VpcId": {
           "Ref": "VPCB9E5F0B4"
         },
@@ -235,7 +235,7 @@
     "VPC2PublicSubnet1SubnetBAA0C75E": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "CidrBlock": "10.20.20.0/25",
+        "CidrBlock": "10.20.20.0/26",
         "VpcId": {
           "Ref": "VPC2C1F0E711"
         },
@@ -319,7 +319,7 @@
     "VPC2PublicSubnet2SubnetEFC26F07": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "CidrBlock": "10.20.20.128/25",
+        "CidrBlock": "10.20.20.64/26",
         "VpcId": {
           "Ref": "VPC2C1F0E711"
         },
@@ -443,7 +443,7 @@
         "aws:cdk:path": "CdkSeisStack/VPCPeering"
       }
     },
-    "VPC1Route": {
+    "VPCwRouteVPCa": {
       "Type": "AWS::EC2::Route",
       "Properties": {
         "RouteTableId": {
@@ -455,10 +455,10 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkSeisStack/VPC1Route"
+        "aws:cdk:path": "CdkSeisStack/VPCwRouteVPCa"
       }
     },
-    "VPC2Route": {
+    "VPCaRouteVPCw": {
       "Type": "AWS::EC2::Route",
       "Properties": {
         "RouteTableId": {
@@ -470,10 +470,135 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkSeisStack/VPC2Route"
+        "aws:cdk:path": "CdkSeisStack/VPCaRouteVPCw"
       }
     },
-    "KeyPairEC2KeyPairWebServerKeyA0F6E9B5": {
+    "AdminSG9D861911": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "CdkSeisStack/AdminSG",
+        "GroupName": "AdminServerSG",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "83.80.144.156/32",
+            "Description": "SSH to admin server from trusted ip",
+            "FromPort": 22,
+            "IpProtocol": "tcp",
+            "ToPort": 22
+          },
+          {
+            "CidrIp": "83.80.144.156/32",
+            "Description": "RDP to admin server from trusted ip",
+            "FromPort": 3389,
+            "IpProtocol": "tcp",
+            "ToPort": 3389
+          },
+          {
+            "CidrIp": "83.80.144.156/32",
+            "Description": "HTTPS secured access to admin server from trusted ip",
+            "FromPort": 443,
+            "IpProtocol": "tcp",
+            "ToPort": 443
+          },
+          {
+            "CidrIp": "83.80.144.156/32",
+            "Description": "unsecured HTTP access to Admin Server from trusted IP",
+            "FromPort": 80,
+            "IpProtocol": "tcp",
+            "ToPort": 80
+          }
+        ],
+        "VpcId": {
+          "Ref": "VPC2C1F0E711"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkSeisStack/AdminSG/Resource"
+      }
+    },
+    "WebSG93294D3E": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "CdkSeisStack/WebSG",
+        "GroupName": "WebserverSG",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "HTTP public traffic to web server",
+            "FromPort": 80,
+            "IpProtocol": "tcp",
+            "ToPort": 80
+          },
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "HTTPS public traffic to web server",
+            "FromPort": 443,
+            "IpProtocol": "tcp",
+            "ToPort": 443
+          },
+          {
+            "Description": "SSH from Admin Server",
+            "FromPort": 22,
+            "IpProtocol": "tcp",
+            "SourceSecurityGroupId": {
+              "Fn::GetAtt": [
+                "AdminSG9D861911",
+                "GroupId"
+              ]
+            },
+            "ToPort": 22
+          }
+        ],
+        "VpcId": {
+          "Ref": "VPCB9E5F0B4"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkSeisStack/WebSG/Resource"
+      }
+    },
+    "nacl403288B8": {
+      "Type": "AWS::EC2::NetworkAcl",
+      "Properties": {
+        "VpcId": {
+          "Ref": "VPC2C1F0E711"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkSeisStack/nacl/Resource"
+      }
+    },
+    "naclid9E81F618": {
+      "Type": "AWS::EC2::NetworkAclEntry",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "nacl403288B8"
+        },
+        "Protocol": -1,
+        "RuleAction": "allow",
+        "RuleNumber": 100,
+        "CidrBlock": "0.0.0.0/0",
+        "Egress": true
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkSeisStack/nacl/id/Resource"
+      }
+    },
+    "KeyPair1EC2KeyPairWebServerKey82098BCD": {
       "Type": "Custom::EC2-Key-Pair",
       "Properties": {
         "ServiceToken": {
@@ -500,7 +625,7 @@
       "UpdateReplacePolicy": "Delete",
       "DeletionPolicy": "Delete",
       "Metadata": {
-        "aws:cdk:path": "CdkSeisStack/KeyPair/EC2-Key-Pair-WebServerKey/Default"
+        "aws:cdk:path": "CdkSeisStack/KeyPair1/EC2-Key-Pair-WebServerKey/Default"
       }
     },
     "EC2KeyPairManagerPolicyEBBC1576": {
@@ -685,102 +810,197 @@
         "aws:asset:property": "Code"
       }
     },
-    "MgmtSGAF1D515A": {
-      "Type": "AWS::EC2::SecurityGroup",
+    "KeyPair2EC2KeyPairAdminServerKeyD51348FC": {
+      "Type": "Custom::EC2-Key-Pair",
       "Properties": {
-        "GroupDescription": "CdkSeisStack/MgmtSG",
-        "GroupName": "MgmtServerSG",
-        "SecurityGroupEgress": [
-          {
-            "CidrIp": "0.0.0.0/0",
-            "Description": "Allow all outbound traffic by default",
-            "IpProtocol": "-1"
-          }
-        ],
-        "SecurityGroupIngress": [
-          {
-            "CidrIp": "77.248.14.193/32",
-            "Description": "SSH Connecton",
-            "FromPort": 22,
-            "IpProtocol": "tcp",
-            "ToPort": 22
-          },
-          {
-            "CidrIp": "77.248.14.193/32",
-            "Description": "HTTP",
-            "FromPort": 80,
-            "IpProtocol": "tcp",
-            "ToPort": 80
-          },
-          {
-            "CidrIp": "77.248.14.193/32",
-            "Description": "HTTPS",
-            "FromPort": 443,
-            "IpProtocol": "tcp",
-            "ToPort": 443
-          }
-        ],
-        "VpcId": {
-          "Ref": "VPC2C1F0E711"
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "EC2KeyNameManagerLambdaBE629145",
+            "Arn"
+          ]
+        },
+        "Name": "AdminServerKey",
+        "Description": "",
+        "KmsPrivate": "alias/aws/secretsmanager",
+        "KmsPublic": "alias/aws/secretsmanager",
+        "PublicKey": "",
+        "StorePublicKey": true,
+        "ExposePublicKey": false,
+        "PublicKeyFormat": "OPENSSH",
+        "RemoveKeySecretsAfterDays": 0,
+        "SecretPrefix": "ec2-ssh-key/",
+        "StackName": "CdkSeisStack",
+        "Tags": {
+          "CreatedByCfnCustomResource": "CFN::Resource::Custom::EC2-Key-Pair"
         }
       },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
       "Metadata": {
-        "aws:cdk:path": "CdkSeisStack/MgmtSG/Resource"
+        "aws:cdk:path": "CdkSeisStack/KeyPair2/EC2-Key-Pair-AdminServerKey/Default"
       }
     },
-    "webSG9F367DE6": {
-      "Type": "AWS::EC2::SecurityGroup",
+    "InstanceSSMCBFA3CF0": {
+      "Type": "AWS::IAM::Role",
       "Properties": {
-        "GroupDescription": "CdkSeisStack/webSG",
-        "GroupName": "WebserverSG",
-        "SecurityGroupEgress": [
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "ec2.",
+                      {
+                        "Ref": "AWS::URLSuffix"
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
           {
-            "CidrIp": "0.0.0.0/0",
-            "Description": "Allow all outbound traffic by default",
-            "IpProtocol": "-1"
-          }
-        ],
-        "SecurityGroupIngress": [
-          {
-            "CidrIp": "0.0.0.0/0",
-            "Description": "http traffic",
-            "FromPort": 80,
-            "IpProtocol": "tcp",
-            "ToPort": 80
-          },
-          {
-            "CidrIp": "0.0.0.0/0",
-            "Description": "https traffic",
-            "FromPort": 443,
-            "IpProtocol": "tcp",
-            "ToPort": 443
-          },
-          {
-            "Description": "ssh",
-            "FromPort": 22,
-            "IpProtocol": "tcp",
-            "SourceSecurityGroupId": {
-              "Fn::GetAtt": [
-                "MgmtSGAF1D515A",
-                "GroupId"
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/AmazonSSMManagedInstanceCore"
               ]
-            },
-            "ToPort": 22
-          },
-          {
-            "CidrIp": "0.0.0.0/0",
-            "Description": "ping",
-            "FromPort": 1,
-            "IpProtocol": "tcp",
-            "ToPort": 1
+            ]
           }
-        ],
-        "VpcId": {
-          "Ref": "VPCB9E5F0B4"
-        }
+        ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkSeisStack/webSG/Resource"
+        "aws:cdk:path": "CdkSeisStack/InstanceSSM/Resource"
+      }
+    },
+    "InstanceAdminInstanceRole085968C8": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "ec2.",
+                      {
+                        "Ref": "AWS::URLSuffix"
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Tags": [
+          {
+            "Key": "admins",
+            "Value": "AdminBackup"
+          },
+          {
+            "Key": "Name",
+            "Value": "CdkSeisStack/InstanceAdmin"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkSeisStack/InstanceAdmin/InstanceRole/Resource"
+      }
+    },
+    "InstanceAdminInstanceProfile77A7DAA8": {
+      "Type": "AWS::IAM::InstanceProfile",
+      "Properties": {
+        "Roles": [
+          {
+            "Ref": "InstanceAdminInstanceRole085968C8"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkSeisStack/InstanceAdmin/InstanceProfile"
+      }
+    },
+    "InstanceAdmin83A8DA8F": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "BlockDeviceMappings": [
+          {
+            "DeviceName": "/dev/xvda",
+            "Ebs": {
+              "Encrypted": true,
+              "VolumeSize": 8,
+              "VolumeType": "gp2"
+            }
+          }
+        ],
+        "IamInstanceProfile": {
+          "Ref": "InstanceAdminInstanceProfile77A7DAA8"
+        },
+        "ImageId": {
+          "Ref": "SsmParameterValueawsserviceamiwindowslatestWindowsServer2022EnglishFullBaseC96584B6F00A464EAD1953AFF4B05118Parameter"
+        },
+        "InstanceType": "t2.micro",
+        "KeyName": {
+          "Fn::GetAtt": [
+            "KeyPair2EC2KeyPairAdminServerKeyD51348FC",
+            "KeyPairName"
+          ]
+        },
+        "SecurityGroupIds": [
+          {
+            "Fn::GetAtt": [
+              "AdminSG9D861911",
+              "GroupId"
+            ]
+          }
+        ],
+        "SubnetId": {
+          "Ref": "VPC2PublicSubnet1SubnetBAA0C75E"
+        },
+        "Tags": [
+          {
+            "Key": "admins",
+            "Value": "AdminBackup"
+          },
+          {
+            "Key": "Name",
+            "Value": "CdkSeisStack/InstanceAdmin"
+          }
+        ],
+        "UserData": {
+          "Fn::Base64": "<powershell></powershell>"
+        }
+      },
+      "DependsOn": [
+        "InstanceAdminInstanceRole085968C8"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "CdkSeisStack/InstanceAdmin/Resource"
       }
     },
     "InstanceInstanceRoleE9785DE5": {
@@ -815,7 +1035,7 @@
           },
           {
             "Key": "webs",
-            "Value": "webbackup"
+            "Value": "WebBackup"
           }
         ]
       },
@@ -866,14 +1086,14 @@
         "InstanceType": "t2.micro",
         "KeyName": {
           "Fn::GetAtt": [
-            "KeyPairEC2KeyPairWebServerKeyA0F6E9B5",
+            "KeyPair1EC2KeyPairWebServerKey82098BCD",
             "KeyPairName"
           ]
         },
         "SecurityGroupIds": [
           {
             "Fn::GetAtt": [
-              "webSG9F367DE6",
+              "WebSG93294D3E",
               "GroupId"
             ]
           }
@@ -888,11 +1108,11 @@
           },
           {
             "Key": "webs",
-            "Value": "webbackup"
+            "Value": "WebBackup"
           }
         ],
         "UserData": {
-          "Fn::Base64": "#!/bin/bash\n yum -y install httpd\n systemctl enable httpd\n systemctl start httpd\n echo '<html><h1>Hello From Your Web Server!</h1></html>' > /var/www/html/index.html"
+          "Fn::Base64": "#!/bin/bash\n yum -y install httpd\n systemctl enable httpd\n systemctl start httpd\n echo '<html><h1>Hi, Techgrounds. Hello, Sentia!</h1></html>' > /var/www/html/index.html"
         }
       },
       "DependsOn": [
@@ -902,198 +1122,22 @@
         "aws:cdk:path": "CdkSeisStack/Instance/Resource"
       }
     },
-    "KeyPair2EC2KeyPairMgmtServerKeyFBC6FCC3": {
-      "Type": "Custom::EC2-Key-Pair",
-      "Properties": {
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "EC2KeyNameManagerLambdaBE629145",
-            "Arn"
-          ]
-        },
-        "Name": "MgmtServerKey",
-        "Description": "",
-        "KmsPrivate": "alias/aws/secretsmanager",
-        "KmsPublic": "alias/aws/secretsmanager",
-        "PublicKey": "",
-        "StorePublicKey": true,
-        "ExposePublicKey": false,
-        "PublicKeyFormat": "OPENSSH",
-        "RemoveKeySecretsAfterDays": 0,
-        "SecretPrefix": "ec2-ssh-key/",
-        "StackName": "CdkSeisStack",
-        "Tags": {
-          "CreatedByCfnCustomResource": "CFN::Resource::Custom::EC2-Key-Pair"
-        }
-      },
-      "UpdateReplacePolicy": "Delete",
-      "DeletionPolicy": "Delete",
-      "Metadata": {
-        "aws:cdk:path": "CdkSeisStack/KeyPair2/EC2-Key-Pair-MgmtServerKey/Default"
-      }
-    },
-    "mynacl52F1B6C4": {
-      "Type": "AWS::EC2::NetworkAcl",
-      "Properties": {
-        "VpcId": {
-          "Ref": "VPC2C1F0E711"
-        }
-      },
-      "Metadata": {
-        "aws:cdk:path": "CdkSeisStack/mynacl/Resource"
-      }
-    },
-    "mynaclidE3A64C6F": {
-      "Type": "AWS::EC2::NetworkAclEntry",
-      "Properties": {
-        "NetworkAclId": {
-          "Ref": "mynacl52F1B6C4"
-        },
-        "Protocol": -1,
-        "RuleAction": "allow",
-        "RuleNumber": 100,
-        "CidrBlock": "0.0.0.0/0",
-        "Egress": true
-      },
-      "Metadata": {
-        "aws:cdk:path": "CdkSeisStack/mynacl/id/Resource"
-      }
-    },
-    "Instance2InstanceRole03DD7CB2": {
-      "Type": "AWS::IAM::Role",
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "ec2.",
-                      {
-                        "Ref": "AWS::URLSuffix"
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ],
-          "Version": "2012-10-17"
-        },
-        "Tags": [
-          {
-            "Key": "mgmt",
-            "Value": "mgmtbackup"
-          },
-          {
-            "Key": "Name",
-            "Value": "CdkSeisStack/Instance2"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "CdkSeisStack/Instance2/InstanceRole/Resource"
-      }
-    },
-    "Instance2InstanceProfile582F915C": {
-      "Type": "AWS::IAM::InstanceProfile",
-      "Properties": {
-        "Roles": [
-          {
-            "Ref": "Instance2InstanceRole03DD7CB2"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "CdkSeisStack/Instance2/InstanceProfile"
-      }
-    },
-    "Instance255F35265": {
-      "Type": "AWS::EC2::Instance",
-      "Properties": {
-        "AvailabilityZone": {
-          "Fn::Select": [
-            0,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        },
-        "BlockDeviceMappings": [
-          {
-            "DeviceName": "/dev/xvda",
-            "Ebs": {
-              "Encrypted": true,
-              "VolumeSize": 8,
-              "VolumeType": "gp2"
-            }
-          }
-        ],
-        "IamInstanceProfile": {
-          "Ref": "Instance2InstanceProfile582F915C"
-        },
-        "ImageId": {
-          "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
-        },
-        "InstanceType": "t2.micro",
-        "KeyName": {
-          "Fn::GetAtt": [
-            "KeyPair2EC2KeyPairMgmtServerKeyFBC6FCC3",
-            "KeyPairName"
-          ]
-        },
-        "SecurityGroupIds": [
-          {
-            "Fn::GetAtt": [
-              "MgmtSGAF1D515A",
-              "GroupId"
-            ]
-          }
-        ],
-        "SubnetId": {
-          "Ref": "VPC2PublicSubnet1SubnetBAA0C75E"
-        },
-        "Tags": [
-          {
-            "Key": "mgmt",
-            "Value": "mgmtbackup"
-          },
-          {
-            "Key": "Name",
-            "Value": "CdkSeisStack/Instance2"
-          }
-        ],
-        "UserData": {
-          "Fn::Base64": "#!/bin/bash"
-        }
-      },
-      "DependsOn": [
-        "Instance2InstanceRole03DD7CB2"
-      ],
-      "Metadata": {
-        "aws:cdk:path": "CdkSeisStack/Instance2/Resource"
-      }
-    },
-    "wsvaultDB0360CA": {
+    "webvaultEAF76DF3": {
       "Type": "AWS::Backup::BackupVault",
       "Properties": {
-        "BackupVaultName": "wsvault"
+        "BackupVaultName": "webvault"
       },
       "UpdateReplacePolicy": "Delete",
       "DeletionPolicy": "Delete",
       "Metadata": {
-        "aws:cdk:path": "CdkSeisStack/wsvault/Resource"
+        "aws:cdk:path": "CdkSeisStack/webvault/Resource"
       }
     },
     "Backup1192A4FA0": {
       "Type": "AWS::Backup::BackupPlan",
       "Properties": {
         "BackupPlan": {
-          "BackupPlanName": "wsbackup",
+          "BackupPlanName": "WebBackup",
           "BackupPlanRule": [
             {
               "CompletionWindowMinutes": 120,
@@ -1105,7 +1149,7 @@
               "StartWindowMinutes": 60,
               "TargetBackupVault": {
                 "Fn::GetAtt": [
-                  "wsvaultDB0360CA",
+                  "webvaultEAF76DF3",
                   "BackupVaultName"
                 ]
               }
@@ -1171,7 +1215,7 @@
             {
               "ConditionKey": "webs",
               "ConditionType": "STRINGEQUALS",
-              "ConditionValue": "webbackup"
+              "ConditionValue": "WebBackup"
             }
           ],
           "SelectionName": "ebsResource"
@@ -1181,34 +1225,34 @@
         "aws:cdk:path": "CdkSeisStack/Backup1/ebsResource/Resource"
       }
     },
-    "mgmtvaultFF68D6BD": {
+    "adminvaultD17A9F3D": {
       "Type": "AWS::Backup::BackupVault",
       "Properties": {
-        "BackupVaultName": "mgmtvault"
+        "BackupVaultName": "adminvault"
       },
       "UpdateReplacePolicy": "Delete",
       "DeletionPolicy": "Delete",
       "Metadata": {
-        "aws:cdk:path": "CdkSeisStack/mgmtvault/Resource"
+        "aws:cdk:path": "CdkSeisStack/adminvault/Resource"
       }
     },
     "Backup2790A502C": {
       "Type": "AWS::Backup::BackupPlan",
       "Properties": {
         "BackupPlan": {
-          "BackupPlanName": "Mgmtsbackup",
+          "BackupPlanName": "AdminBackup",
           "BackupPlanRule": [
             {
               "CompletionWindowMinutes": 120,
               "Lifecycle": {
                 "DeleteAfterDays": 7
               },
-              "RuleName": "MgmtRule",
+              "RuleName": "AdminRule",
               "ScheduleExpression": "cron(00 5 * * ? *)",
               "StartWindowMinutes": 60,
               "TargetBackupVault": {
                 "Fn::GetAtt": [
-                  "mgmtvaultFF68D6BD",
+                  "adminvaultD17A9F3D",
                   "BackupVaultName"
                 ]
               }
@@ -1272,9 +1316,9 @@
           },
           "ListOfTags": [
             {
-              "ConditionKey": "mgmt",
+              "ConditionKey": "admins",
               "ConditionType": "STRINGEQUALS",
-              "ConditionValue": "mgmtbackup"
+              "ConditionValue": "AdminBackup"
             }
           ],
           "SelectionName": "ebsResource1"
@@ -1287,7 +1331,7 @@
     "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-        "Analytics": "v2:deflate64:H4sIAAAAAAAA/11SQW6DMBB8S+7ETZNDzyRqoxzaIqhyjRazSVyMjey1IoT4e42BkPS0M7Mrjz3rNXt9Y6sF3OySF+VSipy1GQEvIy+dWuRr1h5rHu3O6pjsosTlUvDM5Qqp12aUakf4A7nEWZ+12FrNBZDQ6j7cg4MiNH5yD4Q3aEabkcXkL3KtUNGoJ4hGqMtOK4U8nJUhd0ZQszfa1cH4STgoS6D4aDXiL6SbNmXMZS8/sBm+KzLNczdIXSSgYu0nKLhgkWifRRh7FlI9hDDVyTkx+iwkdpGEKi+AtR9O8SmSCXeR3ZzAWiTL4r54zraOl0hbsBjlfjeuZu021CM4GdJ5pANOJKi5E9gAM5R4t/0ndV2UotXODJl9O6qdP99Z0tVj447DFf2Hufi99I0EDFTol9oTv6hCDI9KGrpq9bJhryu2XvxaIZbGKRIVsnSof5GSH6aKAgAA"
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/11SzW6DMAx+lt5p1rWHnWm1VT1sQzD1WpngthkhQYmjCiHefYFAaXfy95PYjp01e31jqwXc7JIX5VKKnLUZAS8jL51a5GvWHmse7c7qmOyixOVS8MzlCqnXZpRqR/gDucRZn7XYWs0FkNDqfrgHB0Vo/Mk9EN6gGcuMLCbfyLVCRaOeIBqhLjutFPIhV4bcGUHN3mhXD4WfhC+kmzZlzGXvPbAZvisyzbMbpIOyBIqPbQbcRQIq1n6CggsWifazGO4+C6kOQ5jidDsx+iykTyKhygtg7YdTfBrJhLvIbk5gLZJlcR88Z1vHS6QtWIxyvxtXs3Y7xCM4OUznkQacSFCzM7AAM5R4L/tP6rooRaudCe/+dlQ7n99Z0tWjccdDi/7DXPxeeiMBAxX6pfbEL6oQ4VFJQ1etXjbsdcXWi18rxNI4RaJClob4B03tWkCKAgAA"
       },
       "Metadata": {
         "aws:cdk:path": "CdkSeisStack/CDKMetadata/Default"
@@ -1296,12 +1340,12 @@
     }
   },
   "Outputs": {
-    "Output": {
+    "Output1": {
       "Value": {
         "Ref": "VPCB9E5F0B4"
       }
     },
-    "Output1": {
+    "Output2": {
       "Value": {
         "Ref": "VPC2C1F0E711"
       }
@@ -1316,6 +1360,10 @@
     }
   },
   "Parameters": {
+    "SsmParameterValueawsserviceamiwindowslatestWindowsServer2022EnglishFullBaseC96584B6F00A464EAD1953AFF4B05118Parameter": {
+      "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+      "Default": "/aws/service/ami-windows-latest/Windows_Server-2022-English-Full-Base"
+    },
     "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter": {
       "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
       "Default": "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"

@@ -166,7 +166,10 @@ deploying nested stacks:
 https://blog.shikisoft.com/cloudformation-nested-stacks-codepipeline/
 
 parameters:
-https://pypi.org/project/cdk-resources/
+- https://pypi.org/project/cdk-resources/
+- https://docs.aws.amazon.com/cdk/v2/guide/context.html
+- https://stackoverflow.com/questions/65561879/how-to-load-aws-cdk-parameters-from-a-file (tip from Henk)
+
 
 setting up iam roles from constructs lib:
 https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_iam-readme.html
@@ -270,7 +273,8 @@ Part 1)
 - >$cd cdk-demo
 - >$cdk init sample-app --language python (Initialize cdk project with language of choice. This also installs all packages needed for project.)
 - When application is done initializing, open it in VSC. In the editor, the bin directory houses application resources. It imports the core libraries, creates a new application, and imports the stack.
-- >#$.\source .venv/bin/activate (After initializing the project, activate the project's virtual environment whenever you start working on it. This allows the project's dependencies to be installed locally in the project folder, instead of globally.)
+- >#$.\source (=Executing .venv\Scripts\activate.bat for you) (After initializing the project, activate the project's virtual environment whenever you start working on it. This allows the project's dependencies to be installed locally in the project folder, instead of globally.)
+
 - >$python -m pip install -r requirements.txt (After activating virtual environment for the first time, install the app's standard dependencies. **AND** after installing a module, to update project's requirements.txt file.)
 - Error resolved: aws plug-in (under CDK Preview) says "unable to load construct tree for this App, Run 'cdk synth'):
 - >$cdk synth (returned msg to run: cdk bootstrap)

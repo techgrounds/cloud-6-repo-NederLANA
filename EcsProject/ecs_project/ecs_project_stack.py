@@ -12,15 +12,14 @@ class EcsProjectStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        vpc = ec2.Vpc(self, "MyVpc", max_azs=3)     # default is in 3 AZs in region per client usage
-
-        cluster = ecs.Cluster(self, "MyCluster", vpc=vpc)
+        vpc=ec2.Vpc(self, "MyVpc", max_azs=1)     # default is in 3 AZs in region per client usage
+        cluster=ecs.Cluster(self, "MyCluster", vpc=vpc)
 
         ecs_patterns.ApplicationLoadBalancedFargateService(
             self, "MyFargateService",
             cluster=cluster,            # Required
             cpu=512,                    # Default is 256
-            desired_count=3,            # Default is 1
+            desired_count=1,            # Default is 1
             task_image_options=ecs_patterns.ApplicationLoadBalancedTaskImageOptions(
                 image=ecs.ContainerImage.from_registry("amazon/amazon-ecs-sample")),
             memory_limit_mib=2048,      # Default is 512

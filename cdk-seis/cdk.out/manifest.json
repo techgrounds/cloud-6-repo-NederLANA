@@ -23,7 +23,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3358303e5cc714bb6d025e72aff6783fc1ca76b2cb060549546dfd98ab162f1c.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/a859f91f9a6d5ae72b135e602ae833793c5b1c4d63ee2a7fc517d1b9a5c3d50d.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -105,10 +105,10 @@
             "data": "VPCVPCGW99B986DC"
           }
         ],
-        "/CdkSeisStack/Output": [
+        "/CdkSeisStack/Output1": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "Output"
+            "data": "Output1"
           }
         ],
         "/CdkSeisStack/VPC2/Resource": [
@@ -177,10 +177,10 @@
             "data": "VPC2VPCGW82299B43"
           }
         ],
-        "/CdkSeisStack/Output1": [
+        "/CdkSeisStack/Output2": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "Output1"
+            "data": "Output2"
           }
         ],
         "/CdkSeisStack/VPCPeering": [
@@ -189,22 +189,46 @@
             "data": "VPCPeering"
           }
         ],
-        "/CdkSeisStack/VPC1Route": [
+        "/CdkSeisStack/VPCwRouteVPCa": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "VPC1Route"
+            "data": "VPCwRouteVPCa"
           }
         ],
-        "/CdkSeisStack/VPC2Route": [
+        "/CdkSeisStack/VPCaRouteVPCw": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "VPC2Route"
+            "data": "VPCaRouteVPCw"
           }
         ],
-        "/CdkSeisStack/KeyPair/EC2-Key-Pair-WebServerKey/Default": [
+        "/CdkSeisStack/AdminSG/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "KeyPairEC2KeyPairWebServerKeyA0F6E9B5"
+            "data": "AdminSG9D861911"
+          }
+        ],
+        "/CdkSeisStack/WebSG/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WebSG93294D3E"
+          }
+        ],
+        "/CdkSeisStack/nacl/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "nacl403288B8"
+          }
+        ],
+        "/CdkSeisStack/nacl/id/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "naclid9E81F618"
+          }
+        ],
+        "/CdkSeisStack/KeyPair1/EC2-Key-Pair-WebServerKey/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "KeyPair1EC2KeyPairWebServerKey82098BCD"
           }
         ],
         "/CdkSeisStack/EC2-Key-Pair-Manager-Policy/Resource": [
@@ -225,16 +249,40 @@
             "data": "EC2KeyNameManagerLambdaBE629145"
           }
         ],
-        "/CdkSeisStack/MgmtSG/Resource": [
+        "/CdkSeisStack/KeyPair2/EC2-Key-Pair-AdminServerKey/Default": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "MgmtSGAF1D515A"
+            "data": "KeyPair2EC2KeyPairAdminServerKeyD51348FC"
           }
         ],
-        "/CdkSeisStack/webSG/Resource": [
+        "/CdkSeisStack/InstanceSSM/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "webSG9F367DE6"
+            "data": "InstanceSSMCBFA3CF0"
+          }
+        ],
+        "/CdkSeisStack/InstanceAdmin/InstanceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceAdminInstanceRole085968C8"
+          }
+        ],
+        "/CdkSeisStack/InstanceAdmin/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceAdminInstanceProfile77A7DAA8"
+          }
+        ],
+        "/CdkSeisStack/InstanceAdmin/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceAdmin83A8DA8F"
+          }
+        ],
+        "/CdkSeisStack/SsmParameterValue:--aws--service--ami-windows-latest--Windows_Server-2022-English-Full-Base:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueawsserviceamiwindowslatestWindowsServer2022EnglishFullBaseC96584B6F00A464EAD1953AFF4B05118Parameter"
           }
         ],
         "/CdkSeisStack/Instance/InstanceRole/Resource": [
@@ -267,46 +315,10 @@
             "data": "ip"
           }
         ],
-        "/CdkSeisStack/KeyPair2/EC2-Key-Pair-MgmtServerKey/Default": [
+        "/CdkSeisStack/webvault/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "KeyPair2EC2KeyPairMgmtServerKeyFBC6FCC3"
-          }
-        ],
-        "/CdkSeisStack/mynacl/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "mynacl52F1B6C4"
-          }
-        ],
-        "/CdkSeisStack/mynacl/id/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "mynaclidE3A64C6F"
-          }
-        ],
-        "/CdkSeisStack/Instance2/InstanceRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "Instance2InstanceRole03DD7CB2"
-          }
-        ],
-        "/CdkSeisStack/Instance2/InstanceProfile": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "Instance2InstanceProfile582F915C"
-          }
-        ],
-        "/CdkSeisStack/Instance2/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "Instance255F35265"
-          }
-        ],
-        "/CdkSeisStack/wsvault/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "wsvaultDB0360CA"
+            "data": "webvaultEAF76DF3"
           }
         ],
         "/CdkSeisStack/Backup1/Resource": [
@@ -327,10 +339,10 @@
             "data": "Backup1ebsResource575B4AA9"
           }
         ],
-        "/CdkSeisStack/mgmtvault/Resource": [
+        "/CdkSeisStack/adminvault/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "mgmtvaultFF68D6BD"
+            "data": "adminvaultD17A9F3D"
           }
         ],
         "/CdkSeisStack/Backup2/Resource": [
