@@ -1112,7 +1112,7 @@
           }
         ],
         "UserData": {
-          "Fn::Base64": "#!/bin/bash\n yum -y install httpd\n systemctl enable httpd\n systemctl start httpd\n echo '<html><h1>I would like to take this moment to thank all my classmates for pushing and pulling me through the TG course. And thank Sentia for giving me an opportunity to use what I have learned!</h1></html>' > /var/www/html/index.html"
+          "Fn::Base64": "#!/bin/bash\n yum -y install httpd\n systemctl enable httpd\n systemctl start httpd\n echo '<html><h1>I would like to thank all my classmates for pushing and pulling me through the tough parts! And to thank Sentia for giving me an opportunity to be able to use what I learned.</h1></html>' > /var/www/html/index.html"
         }
       },
       "DependsOn": [
