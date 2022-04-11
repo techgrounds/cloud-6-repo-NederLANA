@@ -1,0 +1,270 @@
+{
+  "Resources": {
+    "AdminVpc3E0C62DD": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.20.20.0/24",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "MainStack/AdminStack/AdminVpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack/AdminVpc/Resource"
+      }
+    },
+    "AdminVpcPublicSubnet1Subnet8590EA0F": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.20.20.0/25",
+        "VpcId": {
+          "Ref": "AdminVpc3E0C62DD"
+        },
+        "AvailabilityZone": "eu-central-1a",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "MainStack/AdminStack/AdminVpc/PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack/AdminVpc/PublicSubnet1/Subnet"
+      }
+    },
+    "AdminVpcPublicSubnet1RouteTableE4B4F454": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "AdminVpc3E0C62DD"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "MainStack/AdminStack/AdminVpc/PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack/AdminVpc/PublicSubnet1/RouteTable"
+      }
+    },
+    "AdminVpcPublicSubnet1RouteTableAssociation2E64ED35": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "AdminVpcPublicSubnet1RouteTableE4B4F454"
+        },
+        "SubnetId": {
+          "Ref": "AdminVpcPublicSubnet1Subnet8590EA0F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack/AdminVpc/PublicSubnet1/RouteTableAssociation"
+      }
+    },
+    "AdminVpcPublicSubnet1DefaultRouteEE322893": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "AdminVpcPublicSubnet1RouteTableE4B4F454"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "AdminVpcIGW5D2137F7"
+        }
+      },
+      "DependsOn": [
+        "AdminVpcVPCGW5F9EC614"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack/AdminVpc/PublicSubnet1/DefaultRoute"
+      }
+    },
+    "AdminVpcPublicSubnet2Subnet82331FC0": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.20.20.128/25",
+        "VpcId": {
+          "Ref": "AdminVpc3E0C62DD"
+        },
+        "AvailabilityZone": "eu-central-1b",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "MainStack/AdminStack/AdminVpc/PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack/AdminVpc/PublicSubnet2/Subnet"
+      }
+    },
+    "AdminVpcPublicSubnet2RouteTable724DB96C": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "AdminVpc3E0C62DD"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "MainStack/AdminStack/AdminVpc/PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack/AdminVpc/PublicSubnet2/RouteTable"
+      }
+    },
+    "AdminVpcPublicSubnet2RouteTableAssociation2A2319A2": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "AdminVpcPublicSubnet2RouteTable724DB96C"
+        },
+        "SubnetId": {
+          "Ref": "AdminVpcPublicSubnet2Subnet82331FC0"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack/AdminVpc/PublicSubnet2/RouteTableAssociation"
+      }
+    },
+    "AdminVpcPublicSubnet2DefaultRoute659D199A": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "AdminVpcPublicSubnet2RouteTable724DB96C"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "AdminVpcIGW5D2137F7"
+        }
+      },
+      "DependsOn": [
+        "AdminVpcVPCGW5F9EC614"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack/AdminVpc/PublicSubnet2/DefaultRoute"
+      }
+    },
+    "AdminVpcIGW5D2137F7": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "MainStack/AdminStack/AdminVpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack/AdminVpc/IGW"
+      }
+    },
+    "AdminVpcVPCGW5F9EC614": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "AdminVpc3E0C62DD"
+        },
+        "InternetGatewayId": {
+          "Ref": "AdminVpcIGW5D2137F7"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack/AdminVpc/VPCGW"
+      }
+    },
+    "AdminSG9D861911": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "MainStack/AdminStack/AdminSG",
+        "GroupName": "AdminServerSG",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "83.80.144.156/32",
+            "Description": "SSH to admin server from trusted ip",
+            "FromPort": 22,
+            "IpProtocol": "tcp",
+            "ToPort": 22
+          },
+          {
+            "CidrIp": "83.80.144.156/32",
+            "Description": "RDP to admin server from trusted ip",
+            "FromPort": 3389,
+            "IpProtocol": "tcp",
+            "ToPort": 3389
+          },
+          {
+            "CidrIp": "83.80.144.156/32",
+            "Description": "HTTPS secured access to admin server from trusted ip",
+            "FromPort": 443,
+            "IpProtocol": "tcp",
+            "ToPort": 443
+          },
+          {
+            "CidrIp": "83.80.144.156/32",
+            "Description": "unsecured HTTP access to Admin Server from trusted IP",
+            "FromPort": 80,
+            "IpProtocol": "tcp",
+            "ToPort": 80
+          }
+        ],
+        "VpcId": {
+          "Ref": "AdminVpc3E0C62DD"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack/AdminSG/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/02OQQ+CMAyFfwv3MQEPng0H4kUJGK5mlBqmuJGtDSHG/y4KEU99/frS9xIZ72QUqMGH0NzDTtfyeURP2JSk4C6mwwUhkc+qB5FeTZWnIue601BybZA+bFWFZcKzqjtc+cr23lvQirQ1P/NHHAyhm5yZIhzUuMQs256mHu0DDYkSgZ2mMXOW+2/AP3iJAr1lB9+fJ6ae504LfYl8pNaazVbGkUyCm9c6dGxIP1AW83wDx7kf8w4BAAA="
+      },
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack/CDKMetadata/Default"
+      }
+    }
+  },
+  "Outputs": {
+    "Output2": {
+      "Value": {
+        "Ref": "AdminVpc3E0C62DD"
+      }
+    }
+  }
+}

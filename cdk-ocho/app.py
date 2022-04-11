@@ -1,28 +1,34 @@
+"""
+Nested stacks to modularize how stacks are built and deployed.
+Each stack is decoupled and easier to modify without disrupting
+the entire infrastructure.
+
+This limits down time of the entire system while one component is being backed up.
+
+Here a main stack is built upon which all the nested stacks are called.
+"""
+
+
 #!/usr/bin/env python3
 import os
 
 import aws_cdk as cdk
 
 from cdk_ocho.cdk_ocho_stack import CdkOchoStack
+from cdk_ocho.admin_nstack import AdminNstack
+
 
 
 app = cdk.App()
-CdkOchoStack(app, "CdkOchoStack",
-    # If you don't specify 'env', this stack will be environment-agnostic.
-    # Account/Region-dependent features and context lookups will not work,
-    # but a single synthesized template can be deployed anywhere.
+main_stack = cdk.Stack(
+    app, "MainStack",
+    env=cdk.Environment(account=os.getenv('CDK_DEFAULT_ACCOUNT'),
+    region=os.getenv('CDK_DEFAULT_REGION'))
+)
 
-    # Uncomment the next line to specialize this stack for the AWS Account
-    # and Region that are implied by the current CLI configuration.
+cdk_ocho_stack = CdkOchoStack(main_stack, "CdkOchoStack")
 
-    #env=cdk.Environment(account=os.getenv('CDK_DEFAULT_ACCOUNT'), region=os.getenv('CDK_DEFAULT_REGION')),
+admin_nstack = AdminNstack(main_stack, "AdminStack")
 
-    # Uncomment the next line if you know exactly what Account and Region you
-    # want to deploy the stack to. */
-
-    #env=cdk.Environment(account='123456789012', region='us-east-1'),
-
-    # For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html
-    )
 
 app.synth()

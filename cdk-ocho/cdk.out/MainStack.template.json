@@ -1,0 +1,95 @@
+{
+  "Resources": {
+    "CdkOchoStackNestedStackCdkOchoStackNestedStackResource97941EC9": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": {
+          "Fn::Join": [
+            "",
+            [
+              "https://s3.eu-central-1.",
+              {
+                "Ref": "AWS::URLSuffix"
+              },
+              "/cdk-hnb659fds-assets-933140668725-eu-central-1/f49d7bdeaadd1d4e34d198710a254115b063203e0ddde099e64f218ce0ed6b5b.json"
+            ]
+          ]
+        }
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "MainStack/CdkOchoStack.NestedStack/CdkOchoStack.NestedStackResource",
+        "aws:asset:path": "MainStackCdkOchoStackAEE05712.nested.template.json",
+        "aws:asset:property": "TemplateURL"
+      }
+    },
+    "AdminStackNestedStackAdminStackNestedStackResource027D98AD": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": {
+          "Fn::Join": [
+            "",
+            [
+              "https://s3.eu-central-1.",
+              {
+                "Ref": "AWS::URLSuffix"
+              },
+              "/cdk-hnb659fds-assets-933140668725-eu-central-1/bd20c1e625c8888def2bee94bc9d83cfded5778f682a4ff42cb264b658b93a59.json"
+            ]
+          ]
+        }
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "MainStack/AdminStack.NestedStack/AdminStack.NestedStackResource",
+        "aws:asset:path": "MainStackAdminStack7BD873E3.nested.template.json",
+        "aws:asset:property": "TemplateURL"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/zPSMzTXM1BMLC/WTU7J1s3JTNKrDi5JTM7WcU7LgzOCUovzS4uSU2t1AipLMvLz9I31DA30jBSzijMzdYtK80oyc1P1giA0AMjAUaVSAAAA"
+      },
+      "Metadata": {
+        "aws:cdk:path": "MainStack/CDKMetadata/Default"
+      }
+    }
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+    }
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  {
+                    "Ref": "BootstrapVersion"
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+        }
+      ]
+    }
+  }
+}

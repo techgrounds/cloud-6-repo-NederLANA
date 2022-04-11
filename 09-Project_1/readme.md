@@ -56,7 +56,7 @@ https://www.youtube.com/watch?v=I2cXlYYoQqQ
 Update pip in Python:
 https://www.youtube.com/watch?v=VhOhojy0b28
 
-Instal virtualenv in pip:
+Install virtualenv in pip:
 https://www.youtube.com/watch?v=N5vscPTWKOk
 
 npm install error fix:
@@ -103,6 +103,7 @@ user data Linux instance at launch:
 
 creating key pairs
 - https://github.com/udondan/cdk-ec2-key-pair
+- https://pypi.org/project/cdk-ec2-key-pair/
 
 SG and SSH from specific IP for VPC:
 https://www.pulumi.com/docs/guides/crosswalk/aws/vpc
@@ -131,6 +132,7 @@ nested stacks:
 - https://www.youtube.com/watch?v=Y_XQ7WT-WcA
 - https://aws.amazon.com/blogs/devops/use-nested-stacks-to-create-reusable-templates-and-support-role-specialization/
 - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-nested-stacks.html
+- https://github.com/cdk-patterns/serverless/blob/a781e501a7dc3a4dea0d22939192bdcb205e7f91/the-waf-apigateway/python/the_waf_apigateway/waf.py
 
 passing value from stack1 to stack2:
 https://aws.amazon.com/premiumsupport/knowledge-center/cloudformation-nested-stacks-values/
@@ -141,8 +143,10 @@ create cloud formation templates:
 lambda to look up vpc information:
 https://aws.amazon.com/blogs/mt/looking-up-information-on-aws-cloudformation-stack-parameters-using-aws-lambda/
 
-parameters:
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html
+context values: construct.node.setContext
+- https://awsmaniac.com/how-to-parametrize-our-aws-cdk-stacks/
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html
+- https://stackoverflow.com/questions/68915897/cdk-parameter-ref-as-json-during-synthesize
 
 backups:
 - https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.aws_backup.html
@@ -212,9 +216,17 @@ ecs pattern construct:
 - https://docs.aws.amazon.com/cdk/v2/guide/ecs_example.html
 - https://docs.aws.amazon.com/AmazonECS/latest/developerguide/tutorial-ecs-web-server-cdk.html
 
+pattern construct waf web acl
+-https://docs.aws.amazon.com/solutions/latest/constructs/aws-wafwebacl-alb.html?did=cs_card&trk=cs_card
+
+pattern construct fargate & alb
+- https://docs.aws.amazon.com/solutions/latest/constructs/aws-alb-fargate.html?did=cs_card&trk=cs_card
+
 redirect http to https using alb:
+- https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.aws_ecs_patterns/README.html (most used)
 - https://aws.amazon.com/premiumsupport/knowledge-center/elb-redirect-http-to-https-using-alb/
 - https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.aws_elasticloadbalancingv2/README.html
+- https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#redirect-actions
 
 self sign certificiate:
 - https://zuqqhi2.com/en/generating-self-signed-certificate-and-applying-to-aws-alb
@@ -231,6 +243,54 @@ https://aws.amazon.com/blogs/security/tls-1-2-required-for-aws-fips-endpoints/
 https ec2 public ip with no domain
 - https://bansalanuj.com/https-aws-ec2-without-custom-domain
 
+alb, asg, fargate, ecs:
+- https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html
+- https://docs.aws.amazon.com/AmazonECS/latest/developerguide/clusters.html
+- https://spot.io/blog/fargate-vs-ecs-comparing-amazons-container-management-services
+
+creating IAm roles in json for ecs:
+- https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security_iam_id-based-policy-examples.html#IAM_cluster_policies
+
+IAm conditions for ecs:
+- https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security_iam_id-based-policy-examples.html
+
+python example docker app:
+- https://github.com/aws-samples/aws-cdk-examples/blob/master/python/docker-app-with-asg-alb/dockerized_app_cdk/asg_stack.py
+
+attach waf to ecs load balancer:
+- https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html
+- https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html
+
+code IAM access policies for waf:
+- https://docs.aws.amazon.com/waf/latest/developerguide/access-control-identity-based.html#access-policy-examples-aws-managed
+
+code user full access waf, cloudfront, cloudwatch:
+- https://docs.aws.amazon.com/waf/latest/developerguide/access-control-identity-based.html#access-policy-examples-aws-managed
+
+code Cfn, waf webACL
+- https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_waf.CfnWebACL.html
+
+code waf acl
+- https://github.com/awslabs/aws-waf-security-automations
+- https://github.com/awslabs/aws-waf-security-automations/blob/main/deployment/aws-waf-security-automations.template (full code)
+
+certificate manager, private CA:
+- https://docs.aws.amazon.com/general/latest/gr/acm-pca.html
+- eu-central-1	(endpoint) acm-pca.eu-central-1.amazonaws.com
+
+key-pair tags:
+- https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags_server-certificates.html
+
+another pattern:
+- https://towardsthecloud.com/aws-cdk-application-load-balanced-fargate-service-example
+- https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/deploy-a-clustered-application-to-amazon-ecs-by-using-aws-copilot.html?did=pg_card&trk=pg_card
+
+app mesh:
+- https://aws.amazon.com/blogs/containers/appmesh-integrating-cross-vpc-ecs-cluster-for-enhanced-security/
+
+redirect http https:
+- https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns-readme.html
+- https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#redirect-actions
 ### Issues
 
 

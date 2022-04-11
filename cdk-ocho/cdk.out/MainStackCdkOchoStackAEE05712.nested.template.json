@@ -1,6 +1,6 @@
 {
   "Resources": {
-    "MyVpcF9F0CA6F": {
+    "WebVpc46147648": {
       "Type": "AWS::EC2::VPC",
       "Properties": {
         "CidrBlock": "10.0.0.0/16",
@@ -10,29 +10,22 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc"
+            "Value": "MainStack/CdkOchoStack/WebVpc"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/Resource"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/Resource"
       }
     },
-    "MyVpcPublicSubnet1SubnetF6608456": {
+    "WebVpcPublicSubnet1Subnet2846CCAB": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "CidrBlock": "10.0.0.0/18",
         "VpcId": {
-          "Ref": "MyVpcF9F0CA6F"
+          "Ref": "WebVpc46147648"
         },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            0,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        },
+        "AvailabilityZone": "eu-central-1a",
         "MapPublicIpOnLaunch": true,
         "Tags": [
           {
@@ -45,116 +38,109 @@
           },
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc/PublicSubnet1"
+            "Value": "MainStack/CdkOchoStack/WebVpc/PublicSubnet1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PublicSubnet1/Subnet"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PublicSubnet1/Subnet"
       }
     },
-    "MyVpcPublicSubnet1RouteTableC46AB2F4": {
+    "WebVpcPublicSubnet1RouteTable1F24CACF": {
       "Type": "AWS::EC2::RouteTable",
       "Properties": {
         "VpcId": {
-          "Ref": "MyVpcF9F0CA6F"
+          "Ref": "WebVpc46147648"
         },
         "Tags": [
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc/PublicSubnet1"
+            "Value": "MainStack/CdkOchoStack/WebVpc/PublicSubnet1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PublicSubnet1/RouteTable"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PublicSubnet1/RouteTable"
       }
     },
-    "MyVpcPublicSubnet1RouteTableAssociation2ECEE1CB": {
+    "WebVpcPublicSubnet1RouteTableAssociation8A1BCD36": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
         "RouteTableId": {
-          "Ref": "MyVpcPublicSubnet1RouteTableC46AB2F4"
+          "Ref": "WebVpcPublicSubnet1RouteTable1F24CACF"
         },
         "SubnetId": {
-          "Ref": "MyVpcPublicSubnet1SubnetF6608456"
+          "Ref": "WebVpcPublicSubnet1Subnet2846CCAB"
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PublicSubnet1/RouteTableAssociation"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PublicSubnet1/RouteTableAssociation"
       }
     },
-    "MyVpcPublicSubnet1DefaultRoute95FDF9EB": {
+    "WebVpcPublicSubnet1DefaultRoute909F1B3F": {
       "Type": "AWS::EC2::Route",
       "Properties": {
         "RouteTableId": {
-          "Ref": "MyVpcPublicSubnet1RouteTableC46AB2F4"
+          "Ref": "WebVpcPublicSubnet1RouteTable1F24CACF"
         },
         "DestinationCidrBlock": "0.0.0.0/0",
         "GatewayId": {
-          "Ref": "MyVpcIGW5C4A4F63"
+          "Ref": "WebVpcIGWFB314DC2"
         }
       },
       "DependsOn": [
-        "MyVpcVPCGW488ACE0D"
+        "WebVpcVPCGWFAC54190"
       ],
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PublicSubnet1/DefaultRoute"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PublicSubnet1/DefaultRoute"
       }
     },
-    "MyVpcPublicSubnet1EIP096967CB": {
+    "WebVpcPublicSubnet1EIP1E0804CE": {
       "Type": "AWS::EC2::EIP",
       "Properties": {
         "Domain": "vpc",
         "Tags": [
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc/PublicSubnet1"
+            "Value": "MainStack/CdkOchoStack/WebVpc/PublicSubnet1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PublicSubnet1/EIP"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PublicSubnet1/EIP"
       }
     },
-    "MyVpcPublicSubnet1NATGatewayAD3400C1": {
+    "WebVpcPublicSubnet1NATGateway46A0B3FB": {
       "Type": "AWS::EC2::NatGateway",
       "Properties": {
         "SubnetId": {
-          "Ref": "MyVpcPublicSubnet1SubnetF6608456"
+          "Ref": "WebVpcPublicSubnet1Subnet2846CCAB"
         },
         "AllocationId": {
           "Fn::GetAtt": [
-            "MyVpcPublicSubnet1EIP096967CB",
+            "WebVpcPublicSubnet1EIP1E0804CE",
             "AllocationId"
           ]
         },
         "Tags": [
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc/PublicSubnet1"
+            "Value": "MainStack/CdkOchoStack/WebVpc/PublicSubnet1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PublicSubnet1/NATGateway"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PublicSubnet1/NATGateway"
       }
     },
-    "MyVpcPublicSubnet2Subnet492B6BFB": {
+    "WebVpcPublicSubnet2Subnet81224206": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "CidrBlock": "10.0.64.0/18",
         "VpcId": {
-          "Ref": "MyVpcF9F0CA6F"
+          "Ref": "WebVpc46147648"
         },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            1,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        },
+        "AvailabilityZone": "eu-central-1b",
         "MapPublicIpOnLaunch": true,
         "Tags": [
           {
@@ -167,116 +153,109 @@
           },
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc/PublicSubnet2"
+            "Value": "MainStack/CdkOchoStack/WebVpc/PublicSubnet2"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PublicSubnet2/Subnet"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PublicSubnet2/Subnet"
       }
     },
-    "MyVpcPublicSubnet2RouteTable1DF17386": {
+    "WebVpcPublicSubnet2RouteTable01512D2E": {
       "Type": "AWS::EC2::RouteTable",
       "Properties": {
         "VpcId": {
-          "Ref": "MyVpcF9F0CA6F"
+          "Ref": "WebVpc46147648"
         },
         "Tags": [
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc/PublicSubnet2"
+            "Value": "MainStack/CdkOchoStack/WebVpc/PublicSubnet2"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PublicSubnet2/RouteTable"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PublicSubnet2/RouteTable"
       }
     },
-    "MyVpcPublicSubnet2RouteTableAssociation227DE78D": {
+    "WebVpcPublicSubnet2RouteTableAssociation278B5A36": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
         "RouteTableId": {
-          "Ref": "MyVpcPublicSubnet2RouteTable1DF17386"
+          "Ref": "WebVpcPublicSubnet2RouteTable01512D2E"
         },
         "SubnetId": {
-          "Ref": "MyVpcPublicSubnet2Subnet492B6BFB"
+          "Ref": "WebVpcPublicSubnet2Subnet81224206"
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PublicSubnet2/RouteTableAssociation"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PublicSubnet2/RouteTableAssociation"
       }
     },
-    "MyVpcPublicSubnet2DefaultRoute052936F6": {
+    "WebVpcPublicSubnet2DefaultRoute5148711F": {
       "Type": "AWS::EC2::Route",
       "Properties": {
         "RouteTableId": {
-          "Ref": "MyVpcPublicSubnet2RouteTable1DF17386"
+          "Ref": "WebVpcPublicSubnet2RouteTable01512D2E"
         },
         "DestinationCidrBlock": "0.0.0.0/0",
         "GatewayId": {
-          "Ref": "MyVpcIGW5C4A4F63"
+          "Ref": "WebVpcIGWFB314DC2"
         }
       },
       "DependsOn": [
-        "MyVpcVPCGW488ACE0D"
+        "WebVpcVPCGWFAC54190"
       ],
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PublicSubnet2/DefaultRoute"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PublicSubnet2/DefaultRoute"
       }
     },
-    "MyVpcPublicSubnet2EIP8CCBA239": {
+    "WebVpcPublicSubnet2EIPF669E7D3": {
       "Type": "AWS::EC2::EIP",
       "Properties": {
         "Domain": "vpc",
         "Tags": [
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc/PublicSubnet2"
+            "Value": "MainStack/CdkOchoStack/WebVpc/PublicSubnet2"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PublicSubnet2/EIP"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PublicSubnet2/EIP"
       }
     },
-    "MyVpcPublicSubnet2NATGateway91BFBEC9": {
+    "WebVpcPublicSubnet2NATGateway5FF4DF1D": {
       "Type": "AWS::EC2::NatGateway",
       "Properties": {
         "SubnetId": {
-          "Ref": "MyVpcPublicSubnet2Subnet492B6BFB"
+          "Ref": "WebVpcPublicSubnet2Subnet81224206"
         },
         "AllocationId": {
           "Fn::GetAtt": [
-            "MyVpcPublicSubnet2EIP8CCBA239",
+            "WebVpcPublicSubnet2EIPF669E7D3",
             "AllocationId"
           ]
         },
         "Tags": [
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc/PublicSubnet2"
+            "Value": "MainStack/CdkOchoStack/WebVpc/PublicSubnet2"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PublicSubnet2/NATGateway"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PublicSubnet2/NATGateway"
       }
     },
-    "MyVpcPrivateSubnet1Subnet5057CF7E": {
+    "WebVpcPrivateSubnet1Subnet1C4CA8BF": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "CidrBlock": "10.0.128.0/18",
         "VpcId": {
-          "Ref": "MyVpcF9F0CA6F"
+          "Ref": "WebVpc46147648"
         },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            0,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        },
+        "AvailabilityZone": "eu-central-1a",
         "MapPublicIpOnLaunch": false,
         "Tags": [
           {
@@ -289,75 +268,68 @@
           },
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc/PrivateSubnet1"
+            "Value": "MainStack/CdkOchoStack/WebVpc/PrivateSubnet1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PrivateSubnet1/Subnet"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PrivateSubnet1/Subnet"
       }
     },
-    "MyVpcPrivateSubnet1RouteTable8819E6E2": {
+    "WebVpcPrivateSubnet1RouteTable38FEE938": {
       "Type": "AWS::EC2::RouteTable",
       "Properties": {
         "VpcId": {
-          "Ref": "MyVpcF9F0CA6F"
+          "Ref": "WebVpc46147648"
         },
         "Tags": [
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc/PrivateSubnet1"
+            "Value": "MainStack/CdkOchoStack/WebVpc/PrivateSubnet1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PrivateSubnet1/RouteTable"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PrivateSubnet1/RouteTable"
       }
     },
-    "MyVpcPrivateSubnet1RouteTableAssociation56D38C7E": {
+    "WebVpcPrivateSubnet1RouteTableAssociationD7E1B0EC": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
         "RouteTableId": {
-          "Ref": "MyVpcPrivateSubnet1RouteTable8819E6E2"
+          "Ref": "WebVpcPrivateSubnet1RouteTable38FEE938"
         },
         "SubnetId": {
-          "Ref": "MyVpcPrivateSubnet1Subnet5057CF7E"
+          "Ref": "WebVpcPrivateSubnet1Subnet1C4CA8BF"
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PrivateSubnet1/RouteTableAssociation"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PrivateSubnet1/RouteTableAssociation"
       }
     },
-    "MyVpcPrivateSubnet1DefaultRouteA8CDE2FA": {
+    "WebVpcPrivateSubnet1DefaultRouteAEE13B95": {
       "Type": "AWS::EC2::Route",
       "Properties": {
         "RouteTableId": {
-          "Ref": "MyVpcPrivateSubnet1RouteTable8819E6E2"
+          "Ref": "WebVpcPrivateSubnet1RouteTable38FEE938"
         },
         "DestinationCidrBlock": "0.0.0.0/0",
         "NatGatewayId": {
-          "Ref": "MyVpcPublicSubnet1NATGatewayAD3400C1"
+          "Ref": "WebVpcPublicSubnet1NATGateway46A0B3FB"
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PrivateSubnet1/DefaultRoute"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PrivateSubnet1/DefaultRoute"
       }
     },
-    "MyVpcPrivateSubnet2Subnet0040C983": {
+    "WebVpcPrivateSubnet2SubnetEF6FCECA": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "CidrBlock": "10.0.192.0/18",
         "VpcId": {
-          "Ref": "MyVpcF9F0CA6F"
+          "Ref": "WebVpc46147648"
         },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            1,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        },
+        "AvailabilityZone": "eu-central-1b",
         "MapPublicIpOnLaunch": false,
         "Tags": [
           {
@@ -370,92 +342,92 @@
           },
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc/PrivateSubnet2"
+            "Value": "MainStack/CdkOchoStack/WebVpc/PrivateSubnet2"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PrivateSubnet2/Subnet"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PrivateSubnet2/Subnet"
       }
     },
-    "MyVpcPrivateSubnet2RouteTableCEDCEECE": {
+    "WebVpcPrivateSubnet2RouteTable5EA21EDC": {
       "Type": "AWS::EC2::RouteTable",
       "Properties": {
         "VpcId": {
-          "Ref": "MyVpcF9F0CA6F"
+          "Ref": "WebVpc46147648"
         },
         "Tags": [
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc/PrivateSubnet2"
+            "Value": "MainStack/CdkOchoStack/WebVpc/PrivateSubnet2"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PrivateSubnet2/RouteTable"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PrivateSubnet2/RouteTable"
       }
     },
-    "MyVpcPrivateSubnet2RouteTableAssociation86A610DA": {
+    "WebVpcPrivateSubnet2RouteTableAssociation00B0B3B7": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
         "RouteTableId": {
-          "Ref": "MyVpcPrivateSubnet2RouteTableCEDCEECE"
+          "Ref": "WebVpcPrivateSubnet2RouteTable5EA21EDC"
         },
         "SubnetId": {
-          "Ref": "MyVpcPrivateSubnet2Subnet0040C983"
+          "Ref": "WebVpcPrivateSubnet2SubnetEF6FCECA"
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PrivateSubnet2/RouteTableAssociation"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PrivateSubnet2/RouteTableAssociation"
       }
     },
-    "MyVpcPrivateSubnet2DefaultRoute9CE96294": {
+    "WebVpcPrivateSubnet2DefaultRoute4F24CCDA": {
       "Type": "AWS::EC2::Route",
       "Properties": {
         "RouteTableId": {
-          "Ref": "MyVpcPrivateSubnet2RouteTableCEDCEECE"
+          "Ref": "WebVpcPrivateSubnet2RouteTable5EA21EDC"
         },
         "DestinationCidrBlock": "0.0.0.0/0",
         "NatGatewayId": {
-          "Ref": "MyVpcPublicSubnet2NATGateway91BFBEC9"
+          "Ref": "WebVpcPublicSubnet2NATGateway5FF4DF1D"
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/PrivateSubnet2/DefaultRoute"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/PrivateSubnet2/DefaultRoute"
       }
     },
-    "MyVpcIGW5C4A4F63": {
+    "WebVpcIGWFB314DC2": {
       "Type": "AWS::EC2::InternetGateway",
       "Properties": {
         "Tags": [
           {
             "Key": "Name",
-            "Value": "CdkNueveStack/MyVpc"
+            "Value": "MainStack/CdkOchoStack/WebVpc"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/IGW"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/IGW"
       }
     },
-    "MyVpcVPCGW488ACE0D": {
+    "WebVpcVPCGWFAC54190": {
       "Type": "AWS::EC2::VPCGatewayAttachment",
       "Properties": {
         "VpcId": {
-          "Ref": "MyVpcF9F0CA6F"
+          "Ref": "WebVpc46147648"
         },
         "InternetGatewayId": {
-          "Ref": "MyVpcIGW5C4A4F63"
+          "Ref": "WebVpcIGWFB314DC2"
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyVpc/VPCGW"
+        "aws:cdk:path": "MainStack/CdkOchoStack/WebVpc/VPCGW"
       }
     },
     "MyCluster4C1BA579": {
       "Type": "AWS::ECS::Cluster",
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyCluster/Resource"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyCluster/Resource"
       }
     },
     "MyFargateServiceLBDE830E97": {
@@ -478,27 +450,34 @@
         ],
         "Subnets": [
           {
-            "Ref": "MyVpcPublicSubnet1SubnetF6608456"
+            "Ref": "WebVpcPublicSubnet1Subnet2846CCAB"
           },
           {
-            "Ref": "MyVpcPublicSubnet2Subnet492B6BFB"
+            "Ref": "WebVpcPublicSubnet2Subnet81224206"
           }
         ],
         "Type": "application"
       },
       "DependsOn": [
-        "MyVpcPublicSubnet1DefaultRoute95FDF9EB",
-        "MyVpcPublicSubnet2DefaultRoute052936F6"
+        "WebVpcPublicSubnet1DefaultRoute909F1B3F",
+        "WebVpcPublicSubnet2DefaultRoute5148711F"
       ],
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyFargateService/LB/Resource"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/LB/Resource"
       }
     },
     "MyFargateServiceLBSecurityGroup6FBF16F1": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
-        "GroupDescription": "Automatically created Security Group for ELB CdkNueveStackMyFargateServiceLB243C1C9E",
+        "GroupDescription": "Automatically created Security Group for ELB MainStackCdkOchoStackMyFargateServiceLB70F89E44",
         "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow from anyone on port 443",
+            "FromPort": 443,
+            "IpProtocol": "tcp",
+            "ToPort": 443
+          },
           {
             "CidrIp": "0.0.0.0/0",
             "Description": "Allow from anyone on port 80",
@@ -508,14 +487,14 @@
           }
         ],
         "VpcId": {
-          "Ref": "MyVpcF9F0CA6F"
+          "Ref": "WebVpc46147648"
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyFargateService/LB/SecurityGroup/Resource"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/LB/SecurityGroup/Resource"
       }
     },
-    "MyFargateServiceLBSecurityGrouptoCdkNueveStackMyFargateServiceSecurityGroupDE62F2968057E4C364": {
+    "MyFargateServiceLBSecurityGrouptoMainStackCdkOchoStackMyFargateServiceSecurityGroupD7A360DE80208AA9A2": {
       "Type": "AWS::EC2::SecurityGroupEgress",
       "Properties": {
         "GroupId": {
@@ -536,7 +515,7 @@
         "ToPort": 80
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyFargateService/LB/SecurityGroup/to CdkNueveStackMyFargateServiceSecurityGroupDE62F296:80"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/LB/SecurityGroup/to MainStackCdkOchoStackMyFargateServiceSecurityGroupD7A360DE:80"
       }
     },
     "MyFargateServiceLBPublicListener61A1042F": {
@@ -553,11 +532,17 @@
         "LoadBalancerArn": {
           "Ref": "MyFargateServiceLBDE830E97"
         },
-        "Port": 80,
-        "Protocol": "HTTP"
+        "Certificates": [
+          {
+            "CertificateArn": "arn:aws:acm:eu-central-1:933140668725:certificate/e1b2c88d-7ec4-4e0e-bed4-3a5925d811e7"
+          }
+        ],
+        "Port": 443,
+        "Protocol": "HTTPS",
+        "SslPolicy": "ELBSecurityPolicy-2016-08"
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyFargateService/LB/PublicListener/Resource"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/LB/PublicListener/Resource"
       }
     },
     "MyFargateServiceLBPublicListenerECSGroup4A3EDF05": {
@@ -573,11 +558,34 @@
         ],
         "TargetType": "ip",
         "VpcId": {
-          "Ref": "MyVpcF9F0CA6F"
+          "Ref": "WebVpc46147648"
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyFargateService/LB/PublicListener/ECSGroup/Resource"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/LB/PublicListener/ECSGroup/Resource"
+      }
+    },
+    "MyFargateServiceLBPublicRedirectListener70CBD1AF": {
+      "Type": "AWS::ElasticLoadBalancingV2::Listener",
+      "Properties": {
+        "DefaultActions": [
+          {
+            "RedirectConfig": {
+              "Port": "443",
+              "Protocol": "HTTPS",
+              "StatusCode": "HTTP_301"
+            },
+            "Type": "redirect"
+          }
+        ],
+        "LoadBalancerArn": {
+          "Ref": "MyFargateServiceLBDE830E97"
+        },
+        "Port": 80,
+        "Protocol": "HTTP"
+      },
+      "Metadata": {
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/LB/PublicRedirectListener/Resource"
       }
     },
     "MyFargateServiceTaskDefTaskRole62C7D397": {
@@ -597,7 +605,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyFargateService/TaskDef/TaskRole/Resource"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/TaskDef/TaskRole/Resource"
       }
     },
     "MyFargateServiceTaskDef5DA17B39": {
@@ -614,9 +622,7 @@
                   "Ref": "MyFargateServiceTaskDefwebLogGroup4A6C44E8"
                 },
                 "awslogs-stream-prefix": "MyFargateService",
-                "awslogs-region": {
-                  "Ref": "AWS::Region"
-                }
+                "awslogs-region": "eu-central-1"
               }
             },
             "Name": "web",
@@ -635,7 +641,7 @@
             "Arn"
           ]
         },
-        "Family": "CdkNueveStackMyFargateServiceTaskDef82E696FF",
+        "Family": "MainStackCdkOchoStackMyFargateServiceTaskDefB67391A0",
         "Memory": "2048",
         "NetworkMode": "awsvpc",
         "RequiresCompatibilities": [
@@ -649,7 +655,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyFargateService/TaskDef/Resource"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/TaskDef/Resource"
       }
     },
     "MyFargateServiceTaskDefwebLogGroup4A6C44E8": {
@@ -657,7 +663,7 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyFargateService/TaskDef/web/LogGroup/Resource"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/TaskDef/web/LogGroup/Resource"
       }
     },
     "MyFargateServiceTaskDefExecutionRoleD6305504": {
@@ -677,7 +683,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyFargateService/TaskDef/ExecutionRole/Resource"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/TaskDef/ExecutionRole/Resource"
       }
     },
     "MyFargateServiceTaskDefExecutionRoleDefaultPolicyEC22B20F": {
@@ -709,7 +715,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyFargateService/TaskDef/ExecutionRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/TaskDef/ExecutionRole/DefaultPolicy/Resource"
       }
     },
     "MyFargateServiceF490C034": {
@@ -722,7 +728,7 @@
           "MaximumPercent": 200,
           "MinimumHealthyPercent": 50
         },
-        "DesiredCount": 1,
+        "DesiredCount": 2,
         "EnableECSManagedTags": false,
         "HealthCheckGracePeriodSeconds": 60,
         "LaunchType": "FARGATE",
@@ -748,10 +754,10 @@
             ],
             "Subnets": [
               {
-                "Ref": "MyVpcPrivateSubnet1Subnet5057CF7E"
+                "Ref": "WebVpcPrivateSubnet1Subnet1C4CA8BF"
               },
               {
-                "Ref": "MyVpcPrivateSubnet2Subnet0040C983"
+                "Ref": "WebVpcPrivateSubnet2SubnetEF6FCECA"
               }
             ]
           }
@@ -765,13 +771,13 @@
         "MyFargateServiceLBPublicListener61A1042F"
       ],
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyFargateService/Service/Service"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/Service/Service"
       }
     },
     "MyFargateServiceSecurityGroup7016792A": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
-        "GroupDescription": "CdkNueveStack/MyFargateService/Service/SecurityGroup",
+        "GroupDescription": "MainStack/CdkOchoStack/MyFargateService/Service/SecurityGroup",
         "SecurityGroupEgress": [
           {
             "CidrIp": "0.0.0.0/0",
@@ -780,14 +786,14 @@
           }
         ],
         "VpcId": {
-          "Ref": "MyVpcF9F0CA6F"
+          "Ref": "WebVpc46147648"
         }
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyFargateService/Service/SecurityGroup/Resource"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/Service/SecurityGroup/Resource"
       }
     },
-    "MyFargateServiceSecurityGroupfromCdkNueveStackMyFargateServiceLBSecurityGroup5A8C66F3807702F890": {
+    "MyFargateServiceSecurityGroupfromMainStackCdkOchoStackMyFargateServiceLBSecurityGroup0F58FCE9801282523A": {
       "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties": {
         "IpProtocol": "tcp",
@@ -808,18 +814,17 @@
         "ToPort": 80
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/MyFargateService/Service/SecurityGroup/from CdkNueveStackMyFargateServiceLBSecurityGroup5A8C66F3:80"
+        "aws:cdk:path": "MainStack/CdkOchoStack/MyFargateService/Service/SecurityGroup/from MainStackCdkOchoStackMyFargateServiceLBSecurityGroup0F58FCE9:80"
       }
     },
     "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-        "Analytics": "v2:deflate64:H4sIAAAAAAAA/31STW/CMAz9LdxDBuywM2MMIaGtKogrSlNTPEJS5QOEqv73pQmlHZt28vPrc2w/d0LHL3Q0YBcz5PlxKDCj1doyfiSe2lXAJ7TalpzM9nKbzEjiMoF87TIJtuE6lCpnYcMyAR3fcVNjFEdmUcm7uAHzZdKED2YXzMKFXUmi8exh9/BSWtAet4I4yS2bWj/r4QTSkjVwp9FeF1q5MszwLzEvNBjzi17KwNcEuKHVTDjjuzeqFr4zXbBmK3N8gz1KbHd6ZJS0DCXoHnerXYM+I48+RRja7Upmm1UNnZaldzm4tVIsf2WCSQ75QzkIZixy4RVZUKAszv5cf1eHJX7kfR363eRN0+Le943v7C/QGtlLa4LsRKtUxbuHmChfFw4VUU2EKrybK1Xcn2hxXZMUjHI6+vHpbOni/9RjvZd5cLAmydUelHx6puMRnQy+DOJQO2nxBDSN8RuruQBq0gIAAA=="
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/31STW/CMAz9LbuHDNhhZ8YYQkKsahFXlKameJSkShwQqvrfl37Rjk07+fnlObGfM+WTVz5+Elc7kslplGHMiw1YgiQiIU/MH+wLkFNe7HLJ5ge1C+YscHGGMnKxAqq4HoXaEWxFnEHP99zMWi1REGp1F1dgsQqqsBG0FARXcWOBwYuH/cUrRWA87gRNJ202I9/r8QyKWATSGaTb0miX1z38SyxSA9b+oleq5ksG0vJinjlviKlUHfwQJhXVVPb0DgdU2M30yGhFAhWYAdfWRmAuKBufGlg/t88FVaNaPstz73Lt1lqL5E1kQklIHsohE5ZQZl4R1wpU6cWv6+/qeogf+VCHfjbVajo8ON/6l/0GOiMHaclQnHkR6mbvdQy0r6sX1aCSZTr1bq51er+iw2XJQrDamcaPT0e5a/5Ty5YsuNFRq+cXPhnz6dOXRRwZpwjPwMMmfgMQJLGhywIAAA=="
       },
       "Metadata": {
-        "aws:cdk:path": "CdkNueveStack/CDKMetadata/Default"
-      },
-      "Condition": "CDKMetadataAvailable"
+        "aws:cdk:path": "MainStack/CdkOchoStack/CDKMetadata/Default"
+      }
     }
   },
   "Outputs": {
@@ -836,7 +841,7 @@
         "Fn::Join": [
           "",
           [
-            "http://",
+            "https://",
             {
               "Fn::GetAtt": [
                 "MyFargateServiceLBDE830E97",
@@ -846,234 +851,6 @@
           ]
         ]
       }
-    }
-  },
-  "Conditions": {
-    "CDKMetadataAvailable": {
-      "Fn::Or": [
-        {
-          "Fn::Or": [
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "af-south-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ap-east-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ap-northeast-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ap-northeast-2"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ap-south-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ap-southeast-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ap-southeast-2"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ca-central-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "cn-north-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "cn-northwest-1"
-              ]
-            }
-          ]
-        },
-        {
-          "Fn::Or": [
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "eu-central-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "eu-north-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "eu-south-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "eu-west-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "eu-west-2"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "eu-west-3"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "me-south-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "sa-east-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "us-east-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "us-east-2"
-              ]
-            }
-          ]
-        },
-        {
-          "Fn::Or": [
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "us-west-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "us-west-2"
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  },
-  "Parameters": {
-    "BootstrapVersion": {
-      "Type": "AWS::SSM::Parameter::Value<String>",
-      "Default": "/cdk-bootstrap/hnb659fds/version",
-      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
-    }
-  },
-  "Rules": {
-    "CheckBootstrapVersion": {
-      "Assertions": [
-        {
-          "Assert": {
-            "Fn::Not": [
-              {
-                "Fn::Contains": [
-                  [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5"
-                  ],
-                  {
-                    "Ref": "BootstrapVersion"
-                  }
-                ]
-              }
-            ]
-          },
-          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
-        }
-      ]
     }
   }
 }
