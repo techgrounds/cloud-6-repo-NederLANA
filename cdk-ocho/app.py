@@ -14,21 +14,32 @@ import os
 
 import aws_cdk as cdk
 
-from cdk_ocho.cdk_ocho_stack import CdkOchoStack
-from cdk_ocho.admin_nstack import AdminNstack
+from cdk_ocho.ecs_patterns import EcsPatterns
+from cdk_ocho.admin import Admin
+#from cdk_ocho.peering import Peering
+from cdk_ocho.security import Security
+from cdk_ocho.backups import Backups
+from cdk_ocho.roles import Roles
 
 
 
 app = cdk.App()
-main_stack = cdk.Stack(
-    app, "MainStack",
+root_stack = cdk.Stack(
+    app, "RootStack",
     env=cdk.Environment(account=os.getenv('CDK_DEFAULT_ACCOUNT'),
     region=os.getenv('CDK_DEFAULT_REGION'))
 )
 
-cdk_ocho_stack = CdkOchoStack(main_stack, "CdkOchoStack")
+ecs_patterns = EcsPatterns(root_stack, "EcsPatterns")
 
-admin_nstack = AdminNstack(main_stack, "AdminStack")
+admin_server = Admin(root_stack, "AdminServer")
 
+#vpc_peering = Peering(root_stack, "VpcPeering")
+
+i_am_roles = Roles(root_stack, "Roles")
+
+security_groups = Security(root_stack, "Security")
+
+back_ups = Backups(root_stack, "Backups" )
 
 app.synth()

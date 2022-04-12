@@ -7,400 +7,64 @@
         "file": "tree.json"
       }
     },
-    "MainStack.assets": {
+    "cdkochostack.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "MainStack.assets.json",
+        "file": "cdkochostack.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "MainStack": {
+    "cdkochostack": {
       "type": "aws:cloudformation:stack",
-      "environment": "aws://933140668725/eu-central-1",
+      "environment": "aws://unknown-account/unknown-region",
       "properties": {
-        "templateFile": "MainStack.template.json",
+        "templateFile": "cdkochostack.template.json",
         "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::933140668725:role/cdk-hnb659fds-deploy-role-933140668725-eu-central-1",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::933140668725:role/cdk-hnb659fds-cfn-exec-role-933140668725-eu-central-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-933140668725-eu-central-1/7df7ed1c9cc367f5ac060f0e2bce2a37f6117067ce02ba4d481f0f460dbc4e3b.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/2a5935922f827d69fcd87ac47892794a04b8072d81ef2985d7c559bf4446fb72.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "MainStack.assets"
+          "cdkochostack.assets"
         ],
         "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::933140668725:role/cdk-hnb659fds-lookup-role-933140668725-eu-central-1",
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
           "requiresBootstrapStackVersion": 8,
           "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
         }
       },
       "dependencies": [
-        "MainStack.assets"
+        "cdkochostack.assets"
       ],
       "metadata": {
-        "/MainStack/CdkOchoStack/WebVpc/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpc46147648"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PublicSubnet1/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPublicSubnet1Subnet2846CCAB"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PublicSubnet1/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPublicSubnet1RouteTable1F24CACF"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PublicSubnet1/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPublicSubnet1RouteTableAssociation8A1BCD36"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PublicSubnet1/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPublicSubnet1DefaultRoute909F1B3F"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PublicSubnet1/EIP": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPublicSubnet1EIP1E0804CE"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PublicSubnet1/NATGateway": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPublicSubnet1NATGateway46A0B3FB"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PublicSubnet2/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPublicSubnet2Subnet81224206"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PublicSubnet2/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPublicSubnet2RouteTable01512D2E"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PublicSubnet2/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPublicSubnet2RouteTableAssociation278B5A36"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PublicSubnet2/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPublicSubnet2DefaultRoute5148711F"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PublicSubnet2/EIP": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPublicSubnet2EIPF669E7D3"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PublicSubnet2/NATGateway": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPublicSubnet2NATGateway5FF4DF1D"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PrivateSubnet1/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPrivateSubnet1Subnet1C4CA8BF"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PrivateSubnet1/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPrivateSubnet1RouteTable38FEE938"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PrivateSubnet1/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPrivateSubnet1RouteTableAssociationD7E1B0EC"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PrivateSubnet1/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPrivateSubnet1DefaultRouteAEE13B95"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PrivateSubnet2/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPrivateSubnet2SubnetEF6FCECA"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PrivateSubnet2/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPrivateSubnet2RouteTable5EA21EDC"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PrivateSubnet2/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPrivateSubnet2RouteTableAssociation00B0B3B7"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/PrivateSubnet2/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcPrivateSubnet2DefaultRoute4F24CCDA"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/IGW": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcIGWFB314DC2"
-          }
-        ],
-        "/MainStack/CdkOchoStack/WebVpc/VPCGW": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "WebVpcVPCGWFAC54190"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyCluster/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyCluster4C1BA579"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/LB/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceLBDE830E97"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/LB/SecurityGroup/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceLBSecurityGroup6FBF16F1"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/LB/SecurityGroup/to MainStackCdkOchoStackMyFargateServiceSecurityGroupD7A360DE:80": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceLBSecurityGrouptoMainStackCdkOchoStackMyFargateServiceSecurityGroupD7A360DE80208AA9A2"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/LB/PublicListener/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceLBPublicListener61A1042F"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/LB/PublicListener/ECSGroup/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceLBPublicListenerECSGroup4A3EDF05"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/LB/PublicRedirectListener/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceLBPublicRedirectListener70CBD1AF"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/LoadBalancerDNS": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceLoadBalancerDNS704F6391"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/ServiceURL": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceServiceURL4CF8398A"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/TaskDef/TaskRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceTaskDefTaskRole62C7D397"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/TaskDef/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceTaskDef5DA17B39"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/TaskDef/web/LogGroup/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceTaskDefwebLogGroup4A6C44E8"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/TaskDef/ExecutionRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceTaskDefExecutionRoleD6305504"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/TaskDef/ExecutionRole/DefaultPolicy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceTaskDefExecutionRoleDefaultPolicyEC22B20F"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/Service/Service": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceF490C034"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/Service/SecurityGroup/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceSecurityGroup7016792A"
-          }
-        ],
-        "/MainStack/CdkOchoStack/MyFargateService/Service/SecurityGroup/from MainStackCdkOchoStackMyFargateServiceLBSecurityGroup0F58FCE9:80": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyFargateServiceSecurityGroupfromMainStackCdkOchoStackMyFargateServiceLBSecurityGroup0F58FCE9801282523A"
-          }
-        ],
-        "/MainStack/CdkOchoStack/CDKMetadata/Default": [
+        "/cdkochostack/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/MainStack/CdkOchoStack.NestedStack/CdkOchoStack.NestedStackResource": [
+        "/cdkochostack/CDKMetadata/Condition": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CdkOchoStackNestedStackCdkOchoStackNestedStackResource97941EC9"
+            "data": "CDKMetadataAvailable"
           }
         ],
-        "/MainStack/AdminStack/AdminVpc/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AdminVpc3E0C62DD"
-          }
-        ],
-        "/MainStack/AdminStack/AdminVpc/PublicSubnet1/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AdminVpcPublicSubnet1Subnet8590EA0F"
-          }
-        ],
-        "/MainStack/AdminStack/AdminVpc/PublicSubnet1/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AdminVpcPublicSubnet1RouteTableE4B4F454"
-          }
-        ],
-        "/MainStack/AdminStack/AdminVpc/PublicSubnet1/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AdminVpcPublicSubnet1RouteTableAssociation2E64ED35"
-          }
-        ],
-        "/MainStack/AdminStack/AdminVpc/PublicSubnet1/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AdminVpcPublicSubnet1DefaultRouteEE322893"
-          }
-        ],
-        "/MainStack/AdminStack/AdminVpc/PublicSubnet2/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AdminVpcPublicSubnet2Subnet82331FC0"
-          }
-        ],
-        "/MainStack/AdminStack/AdminVpc/PublicSubnet2/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AdminVpcPublicSubnet2RouteTable724DB96C"
-          }
-        ],
-        "/MainStack/AdminStack/AdminVpc/PublicSubnet2/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AdminVpcPublicSubnet2RouteTableAssociation2A2319A2"
-          }
-        ],
-        "/MainStack/AdminStack/AdminVpc/PublicSubnet2/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AdminVpcPublicSubnet2DefaultRoute659D199A"
-          }
-        ],
-        "/MainStack/AdminStack/AdminVpc/IGW": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AdminVpcIGW5D2137F7"
-          }
-        ],
-        "/MainStack/AdminStack/AdminVpc/VPCGW": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AdminVpcVPCGW5F9EC614"
-          }
-        ],
-        "/MainStack/AdminStack/Output2": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "Output2"
-          }
-        ],
-        "/MainStack/AdminStack/AdminSG/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AdminSG9D861911"
-          }
-        ],
-        "/MainStack/AdminStack/CDKMetadata/Default": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CDKMetadata"
-          }
-        ],
-        "/MainStack/AdminStack.NestedStack/AdminStack.NestedStackResource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AdminStackNestedStackAdminStackNestedStackResource027D98AD"
-          }
-        ],
-        "/MainStack/CDKMetadata/Default": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CDKMetadata"
-          }
-        ],
-        "/MainStack/BootstrapVersion": [
+        "/cdkochostack/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/MainStack/CheckBootstrapVersion": [
+        "/cdkochostack/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "MainStack"
+      "displayName": "cdkochostack"
     }
   }
 }

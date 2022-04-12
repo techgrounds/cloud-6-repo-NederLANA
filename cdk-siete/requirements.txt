@@ -1,2 +1,6 @@
 aws-cdk-lib==2.17.0
 constructs>=10.0.0,<11.0.0
+
+boto3
+cdk_ec2_key_pair
+cdk-iam-floyd

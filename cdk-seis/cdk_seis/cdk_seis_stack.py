@@ -168,7 +168,8 @@ class CdkSeisStack(Stack):
         admin_key=KeyPair(
             self,"KeyPair2",
             name="AdminServerKey",
-            store_public_key=True)
+            store_public_key=True
+        )
 
         #Instance role and SSM Managed policy
         role=iam.Role(

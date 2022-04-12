@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@aws-cdk/cx-api": "^2.20.0"
+  }
+}
