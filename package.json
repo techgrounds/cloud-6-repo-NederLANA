@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@aws-cdk/aws-applicationautoscaling": "^1.152.0",
     "@aws-cdk/cx-api": "^2.20.0"
   }
 }

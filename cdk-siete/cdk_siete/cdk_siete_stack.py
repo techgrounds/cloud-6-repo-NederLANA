@@ -1,7 +1,9 @@
 from tkinter import N
+from tkinter import Scale
 from aws_cdk import (
     aws_ec2 as ec2,
     aws_ecs as ecs,
+    aws_autoscaling as autoscaling,
     aws_ecs_patterns as ecs_patterns,
     CfnOutput,
     Duration,
@@ -15,8 +17,10 @@ from aws_cdk import (
 )
 from aws_cdk.aws_certificatemanager import Certificate
 from aws_cdk.aws_elasticloadbalancingv2 import SslPolicy
+from cdk_iam_floyd import ApplicationAutoscaling, Autoscaling
 from constructs import Construct
 from cdk_ec2_key_pair import KeyPair
+
 
 
 class CdkSieteStack(Stack):
@@ -40,10 +44,32 @@ class CdkSieteStack(Stack):
             cpu=512,
             desired_count=2,
             task_image_options=ecs_patterns.ApplicationLoadBalancedTaskImageOptions(
-                image=ecs.ContainerImage.from_registry("amazon/amazon-ecs-sample")),
+                image=ecs.ContainerImage.from_registry("amazon/amazon-ecs-sample")
+            ),
             memory_limit_mib=2048,
             public_load_balancer=True,
+
+
+            autoScalingGroup = autoscaling.fargateService.service.autoScaleTaskCount({
+                minCapacity: 1,
+                maxCapacity: 3}
+            )
+
+            autoScalingGroup= scaleOnCpuUtilization('CpuScaling', {
+                targetUtilizationPercent: 50,
+                scaleInCooldown: cdk.Duration.seconds(60),
+                scaleOutCooldown: cdk.Duration.seconds(60)
+            }
+        ),
+
+            #autoscaling_group
+            #scalable_target = ApplicationAutoscaling
+            #autoscaling_group =
+            #autoscaling = Autoscaling.to_describe_scaling_process_types("CpuScaling",
+                #target_utilization_percent=50
+            )
         )
+
 
         #VPC2 administrator server
         self.vpc2=ec2.Vpc(
@@ -169,7 +195,7 @@ class CdkSieteStack(Stack):
             rule_action=ec2.Action.ALLOW
         )
 
-        #Key Pair (1) Web Server
+        #Key Pair Web Server not yet paired to container ec2
         web_key=KeyPair(
             self,"KeyPair1",
             name="WebServerKey",
@@ -212,35 +238,35 @@ class CdkSieteStack(Stack):
         )
 
         #access local user data to launch web server
-        with open("./userdata.sh") as f:
-            user_data=f.read()
+        #with open("./userdata.sh") as f:
+            #user_data=f.read()
 
         #EC2(1) for Web Server in VPC1
-        instance1 = ec2.Instance(
-            self, "Instance",
-            instance_type=ec2.InstanceType("t2.micro"),
-            machine_image=amzn_linux,
-            vpc=self.vpc1,
-            block_devices=[
-                ec2.BlockDevice(
-                    device_name="/dev/xvda",
-                    volume=ec2.BlockDeviceVolume.ebs(
-                        volume_size=8,
-                        volume_type=ec2.EbsDeviceVolumeType.GP2,
-                        encrypted=True),
-                    mapping_enabled= True)],
-            user_data=ec2.UserData.custom(user_data),
-                security_group=WebSG,
-                key_name=web_key.key_pair_name
-            )
-        instance1.connections.allow_from_any_ipv4(
-            port_range=ec2.Port.tcp(80),
-            description="Allow Web Traffic")
+        #instance1 = ec2.Instance(
+         #   self, "Instance",
+          #  instance_type=ec2.InstanceType("t2.micro"),
+           # machine_image=amzn_linux,
+            #vpc=self.vpc1,
+            #block_devices=[
+             #   ec2.BlockDevice(
+              #      device_name="/dev/xvda",
+               #     volume=ec2.BlockDeviceVolume.ebs(
+                #        volume_size=8,
+                 #       volume_type=ec2.EbsDeviceVolumeType.GP2,
+                  #      encrypted=True),
+                   # mapping_enabled= True)],
+            #user_data=ec2.UserData.custom(user_data),
+             #   security_group=WebSG,
+              #  key_name=web_key.key_pair_name
+            #)
+       # instance1.connections.allow_from_any_ipv4(
+        #    port_range=ec2.Port.tcp(80),
+         #   description="Allow Web Traffic")
 
-        CfnOutput(self,"ip", value=str(instance1.instance_private_ip))
+        #CfnOutput(self,"ip", value=str(instance1.instance_private_ip))
 
         #server Tags
-        Tags.of(instance1).add(key="webs",value="WebBackup")
+        #Tags.of(instance1).add(key="webs",value="WebBackup")
         Tags.of(instance2).add(key="admins",value="AdminBackup")
 
         #Back up Web Server
